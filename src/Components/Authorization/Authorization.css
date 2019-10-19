@@ -1,0 +1,12 @@
+.mainblock{
+    margin: 100px 0 0 500px;
+    width: 400px;
+    height: 250px;
+    border-radius: 5px;
+    padding: 10px 0 0 50px;  
+    background-color: rgb(196, 203, 245); 
+}
+
+input{
+    margin-bottom: 10px;
+}
