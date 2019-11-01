@@ -50,7 +50,7 @@ input[type='text']:hover{
     border: 1px solid #2e69ce;        
 }
 input[type='text']:focus{
-    background: #ffdb32;        
+    background: rgba(255, 221, 68, 0.863);        
 }
 
 
