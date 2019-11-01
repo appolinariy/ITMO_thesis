@@ -32,9 +32,9 @@ class Authorization extends Component{
           <h3>Авторизуйтесь в системе</h3>
           <form onSubmit={this.handleSubmit}>
             <label>Логин: </label>
-              <input type='text' name='login' placeholder='Введите логин' value={this.state.values.login} onChange={this.handleChange} />
+              <input type='text' autoComplete='off' name='login' placeholder='Введите логин' value={this.state.values.login} onChange={this.handleChange} />
             <label>Пароль:</label>
-              <input type='text' name='password' placeholder='Введите пароль' value={this.state.values.password} onChange={this.handleChange} />
+              <input type='text' autoComplete='off' name='password' placeholder='Введите пароль' value={this.state.values.password} onChange={this.handleChange} />
             <input type='submit' value='Войти' />
           </form>
         </div>
