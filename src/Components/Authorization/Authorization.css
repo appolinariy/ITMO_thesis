@@ -2,7 +2,7 @@ main{
     position: absolute;
     width: 1440px;
     height: 1024px;
-    background: #F2F2F2;
+    background: #e0ece8;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 14pt;
     
@@ -15,13 +15,17 @@ main{
     width: 500px;
     height: 280px;
     border-radius: 5px;
-    margin-top: 13%;
+    margin-top: 200px;
     padding-top: 10px;
-    background: #FFFFFF;
+    background: #ffffff;
+    border: 1pt solid #2F80ED;
 
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+.mainblock:hover{
+    border: 1pt solid #2e69ce;
 }
 
 label,input {
@@ -43,6 +47,11 @@ input[type='text']{
     box-shadow: inset 0px 5px 5px rgba(0, 0, 0, 0.1);
     font-size: 11pt;
 }
+input[type='text']:hover{
+    border: 1px solid #2e69ce;
+    
+}
+
 input[type='submit']{
     position: relative;
     background: #2F80ED;
@@ -54,4 +63,7 @@ input[type='submit']{
     float: right;
     margin-top: 15px;
     font-size: 11pt;
+}
+input[type='submit']:hover{
+    background: #2e69ce;
 }
