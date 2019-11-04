@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import './Authorization.css';
 
-
-
 class Authorization extends Component{
   state = {
     values: {
@@ -32,7 +30,6 @@ class Authorization extends Component{
     console.log(this.state.values.login);
     console.log(this.state.values.password);
   }
-
 
   render(){
     let content = (this.state.button===true) && <h1>Hello</h1>;
