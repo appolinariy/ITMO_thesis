@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Authorization.css';
+//import MainComponent from './MainComponents/MainComponent.js';
 
 class Authorization extends Component{
   state = {
@@ -32,7 +33,7 @@ class Authorization extends Component{
   }
 
   render(){
-    let content = (this.state.button===true) && <h1>Hello</h1>;
+    let content = (this.state.button===true) && <Text/>;
     return(
       <main>
         <div className='mainblock'>
@@ -49,6 +50,15 @@ class Authorization extends Component{
       </main>
     );
   }
+}
+
+const Text = () =>{
+  const text = (
+    <div>
+      <h1>Hello!:)</h1>
+    </div>
+  )
+  return text;
 }
 
 export default Authorization;
