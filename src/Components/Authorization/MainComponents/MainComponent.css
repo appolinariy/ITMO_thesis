@@ -15,18 +15,12 @@ header {
     width: 1000px;
     height: 60px;
     background: #ffffff;
-    padding-top: 10px;
-    padding-bottom: 10px;
 
     display: flex;
     flex-direction: row;
     align-items: center;
 }
-
 a {
-    text-decoration: none;
-    color: black;
-
     margin: auto;
     border-right: 1pt solid #2e69ced8;    
     width: 250px;
@@ -34,6 +28,8 @@ a {
     padding-bottom: 20px;
     text-decoration: none;
     text-align: center;
+    text-decoration: none;
+    color: black;
 }
 a:last-child{
     border-right: none;
@@ -43,10 +39,9 @@ a:focus, a:hover {
     border-radius: 5px;
     transition: 1s;
 }
-
 main {
     position: relative;
-    margin: 15px auto 15px auto;
+    margin: 20px auto 20px auto;
     width: 1000px;
     height: 1500px;
     background: #ffffff;

@@ -6,8 +6,9 @@ import {
   Link
 } from "react-router-dom";
 import './MainComponent.css';
+import Filial from './Filial/Filial.js';
 
-class MainComponent extends Component{
+class MainComponent extends Component {
   
   render(){
     return(
@@ -30,16 +31,16 @@ class MainComponent extends Component{
 
           <Switch>
             <Route path='/borrower'>
-              <Borrower />
+              <RenderBorrower />
             </Route>
             <Route path='/debt'>
-              <Debt />
+              <RenderDebt />
             </Route>
             <Route path='/systemuser'>
-              <SystemUser />
+              <RenderSystemUser />
             </Route>
             <Route path='/'>
-              <Filial />
+              <RenderFilial />
             </Route>
           </Switch>
         </div>
@@ -48,16 +49,16 @@ class MainComponent extends Component{
   }
 }
 
-const Filial = () => {
-  return <main><h1>Филиалы</h1></main>;
+const RenderFilial = () => {
+  return <main><Filial /></main>;
 }
-const Borrower = () => {
+const RenderBorrower = () => {
   return <main><h1>Заемщики</h1></main>;
 }
-const Debt = () => {
+const RenderDebt = () => {
   return <main><h1>Задолженности</h1></main>;
 }
-const SystemUser = () => {
+const RenderSystemUser = () => {
   return <main><h1>Пользователь в системе</h1></main>;
 }
 

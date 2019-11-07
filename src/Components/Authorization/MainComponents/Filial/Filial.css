@@ -1,0 +1,25 @@
+table {
+    position: relative;
+    background: #ccccccec;
+    left: 100px;
+    top: 80px;
+    width: 800px;
+    border-collapse: collapse;
+    border: 1pt solid white;
+}
+
+th {
+    position: relative;
+    width: 500px;
+    height: 50px;
+    border-collapse: collapse;
+    background: rgba(47, 127, 233, 0.924);
+    color: white;
+}
+
+td {
+    border: 2pt solid white;
+    border-collapse: collapse;
+    width: 500px;
+    height: 40px;
+}

@@ -26,15 +26,12 @@ main{
 .mainblock:hover{
     border: 1pt solid #2e69ce;
 }
-
 label,input {
     display: block;
 }
-
 label{
     padding: 3px 0 5px 20px;
 }
-
 input[type='text']{
     position: relative;
     background: #E0E0E0;
@@ -52,8 +49,6 @@ input[type='text']:hover{
 input[type='text']:focus{
     background: rgba(255, 221, 68, 0.863);        
 }
-
-
 input[type='submit']{
     position: relative;
     background: #2F80ED;
