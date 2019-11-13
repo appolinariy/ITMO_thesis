@@ -9,8 +9,6 @@ table {
 }
 
 th {
-    position: relative;
-    width: 500px;
     height: 50px;
     border-collapse: collapse;
     background: rgba(47, 127, 233, 0.924);
@@ -20,6 +18,8 @@ th {
 td {
     border: 2pt solid white;
     border-collapse: collapse;
-    width: 500px;
     height: 40px;
 }
+
+
+
