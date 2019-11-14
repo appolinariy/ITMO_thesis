@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import './MainComponent.css';
 import Filial from './Filial/Filial.js';
+import SystemUser from './SystemUser/SystemUser.js';
 
 class MainComponent extends Component {
   
@@ -59,7 +60,7 @@ const RenderDebt = () => {
   return <main><h1>Задолженности</h1></main>;
 }
 const RenderSystemUser = () => {
-  return <main><h1>Пользователь в системе</h1></main>;
+  return <main><SystemUser /></main>;
 }
 
 export default MainComponent;
