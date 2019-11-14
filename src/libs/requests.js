@@ -1,4 +1,4 @@
-export const get = url => 
+export const get = url =>
     fetch(url, {
         method: 'GET',
         headers: {
@@ -8,7 +8,7 @@ export const get = url =>
     .then(response => response.json())
     .catch(error => error)
 
-export const post = (url, data) => {
+export const post = (url, data) =>
     fetch(url, {
         method: 'POST',
         headers: {
@@ -18,9 +18,8 @@ export const post = (url, data) => {
     })
         .then(response => response.json())
         .catch(error => error)
-}
 
-export const update = (url, data) => {
+export const update = (url, data) =>
     fetch(url, {
         method: 'PUT',
         headers: {
@@ -30,9 +29,8 @@ export const update = (url, data) => {
     })
         .then(response => response.json())
         .catch(error => error)
-}
 
-export const del = (url, data) => {
+export const del = (url, data) =>
     fetch(url, {
         method: 'DELETE',
         headers: {
@@ -42,4 +40,3 @@ export const del = (url, data) => {
     })
         .then(response => response.json())
         .catch(error => error)
-}
