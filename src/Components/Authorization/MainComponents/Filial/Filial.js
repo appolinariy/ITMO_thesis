@@ -6,10 +6,20 @@ import { getFilials as printFilials} from '../../../../libs/effects';
 
 
 class Filial extends Component {
+    state = {
+        data: []
+    }
+
+    componentDidMount() {
+        printFilials().then(response => {
+            console.log(response)
+            this.setState({data: response})
+        });
+    }
+
     render() {
-        const data = printFilials();//Ошибка!
-        return(
-            <BootstrapTable data={data}>
+        return (
+            <BootstrapTable data={this.state.data}>
                 <TableHeaderColumn isKey dataField='id_filial' dataAlign='center'>№</TableHeaderColumn>
                 <TableHeaderColumn dataField='address' dataAlign='center'>Адрес банковского филиала</TableHeaderColumn>
                 <TableHeaderColumn dataField='phone_number' dataAlign='center'>Контактный номер телефона</TableHeaderColumn>
