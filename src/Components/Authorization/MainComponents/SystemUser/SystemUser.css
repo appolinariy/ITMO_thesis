@@ -1,33 +1,58 @@
-table {
+.userinfo {
     position: relative;
+    top: 60px;
+    left: 30px;
+    width: 940px;
+    height: 210px;
     background: #ccccccec;
-    left: 80px;
-    top: 80px;
-    width: 850px;
+    border-radius: 5px;
+}
+.currentuser {
+    position: relative;
+    left: 20px;
+    top: 30px;
+    width: 900px;
+    color: black;
+    padding-left: 15px;
+}
+
+.system_user table {
+    position: relative;
+    background: whitesmoke;
+    left: 20px;
+    top: 50px;
+    width: 900px;
     border-collapse: collapse;
     border: 1pt solid white;
+    color: black;
 }
 
-th {
+.system_user th {
     height: 50px;
     border-collapse: collapse;
-    background: rgba(47, 127, 233, 0.924);
-    color: white;
+    background: whitesmoke;
+    color: black;
+}
+.system_user th:nth-child(4) {
+    width: 280px;
+}
+.system_user th:nth-child(5) {
+    width: 190px;
 }
 
-td {
+.system_user td {
     border: 2pt solid white;
     border-collapse: collapse;
     height: 40px;
+    width: 40px;
+}
+.system_user td:nth-child(4) {
+    width: 200px;
+}
+.system_user td:nth-child(5) {
+    width: 150px;
 }
 
-td:nth-child(1) {
-    width: 30px;
-}
-
-td:nth-child(3) {
-    width: 400px;
-}
 
 
 

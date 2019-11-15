@@ -1,31 +1,31 @@
-table {
+.filial table {
     position: relative;
     background: #ccccccec;
     left: 80px;
-    top: 80px;
+    top: 90px;
     width: 850px;
     border-collapse: collapse;
     border: 1pt solid white;
 }
 
-th {
+.filial th {
     height: 50px;
     border-collapse: collapse;
     background: rgba(47, 127, 233, 0.924);
     color: white;
 }
 
-td {
+.filial td {
     border: 2pt solid white;
     border-collapse: collapse;
     height: 40px;
 }
 
-td:nth-child(1) {
+.filial td:nth-child(1) {
     width: 30px;
 }
 
-td:nth-child(3) {
+.filial td:nth-child(3) {
     width: 400px;
 }
 

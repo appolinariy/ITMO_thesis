@@ -19,7 +19,7 @@ class Filial extends Component {
 
     render() {
         return (
-            <BootstrapTable data={this.state.data}>
+            <BootstrapTable className='filial' data={this.state.data}>
                 <TableHeaderColumn isKey dataField='id_filial' dataAlign='center'>№</TableHeaderColumn>
                 <TableHeaderColumn dataField='address' dataAlign='center'>Адрес банковского филиала</TableHeaderColumn>
                 <TableHeaderColumn dataField='phone_number' dataAlign='center'>Контактный номер телефона</TableHeaderColumn>
