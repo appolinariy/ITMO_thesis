@@ -1,0 +1,38 @@
+.userfilial {
+    position: relative;
+    top: 30px;
+    left: 45px;
+    width: 910px;
+    height: 190px;
+    border-radius: 5px;
+}
+
+.systemusers {
+    position: relative;
+    top: 15px;
+    left: 25px;
+    width: 900px;
+}
+
+.user_filial table {
+    position: relative;
+    background: #ccccccec;
+    top: 20px;
+    left: 5px;
+    width: 900px;
+    border-collapse: collapse;
+    border: 1pt solid white;
+}
+
+.user_filial th {
+    height: 50px;
+    border-collapse: collapse;
+    background: rgba(47, 127, 233, 0.924);
+    color: white;
+}
+
+.user_filial td {
+    border: 2pt solid white;
+    border-collapse: collapse;
+    height: 40px;
+}

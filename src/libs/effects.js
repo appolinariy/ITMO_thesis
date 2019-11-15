@@ -6,8 +6,14 @@ export const getFilials = () => {
         .catch(error => error)
 }
 
-export const getBankUserById = id_user => {
-    return get(`http://localhost:3000/bankuser/${id_user}`)
+export const getBankUserById = login => {
+    return get(`http://localhost:3000/bankuser/${login}`)
+        .then(response => response)
+        .catch(error => error)
+}
+
+export const getBankUserFromFilial = login => {
+    return get(`http://localhost:3000/filialbankuser/${login}`)
         .then(response => response)
         .catch(error => error)
 }

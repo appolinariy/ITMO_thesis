@@ -1,0 +1,54 @@
+.userinfo {
+    position: relative;
+    top: 30px;
+    left: 45px;
+    width: 910px;
+    height: 190px;
+    background: #ccccccec;
+    border-radius: 5px;
+}
+.currentuser {
+    position: relative;
+    left: 15px;
+    top: 25px;
+    width: 900px;
+    color: black;
+    padding-left: 15px;
+}
+
+.system_user table {
+    position: relative;
+    background: whitesmoke;
+    left: 5px;
+    top: 50px;
+    width: 900px;
+    border-collapse: collapse;
+    border: 1pt solid white;
+    color: black;
+}
+
+.system_user th {
+    height: 50px;
+    border-collapse: collapse;
+    background: whitesmoke;
+    color: black;
+}
+.system_user th:nth-child(4) {
+    width: 280px;
+}
+.system_user th:nth-child(5) {
+    width: 190px;
+}
+
+.system_user td {
+    border: 2pt solid white;
+    border-collapse: collapse;
+    height: 40px;
+    width: 40px;
+}
+.system_user td:nth-child(4) {
+    width: 200px;
+}
+.system_user td:nth-child(5) {
+    width: 150px;
+}
