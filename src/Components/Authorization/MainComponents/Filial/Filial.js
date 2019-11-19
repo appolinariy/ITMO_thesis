@@ -1,29 +1,45 @@
 import React, { Component } from 'react';
-import {BootstrapTable, 
-    TableHeaderColumn} from 'react-bootstrap-table';
 import './Filial.css';
 import { getFilials as printFilials} from '../../../../libs/effects';
 
+import Table from "../../../Table/Table";
 
 class Filial extends Component {
     state = {
-        data: []
+        filialinfo: [ ],
+        header: [
+            {key: 'id_filial', name: '№'},
+            {key: 'address', name: 'Адрес банковского филиала'},
+            {key: 'phone_number', name: 'Контактный номер телефона'},            
+        ],
+        keyCol: 'id_filial',
+        control_add: false,
+        control_delete: false,
+        control_input: false
     }
 
     componentDidMount() {
         printFilials().then(response => {
             console.log(response)
-            this.setState({data: response})
+            this.setState({filialinfo: response})
         });
     }
 
     render() {
         return (
-            <BootstrapTable className='filial' data={this.state.data}>
-                <TableHeaderColumn isKey dataField='id_filial' dataAlign='center'>№</TableHeaderColumn>
-                <TableHeaderColumn dataField='address' dataAlign='center'>Адрес банковского филиала</TableHeaderColumn>
-                <TableHeaderColumn dataField='phone_number' dataAlign='center'>Контактный номер телефона</TableHeaderColumn>
-            </BootstrapTable>
+            <>
+                <div className='filial_list'>Список филиалов банка</div>
+                <Table
+                    className={'filial'}
+                    header={this.state.header}
+                    data={this.state.filialinfo}
+                    keyCol={this.state.keyCol}
+                    control_add={this.state.control_add}
+                    control_delete={this.state.control_delete}
+                    control_input={this.state.control_input}
+                />
+            </>
+            
         );
     }
 }

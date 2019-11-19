@@ -18,7 +18,7 @@ class SystemUser extends Component {
         }
         return (
            <main>
-               {/* <UserInfo /> */}
+               <UserInfo />
                {tableForAdmin}
            </main>
         );

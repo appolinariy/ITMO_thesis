@@ -6,11 +6,7 @@ import Table from "../../../../Table/Table";
 
 class UsersFilial extends Component {
     state = {
-        userfilial: [
-            {surname: 'Абрамова', name: 'Полина', father_name: 'Глебовна', position: 'Заместитель отдела', login: 'polinkin', system_role: 'Администратор' },
-            {surname: 'Синицин', name: 'Александр', father_name: 'Сергеевич', position: 'вавпкыа', login: 'alex', system_role: 'Юрист' },
-            {surname: 'Кузнецов', name: 'Малина', father_name: 'Глебовна', position: 'Зцуцпкп', login: 'malina', system_role: 'Экономист' }
-        ],
+        userfilial: [ ],
         header: [
             {key: 'surname', name: 'Фамилия'},
             {key: 'name', name: 'Имя'},
@@ -20,32 +16,35 @@ class UsersFilial extends Component {
             {key: 'system_role', name: 'Роль в системе'},
             
         ],
-        keyCol: 'login'
+        keyCol: 'login',
+        control_add: true,
+        control_delete: true,
+        control_input: true
     }
 
-    // componentDidMount() {
-    //     printBankUserFromFilial('alexey_gum').then(response => {
-    //         console.log(response)
-    //         this.setState({userfilial: response})
-    //     });
-    // }
+    componentDidMount() {
+        printBankUserFromFilial('alexey_gum').then(response => {
+            console.log(response)
+            this.setState({userfilial: response})
+        });
+    }
 
-    // onCellEdit = (row, fieldName, value) => {
-    //     const { userfilial } = this.state;
-    //     let rowIdx;
-    //     const targetRow = userfilial.find((prod, i) => {
-    //       if (prod.id === row.id) {
-    //         rowIdx = i;
-    //         return true;
-    //       }
-    //       return false;
-    //     });
-    //     if (targetRow) {
-    //       targetRow[fieldName] = value;
-    //       userfilial[rowIdx] = targetRow;
-    //       this.setState({ userfilial });
-    //     }
-    // };
+    onCellEdit = (row, fieldName, value) => {
+        const { userfilial } = this.state;
+        let rowIdx;
+        const targetRow = userfilial.find((prod, i) => {
+          if (prod.id === row.id) {
+            rowIdx = i;
+            return true;
+          }
+          return false;
+        });
+        if (targetRow) {
+          targetRow[fieldName] = value;
+          userfilial[rowIdx] = targetRow;
+          this.setState({ userfilial });
+        }
+    };
     
     onAddRow = row => {
         //1. Передаю с запросом в БД по параметрам (name, age).
@@ -74,11 +73,15 @@ class UsersFilial extends Component {
     render() {
         return (
         <Table
+            className={'userfilial'}
             onAdd={this.onAddRow}
             onDelete={this.onDeleteRow}
             header={this.state.header}
             data={this.state.userfilial}
             keyCol={this.state.keyCol}
+            control_add={this.state.control_add}
+            control_delete={this.state.control_delete}
+            control_input={this.state.control_input}
           />
         );
     }

@@ -1,4 +1,5 @@
 import React from "react";
+import "./Table.css";
 
 class Table extends React.Component {
   state = {
@@ -46,15 +47,22 @@ class Table extends React.Component {
 
     let content = this.props.data.map(el => {
       let data = this.props.header.map(col => <td>{el[col.key]}</td>);
+
+      const control_input = this.props.control_input;
+
       return (
         <>
-          <input
-            type="radio"
-            name="id"
-            value={el[this.props.keyCol]}
-            onChange={this.handleChange}
-          />
-          <tr>{data}</tr>
+          <tr>
+            {data}
+            {control_input && <td>
+              <input
+              type="radio"
+              name="id"
+              value={el[this.props.keyCol]}
+              onChange={this.handleChange}
+              />
+            </td>}
+          </tr>
         </>
       );
     });
@@ -63,6 +71,7 @@ class Table extends React.Component {
     {el.name}
     <input
       type="text"
+      autoComplete="off"
       id={el.key}
       value={this.state.data[el.key]}
       onChange={this.inputChange}
@@ -70,67 +79,29 @@ class Table extends React.Component {
     />
   </label>)
 
-    return (
-      <div>
-        <form onSubmit={e => e.preventDefault()}>
-          <button onClick={() => this.setState({ show: true })}>Add</button>
-          <button onClick={() => this.handleDelete(this.state.value)}>
-            Delete
-          </button>
+    const control_add = this.props.control_add;
+    const control_delete = this.props.control_delete;
 
-          <table>
-            {header}
-            {content}
-          </table>
-        </form>
+    return (
+      
+      <div>
         {this.state.show && (
-          <div
-            // style={{
-            //   position: "absolute",
-            //   width: "100vw",
-            //   height: "100vh",
-            //   backgroundColor: "0x000000"
-            //   //opacity: 0.4
-            // }}
-          >
-            <form
-            //   style={{
-            //     position: "relative",
-            //     background: "0xffffff",
-            //     padding: "30px",
-            //     margin: "auto",
-            //     opacity: 1
-            //   }}
-              onSubmit={this.handleAdd}
-            >
+          <div>
+            <form onSubmit={this.handleAdd} className='add_row'>
                 {insert}
-              {/* <label htmlFor="name">
-                Name
-                <input
-                  type="text"
-                  id="name"
-                  value={this.state.data.name}
-                  onChange={this.inputChange}
-                  name="name"
-                />
-              </label>
-              <label htmlFor="age">
-                Age
-                <input
-                  type="number"
-                  id="age"
-                  value={this.state.data.age}
-                  onChange={this.inputChange}
-                  name="age"
-                />
-              </label> */}
-              <button onClick={() => this.setState({ show: false })}>
-                Close
-              </button>
+              <button onClick={() => this.setState({ show: false })}>Close</button>
               <button type="submit">Ok</button>
             </form>
           </div>
         )}
+        <form onSubmit={e => e.preventDefault()}>
+          {control_delete && <button className='add_delete' onClick={() => this.handleDelete(this.state.value)}>Удалить</button>}
+          {control_add && <button className='add_delete' onClick={() => this.setState({ show: true })}>Добавить</button>}
+          <table className={this.props.className}>
+            {header}
+            {content}
+          </table>
+        </form>
       </div>
     );
   }

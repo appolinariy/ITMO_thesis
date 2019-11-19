@@ -39,6 +39,7 @@ a:focus, a:hover {
     border-radius: 5px;
     transition: 1s;
 }
+
 main {
     position: relative;
     margin: 20px auto 20px auto;

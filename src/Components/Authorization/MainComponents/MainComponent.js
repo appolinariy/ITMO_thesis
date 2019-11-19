@@ -26,7 +26,7 @@ class MainComponent extends Component {
               <p>Задолженности</p>
             </Link>
             <Link to='/systemuser'>
-              <p>Пользователь в системе</p>
+              <p>Администрирование</p>
             </Link>
           </header>
 

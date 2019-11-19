@@ -1,12 +1,24 @@
 import React, { Component } from 'react';
-import {BootstrapTable, 
-    TableHeaderColumn} from 'react-bootstrap-table';
 import './UserInfo.css';
 import { getBankUserById as printBankUserInfo,} from '../../../../../libs/effects';
 
+import Table from "../../../../Table/Table";
+
 class UserInfo extends Component {
     state = {
-        userinfo: []
+        userinfo: [],
+        header: [
+            {key: 'surname', name: 'Фамилия'},
+            {key: 'name', name: 'Имя'},
+            {key: 'father_name', name: 'Отчество'},
+            {key: 'position', name: 'Должность'},
+            {key: 'address', name: 'Адрес филиала'},
+            {key: 'login', name: 'Логин'},            
+        ],
+        keyCol: 'login',
+        control_add: false,
+        control_delete: false,
+        control_input: false
     }
 
     componentDidMount() {
@@ -20,14 +32,15 @@ class UserInfo extends Component {
         return (
             <div className='userinfo'>
                 <div className='currentuser'>Текущий пользователь в системе</div>
-                <BootstrapTable className='system_user' data={this.state.userinfo}>
-                    <TableHeaderColumn dataField='surname' dataAlign='center'>Фамилия</TableHeaderColumn>
-                    <TableHeaderColumn dataField='name' dataAlign='center'>Имя</TableHeaderColumn>
-                    <TableHeaderColumn dataField='father_name' dataAlign='center'>Отчество</TableHeaderColumn>
-                    <TableHeaderColumn dataField='position' dataAlign='center'>Должность</TableHeaderColumn>
-                    <TableHeaderColumn dataField='address' dataAlign='center'>Адрес банковского филиала</TableHeaderColumn>
-                    <TableHeaderColumn isKey dataField='login' dataAlign='center'>Логин</TableHeaderColumn>
-                </BootstrapTable>
+                <Table 
+                    className={'system_user'}
+                    header={this.state.header}
+                    data={this.state.userinfo}
+                    keyCol={this.state.keyCol}
+                    control_add={this.state.control_add}
+                    control_delete={this.state.control_delete}
+                    control_input={this.state.control_input}
+                />
             </div>
         );
     }
