@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './Filial.css';
-import { getFilials as printFilials} from '../../../../libs/effects';
+import { getFilials as printFilials} from '../../../libs/effects';
 
-import Table from "../../../Table/Table";
+import Table from "../../Table/Table";
 
 class Filial extends Component {
     state = {

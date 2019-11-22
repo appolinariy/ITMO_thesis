@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './UserInfo.css';
-import { getBankUserById as printBankUserInfo,} from '../../../../../libs/effects';
+import { getBankUserById as printBankUserInfo,} from '../../../../libs/effects';
 
-import Table from "../../../../Table/Table";
+import Table from "../../../Table/Table";
 
 class UserInfo extends Component {
     state = {

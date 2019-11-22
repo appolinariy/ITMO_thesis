@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './FilialUser.css';
-import { getBankUserFromFilial as printBankUserFromFilial } from '../../../../../libs/effects';
+import { getBankUserFromFilial as printBankUserFromFilial } from '../../../../libs/effects';
 
-import Table from "../../../../Table/Table";
+import Table from "../../../Table/Table";
 
 class UsersFilial extends Component {
     state = {
