@@ -1,5 +1,4 @@
 table {
-    position: relative;
     background: #ccccccec;
     width: 100%;
     border-collapse: collapse;
@@ -42,7 +41,6 @@ td {
 }
 
 button {
-    position: relative;
     background: #ff4d00b0;
     border-radius: 2px;
     border: 0;
@@ -67,11 +65,28 @@ button:hover {
     width: 100%;
 }
 
-button.add_delete {
-    position: relative;
+button.control_button {
     margin-left: 5px;
 }
 
 .search_bar {
-   
+    background: #E0E0E0;
+    border: 1px solid #000000;
+    border-radius: 2px;
+    padding-left: 10px;
+    margin-right: 6px;
+    width: 380px;
+    height: 32px;
+    box-shadow: inset 0px 5px 5px rgba(0, 0, 0, 0.1);
+    font-size: 12pt;
+}
+.search_bar:hover {
+    border: 1px solid #2e69ce;
+}
+
+.search_button {
+    border-radius: 25px;
+    vertical-align: middle;
+    width: 42px;
+    height: 42px;
 }

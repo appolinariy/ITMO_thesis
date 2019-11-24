@@ -1,5 +1,6 @@
 import React from "react";
 import "./Table.css";
+import search_img from './search.png';
 
 class Table extends React.Component {
   state = {
@@ -22,7 +23,7 @@ class Table extends React.Component {
       });
       console.log(id);
       this.props.onDelete(res[0]);
-  }
+    }
   };
 
   inputChange = e => {
@@ -120,13 +121,20 @@ class Table extends React.Component {
         )}
         {this.props.header_display && <header className='table_header'>
           <div>
-            {this.props.onUpdate && <button className='add_delete' onClick={() => this.setState({show: true, edit: true}, () => this.findUserIndex(this.state.value))}>Редактировать</button>}
-            {this.props.onDelete && <button className='add_delete' onClick={() => this.handleDelete(this.state.value)}>Удалить</button>}
-            {this.props.onAdd && <button className='add_delete' onClick={() => this.setState({ show: true })}>Добавить</button>}
+            {this.props.onAdd && <button className='control_button' onClick={() => this.setState({ show: true })}>Добавить</button>}
+            {this.props.onUpdate && <button className='control_button' onClick={() => {
+              if(this.state.value){
+                this.setState({show: true, edit: true},
+                () => this.findUserIndex(this.state.value))
+              }
+            }}>Редактировать</button>}
+            {this.props.onDelete && <button className='control_button' onClick={() => this.handleDelete(this.state.value)}>Удалить</button>}
           </div>  
-          {this.props.onFind && <form onSubmit={(e) => this.findItem(e, this.state.findVal, this.props.findCol)} className='search_bar'>
-            <input name='find' value={this.state.find} onChange={e => this.setState({findVal: e.target.value})} /> 
-            <button type='submit'>Найти</button>
+          {this.props.onFind && <form onSubmit={(e) => this.findItem(e, this.state.findVal, this.props.findCol)} >
+            <input className='search_bar' type='text' name='find' value={this.state.find} onChange={e => this.setState({findVal: e.target.value})} /> 
+            <button className='search_button' type='submit'>
+              <img src={search_img} width='24px' height='24px'/>
+            </button>
           </form>}
          </header>}
          <form onSubmit={e => e.preventDefault()}>  
