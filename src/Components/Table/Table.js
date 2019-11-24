@@ -5,7 +5,8 @@ class Table extends React.Component {
   state = {
     value: 0,
     data: {},
-    open: false
+    open: false,
+    // toRender
   };
 
   handleChange = e => {
@@ -63,6 +64,7 @@ class Table extends React.Component {
     let data = this.props.data.filter(el => el[col].includes(id));
     console.log(data)
     this.props.onFind(data)
+    //this.setState({toRender: data})
   }
 
   render() {
@@ -102,8 +104,7 @@ class Table extends React.Component {
     />
   </label>)
 
-    const control_add = this.props.control_add;
-    const control_delete = this.props.control_delete;
+  const header_display = this.props.header_display;
 
     return (
       
@@ -117,17 +118,17 @@ class Table extends React.Component {
             </form>
           </div>
         )}
-        <header className='table_header'>
+        {this.props.header_display && <header className='table_header'>
           <div>
             {this.props.onUpdate && <button className='add_delete' onClick={() => this.setState({show: true, edit: true}, () => this.findUserIndex(this.state.value))}>Редактировать</button>}
-            {control_delete && <button className='add_delete' onClick={() => this.handleDelete(this.state.value)}>Удалить</button>}
-            {control_add && <button className='add_delete' onClick={() => this.setState({ show: true })}>Добавить</button>}
+            {this.props.onDelete && <button className='add_delete' onClick={() => this.handleDelete(this.state.value)}>Удалить</button>}
+            {this.props.onAdd && <button className='add_delete' onClick={() => this.setState({ show: true })}>Добавить</button>}
           </div>  
-          <form onSubmit={(e) => this.findItem(e, this.state.findVal, this.props.findCol)} className='search_bar'>
+          {this.props.onFind && <form onSubmit={(e) => this.findItem(e, this.state.findVal, this.props.findCol)} className='search_bar'>
             <input name='find' value={this.state.find} onChange={e => this.setState({findVal: e.target.value})} /> 
             <button type='submit'>Найти</button>
-          </form>
-         </header>
+          </form>}
+         </header>}
          <form onSubmit={e => e.preventDefault()}>  
           <table className={this.props.className}>
             {this.props.control_input && <th />}

@@ -16,8 +16,6 @@ class UserInfo extends Component {
             {key: 'login', name: 'Логин'},            
         ],
         keyCol: 'login',
-        control_add: false,
-        control_delete: false,
         control_input: false
     }
 
@@ -37,8 +35,6 @@ class UserInfo extends Component {
                     header={this.state.header}
                     data={this.state.userinfo}
                     keyCol={this.state.keyCol}
-                    control_add={this.state.control_add}
-                    control_delete={this.state.control_delete}
                     control_input={this.state.control_input}
                 />
             </div>

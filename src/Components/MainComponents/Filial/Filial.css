@@ -1,31 +1,13 @@
 .filial_list {
     position: relative;
-    left: 81px;
-    top: 50px;
-    width: 834px;
+    margin: 50px 0 0 70px;
+    width: 844px;
     color: white;
     background: #ee4902bd;
     padding: 10px 0 10px 15px;
-}
-
-.filial {
-    position: relative;
-    background: #ccccccec;
-    margin-left: 80px;
-    margin-top: 50px;
-    width: 850px;
-    border-collapse: collapse;
-}
-
-.filial th {
-    height: 50px;
-    background: rgba(47, 127, 233, 0.924);
 }
 
 .filial td {
     border: 2pt solid white;
     height: 30px;
 }
-
-
-

@@ -13,9 +13,7 @@ class Filial extends Component {
             {key: 'phone_number', name: 'Контактный номер телефона'},            
         ],
         keyCol: 'id_filial',
-        control_add: false,
-        control_delete: false,
-        control_input: false
+        header_display: false
     }
 
     componentDidMount() {
@@ -34,9 +32,7 @@ class Filial extends Component {
                     header={this.state.header}
                     data={this.state.filialinfo}
                     keyCol={this.state.keyCol}
-                    control_add={this.state.control_add}
-                    control_delete={this.state.control_delete}
-                    control_input={this.state.control_input}
+                    header_display={this.state.header_display}
                 />
             </>
             

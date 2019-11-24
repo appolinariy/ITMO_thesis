@@ -1,23 +1,15 @@
 .userinfo {
     position: relative;
     margin-top: 10px;
-    /* width: 100%; */
-    /* height: 200px; */
 }
 .currentuser {
     position: relative;
-    margin-left: 82px;
-    margin-top: 20px;   
-    width: 832px;
+    margin-left: 70px;
+    margin-top: 40px;   
+    width: 844px;
     color: white;
     background: #ee4902bd;
     padding: 10px 0 10px 15px;
-}
-
-.system_user {
-    /* position: relative; */
-    /* margin-left: 80px; */
-    /* margin-top: 20px; */
 }
 
 .system_user th {

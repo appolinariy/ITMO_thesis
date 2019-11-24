@@ -41,7 +41,6 @@ a:focus, a:hover {
 }
 
 main {
-    /* position: absolute; */
     margin: 0 auto 15px auto;
     width: 1000px;
     height: 1500px;

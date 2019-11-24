@@ -17,9 +17,8 @@ class UsersFilial extends Component {
             
         ],
         keyCol: 'login',
-        control_add: true,
-        control_delete: true,
-        control_input: true
+        control_input: true,
+        header_display: true
     }
 
     componentDidMount() {
@@ -95,9 +94,8 @@ class UsersFilial extends Component {
             header={this.state.header}
             data={this.state.userfilial}
             keyCol={this.state.keyCol}
-            control_add={this.state.control_add}
-            control_delete={this.state.control_delete}
             control_input={this.state.control_input}
+            header_display={this.state.header_display}
             findCol='surname'
           />
         );
