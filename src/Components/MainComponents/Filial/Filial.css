@@ -11,8 +11,8 @@
 .filial {
     position: relative;
     background: #ccccccec;
-    left: 80px;
-    top: 50px;
+    margin-left: 80px;
+    margin-top: 50px;
     width: 850px;
     border-collapse: collapse;
 }

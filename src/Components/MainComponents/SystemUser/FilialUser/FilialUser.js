@@ -68,7 +68,21 @@ class UsersFilial extends Component {
         this.setState({
             userfilial: newData
         })
-      }  
+      }
+      
+      onUpdateRow = row => {
+        console.log(row)
+        let newData = this.state.userfilial;
+        let index = this.state.userfilial.indexOf(newData.find(el => el[this.state.keyCol] == row[this.state.keyCol]));
+        newData[index] = row;
+        this.setState({
+          userfilial: newData
+        })
+      }
+
+      onFind = data => {
+        this.setState({userfilial: data})
+      }
 
     render() {
         return (
@@ -76,12 +90,15 @@ class UsersFilial extends Component {
             className={'userfilial'}
             onAdd={this.onAddRow}
             onDelete={this.onDeleteRow}
+            onUpdate={this.onUpdateRow}
+            onFind={this.onFind}
             header={this.state.header}
             data={this.state.userfilial}
             keyCol={this.state.keyCol}
             control_add={this.state.control_add}
             control_delete={this.state.control_delete}
             control_input={this.state.control_input}
+            findCol='surname'
           />
         );
     }

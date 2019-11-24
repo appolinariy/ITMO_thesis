@@ -1,13 +1,13 @@
 .userinfo {
     position: relative;
-    top: 10px;
-    width: 100%;
-    height: 200px;
+    margin-top: 10px;
+    /* width: 100%; */
+    /* height: 200px; */
 }
 .currentuser {
     position: relative;
-    left: 82px;
-    top: 20px;
+    margin-left: 82px;
+    margin-top: 20px;   
     width: 832px;
     color: white;
     background: #ee4902bd;
@@ -15,9 +15,9 @@
 }
 
 .system_user {
-    position: relative;
-    left: 80px;
-    top: 20px;
+    /* position: relative; */
+    /* margin-left: 80px; */
+    /* margin-top: 20px; */
 }
 
 .system_user th {

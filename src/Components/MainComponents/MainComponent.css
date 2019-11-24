@@ -11,7 +11,7 @@
 }
 header {
     position: relative;
-    margin: 15px auto 0 auto;
+    margin: 15px auto 15px auto;
     width: 1000px;
     height: 60px;
     background: #ffffff;
@@ -41,8 +41,8 @@ a:focus, a:hover {
 }
 
 main {
-    position: relative;
-    margin: 20px auto 20px auto;
+    /* position: absolute; */
+    margin: 0 auto 15px auto;
     width: 1000px;
     height: 1500px;
     background: #ffffff;
