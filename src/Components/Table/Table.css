@@ -29,15 +29,24 @@ td {
 }
 
 .add_row input[type='text'] {
-    position: relative;
     background: #E0E0E0;
     border: 1px solid #000000;
     border-radius: 2px;
     padding-left: 10px;
-    width: 300px;
+    width: 270px;
     height: 30px;
+    float: right;
     box-shadow: inset 0px 5px 5px rgba(0, 0, 0, 0.1);
     font-size: 11pt;
+}
+.add_row input[type='text']:hover{
+    border: 1px solid #2e69ce;        
+}
+.add_row input[type='text']:focus{
+    background: rgba(255, 221, 68, 0.863);        
+}
+.alertName {
+    padding-top: 10px;
 }
 
 button {
@@ -89,4 +98,37 @@ button.control_button {
     vertical-align: middle;
     width: 42px;
     height: 42px;
+}
+
+.alertBlock {
+    position: absolute;
+    width: 100%;
+    height: 100%; 
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+    top: 0;
+    left: 0;
+}
+
+.add_row.alertForm {
+    width: 30%;
+    margin: auto;
+    margin-top: 10%;
+    background-color: white;
+    padding: 30px;
+    border-radius: 5px;
+}
+
+.alertButton {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 30px;
+}
+
+.buttonOk {
+   margin-right: 8px;
+}
+
+.buttonClose {
+
 }

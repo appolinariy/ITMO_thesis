@@ -7,8 +7,13 @@ class Table extends React.Component {
     value: 0,
     data: {},
     open: false,
-    // toRender
+    rows: []
   };
+
+  componentDidMount() {
+    console.log(this.props)
+    this.setState({rows: this.props.data})
+  }
 
   handleChange = e => {
     console.log(e.target.value, this.props.data);
@@ -38,19 +43,21 @@ class Table extends React.Component {
   handleAdd = e => {
     e.preventDefault();
     let newId = this.props.data[this.props.data.length - 1].id + 1;
-    this.props.onAdd({
-      ...this.state.data,
-      id: newId
-    });
+    if(this.state.data[this.props.keyCol]) {
+      this.props.onAdd({
+        ...this.state.data,
+        id: newId
+      });
 
-    this.setState({ data: {}, value: 0, show: false });
+      this.setState({ data: {}, value: 0, show: false });
+    }
   };
 
   handleEdit = e => {
     e.preventDefault()
     this.props.onUpdate(this.state.data)
     // console.log('edited', this.state.data)
-    this.setState({ data: {}, value: 0, show: false, edit: false });
+    this.setState({ data: {}, show: false, edit: false });
   }
 
   findUserIndex = id => {
@@ -91,7 +98,7 @@ class Table extends React.Component {
       );
     });
 
-    let insert = this.props.header.map(el => <label htmlFor="name">
+    let insert = this.props.header.map(el => <label htmlFor="name" className='alertName'>
     {el.name}
     <input
       type="text"
@@ -107,11 +114,13 @@ class Table extends React.Component {
       
       <div className="table_container">
         {this.state.show && (
-          <div style={{position: 'absolute', width: '100%', height: '100%', backgroundColor: 'rgba(0, 0, 0, 0.4)', zIndex: 1, top: 0, left: 0}} onClick={() => this.setState({ show: false })}>
-            <form style={{ width: '30%',margin: 'auto', marginTop: '10%', backgroundColor: 'white', padding: '30px'}} onSubmit={this.state.edit ? this.handleEdit : this.handleAdd} className='add_row' onClick={e => e.stopPropagation()}>
+          <div className='alertBlock' onClick={() => this.setState({ show: false })}>
+            <form className='add_row alertForm' onSubmit={this.state.edit ? this.handleEdit : this.handleAdd}  onClick={e => e.stopPropagation()}>
                 {insert}
-              <button onClick={() => this.setState({ show: false })}>Close</button>
-              <button type="submit">Ok</button>
+              <div className='alertButton'>
+                <button className='buttonOk' type="submit">Ok</button>
+                <button className='buttonClose' onClick={() => this.setState({ show: false })}>Close</button>
+              </div>
             </form>
           </div>
         )}
