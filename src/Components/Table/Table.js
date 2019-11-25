@@ -19,7 +19,7 @@ class Table extends React.Component {
     if(id) {
       let res = this.props.data.filter(row => {
         //console.log(row, this.props.keyCol, row[this.props.keyCol], id)
-        return row[this.props.keyCol] == id;
+        return row[this.props.keyCol] === id;
       });
       console.log(id);
       this.props.onDelete(res[0]);
@@ -54,7 +54,7 @@ class Table extends React.Component {
   }
 
   findUserIndex = id => {
-    let item = this.props.data.find(el => el[this.props.keyCol] == id);
+    let item = this.props.data.find(el => el[this.props.keyCol] === id);
     // console.log(item);
     this.setState({data: item})
   }
@@ -74,12 +74,10 @@ class Table extends React.Component {
     let content = this.props.data.map(el => {
       let data = this.props.header.map(col => <td>{el[col.key]}</td>);
 
-      const control_input = this.props.control_input;
-
       return (
         <>
           <tr>
-          {control_input && <td>
+          {this.props.control_input && <td>
               <input
               type="radio"
               name="id"
@@ -104,8 +102,6 @@ class Table extends React.Component {
       name={el.key}
     />
   </label>)
-
-  const header_display = this.props.header_display;
 
     return (
       
@@ -133,7 +129,7 @@ class Table extends React.Component {
           {this.props.onFind && <form onSubmit={(e) => this.findItem(e, this.state.findVal, this.props.findCol)} >
             <input className='search_bar' type='text' name='find' value={this.state.find} onChange={e => this.setState({findVal: e.target.value})} /> 
             <button className='search_button' type='submit'>
-              <img src={search_img} width='24px' height='24px'/>
+              <img src={search_img} width='24px' height='24px' alt='Поиск'/>
             </button>
           </form>}
          </header>}

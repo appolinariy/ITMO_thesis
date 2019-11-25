@@ -72,7 +72,7 @@ class UsersFilial extends Component {
       onUpdateRow = row => {
         console.log(row)
         let newData = this.state.userfilial;
-        let index = this.state.userfilial.indexOf(newData.find(el => el[this.state.keyCol] == row[this.state.keyCol]));
+        let index = this.state.userfilial.indexOf(newData.find(el => el[this.state.keyCol] === row[this.state.keyCol]));
         newData[index] = row;
         this.setState({
           userfilial: newData

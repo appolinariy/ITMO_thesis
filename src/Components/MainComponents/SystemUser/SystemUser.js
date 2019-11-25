@@ -13,7 +13,7 @@ class SystemUser extends Component {
         const isAdmin = this.state.role_user;
         let tableForAdmin;
 
-        if(isAdmin == 'Администратор'){
+        if(isAdmin === 'Администратор'){
             tableForAdmin = <UsersFilial/>
         }
         return (
