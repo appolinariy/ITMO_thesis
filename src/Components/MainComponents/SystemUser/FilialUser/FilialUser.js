@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './FilialUser.css';
-import { getBankUserFromFilial as printBankUserFromFilial } from '../../../../libs/effects';
+import { getAllBankUser as printAllBankUser, createBankUser } from '../../../../libs/effects';
 
 import Table from "../../../Table/Table";
 
@@ -13,17 +13,17 @@ class UsersFilial extends Component {
             {key: 'father_name', name: 'Отчество'},
             {key: 'position', name: 'Должность'},
             {key: 'login', name: 'Логин'},
+            {key: 'password', name: 'Пароль'},
+            {key: 'id_filial', name: 'Филиал'},
             {key: 'system_role', name: 'Роль в системе'},
             
         ],
-        keyCol: 'login',
-        control_input: true,
-        header_display: true
+        hideRows: ['password'],
+        keyCol: 'login'
     }
 
     componentDidMount() {
-        printBankUserFromFilial('alexey_gum').then(response => {
-            console.log(response)
+        printAllBankUser().then(response => {
             this.setState({userfilial: response})
         });
     }
@@ -46,20 +46,15 @@ class UsersFilial extends Component {
     };
     
     onAddRow = row => {
-        //1. Передаю с запросом в БД по параметрам (name, age).
-        //2. Получаю ответ с переданного запроса в виде нового ID.
-        //3. Запихнуть этот Id в newData.id.
-        //4. И пушать newData в row.
-        console.log(row)
-        let newData = this.state.userfilial;
-        newData.push(row);
+        createBankUser(row).then((res) => {
+          row.id = res.id_user;
+        })
         this.setState({
-          userfilial: newData
+          userfilial: [...this.state.userfilial, row]
         });
       };
     
       onDeleteRow = row => {
-          console.log(row)
         let newData = this.state.userfilial;
         newData = newData.filter(element => {
           return element[this.state.keyCol] !== row[this.state.keyCol];
@@ -70,7 +65,6 @@ class UsersFilial extends Component {
       }
       
       onUpdateRow = row => {
-        console.log(row)
         let newData = this.state.userfilial;
         let index = this.state.userfilial.indexOf(newData.find(el => el[this.state.keyCol] === row[this.state.keyCol]));
         newData[index] = row;
@@ -94,9 +88,10 @@ class UsersFilial extends Component {
             header={this.state.header}
             data={this.state.userfilial}
             keyCol={this.state.keyCol}
-            control_input={this.state.control_input}
-            header_display={this.state.header_display}
+            control_input
+            header_display
             findCol='surname'
+            hideRows={this.state.hideRows}
           />
         );
     }

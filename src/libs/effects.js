@@ -12,8 +12,15 @@ export const getBankUserById = login => {
         .catch(error => error)
 }
 
-export const getBankUserFromFilial = login => {
-    return get(`http://localhost:3000/filialbankuser/${login}`)
+export const getAllBankUser = () => {
+    return get(`http://localhost:3000/allbankusers`)
         .then(response => response)
         .catch(error => error)
+}
+
+export const createBankUser = user => {
+    console.log('createBankUser effect ', user);
+    return post(`http://localhost:3000/allbankusers`, user)
+        .then(response => response)
+        .catch(error => error)    
 }

@@ -15,8 +15,7 @@ class UserInfo extends Component {
             {key: 'address', name: 'Адрес филиала'},
             {key: 'login', name: 'Логин'},            
         ],
-        keyCol: 'login',
-        control_input: false
+        keyCol: 'login'
     }
 
     componentDidMount() {
@@ -35,7 +34,6 @@ class UserInfo extends Component {
                     header={this.state.header}
                     data={this.state.userinfo}
                     keyCol={this.state.keyCol}
-                    control_input={this.state.control_input}
                 />
             </div>
         );

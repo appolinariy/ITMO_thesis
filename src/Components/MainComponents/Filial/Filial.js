@@ -12,8 +12,7 @@ class Filial extends Component {
             {key: 'address', name: 'Адрес банковского филиала'},
             {key: 'phone_number', name: 'Контактный номер телефона'},            
         ],
-        keyCol: 'id_filial',
-        header_display: false
+        keyCol: 'id_filial'
     }
 
     componentDidMount() {
@@ -32,7 +31,6 @@ class Filial extends Component {
                     header={this.state.header}
                     data={this.state.filialinfo}
                     keyCol={this.state.keyCol}
-                    header_display={this.state.header_display}
                 />
             </>
             

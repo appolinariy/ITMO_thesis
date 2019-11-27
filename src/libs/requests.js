@@ -8,11 +8,11 @@ export const get = url =>
     .then(response => response.json())
     .catch(error => error)
 
-export const post = (url, data) =>
+export const post = (url, data) => 
     fetch(url, {
         method: 'POST',
         headers: {
-            'Content-Type': 'applications/json',
+            'Content-Type': 'application/json',
         },
         body: JSON.stringify(data)
     })
@@ -23,7 +23,7 @@ export const update = (url, data) =>
     fetch(url, {
         method: 'PUT',
         headers: {
-            'Content-Type': 'applications/json',
+            'Content-Type': 'application/json',
         },
         body: JSON.stringify(data)
     })

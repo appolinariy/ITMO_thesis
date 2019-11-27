@@ -28,6 +28,7 @@ class Table extends React.Component {
       });
       console.log(id);
       this.props.onDelete(res[0]);
+      this.setState({ value: 0 });
     }
   };
 
@@ -76,12 +77,15 @@ class Table extends React.Component {
   }
 
   render() {
-    let header = this.props.header.map(col => <th>{col.name}</th>);
+    //this.props.rowsToShow.includes(col.key) &&
+    console.log(this.props.rowsToShow)
+  let header = this.props.header.map(col => this.props.hideRows && !this.props.hideRows.includes(col.key) && <th>{col.name}</th>);
 
     let content = this.props.data.map(el => {
-      let data = this.props.header.map(col => <td>{el[col.key]}</td>);
 
-      return (
+      let data = this.props.header.map(col => this.props.hideRows && !this.props.hideRows.includes(col.key) &&<td>{el[col.key]}</td>);
+
+      return data && (
         <>
           <tr>
           {this.props.control_input && <td>
@@ -152,6 +156,12 @@ class Table extends React.Component {
       </div>
     );
   }
+}
+
+Table.defaultProps = {
+  hideRows: [],
+  control_input: false,
+  header_display: false
 }
 
 export default Table;
