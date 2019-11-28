@@ -1,3 +1,10 @@
+const handleError = (response) => {
+    if(!response.status) {
+        throw Error(response.message)
+    }
+    return response
+}
+
 export const get = url =>
     fetch(url, {
         method: 'GET',
@@ -6,6 +13,7 @@ export const get = url =>
         }
     })
     .then(response => response.json())
+    .then(response => handleError(response))
     .catch(error => error)
 
 export const post = (url, data) => 
@@ -17,6 +25,7 @@ export const post = (url, data) =>
         body: JSON.stringify(data)
     })
         .then(response => response.json())
+        .then(response => handleError(response))
         .catch(error => error)
 
 export const update = (url, data) =>
@@ -28,6 +37,7 @@ export const update = (url, data) =>
         body: JSON.stringify(data)
     })
         .then(response => response.json())
+        .then(response => handleError(response))
         .catch(error => error)
 
 export const del = (url, data) =>
@@ -39,4 +49,5 @@ export const del = (url, data) =>
         body: JSON.stringify(data)
     })
         .then(response => response.json())
+        .then(response => handleError(response))
         .catch(error => error)

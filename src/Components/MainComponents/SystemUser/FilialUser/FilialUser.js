@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './FilialUser.css';
-import { getAllBankUser as printAllBankUser, createBankUser } from '../../../../libs/effects';
+import { getAllBankUser as printAllBankUser, createBankUser, deleteBankUser, updateBankUser } from '../../../../libs/effects';
 
 import Table from "../../../Table/Table";
 
@@ -24,6 +24,7 @@ class UsersFilial extends Component {
 
     componentDidMount() {
         printAllBankUser().then(response => {
+          console.log(response)
             this.setState({userfilial: response})
         });
     }
@@ -47,7 +48,7 @@ class UsersFilial extends Component {
     
     onAddRow = row => {
         createBankUser(row).then((res) => {
-          row.id = res.id_user;
+          row.id_user = res.id_user;
         })
         this.setState({
           userfilial: [...this.state.userfilial, row]
@@ -55,22 +56,28 @@ class UsersFilial extends Component {
       };
     
       onDeleteRow = row => {
-        let newData = this.state.userfilial;
-        newData = newData.filter(element => {
-          return element[this.state.keyCol] !== row[this.state.keyCol];
-        });
-        this.setState({
-            userfilial: newData
-        })
+        console.log(`Удаление: ${row.id_user}`);
+        deleteBankUser(row.id_user).then((res) => {
+          let newData = this.state.userfilial;
+          newData = newData.filter(element => {
+            return element.id_user !== row.id_user;
+          });
+          this.setState({
+              userfilial: newData
+          })
+        })        
       }
       
       onUpdateRow = row => {
-        let newData = this.state.userfilial;
-        let index = this.state.userfilial.indexOf(newData.find(el => el[this.state.keyCol] === row[this.state.keyCol]));
-        newData[index] = row;
-        this.setState({
-          userfilial: newData
+        updateBankUser(row, row.id_user).then(res => {
+          let newData = this.state.userfilial;
+          let index = this.state.userfilial.indexOf(newData.find(el => el[this.state.keyCol] === row[this.state.keyCol]));
+          newData[index] = row;
+          this.setState({
+            userfilial: newData
+          })
         })
+        
       }
 
       onFind = data => {
