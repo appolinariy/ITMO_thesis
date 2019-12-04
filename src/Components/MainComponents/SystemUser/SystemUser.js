@@ -17,10 +17,10 @@ class SystemUser extends Component {
             tableForAdmin = <UsersFilial/>
         }
         return (
-           <main>
+           <>
                <UserInfo />
                {tableForAdmin}
-           </main>
+           </>
         );
     }
 }

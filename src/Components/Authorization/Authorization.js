@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './Authorization.css';
 //import MainComponent from './MainComponents/MainComponent.js';
+import { authorization } from "../../libs/effects";
+import { withRouter } from "react-router";
 
 class Authorization extends Component{
   state = {
@@ -27,6 +29,7 @@ class Authorization extends Component{
       button: !this.state.button
       })
     }
+    authorization(this.state.values.login, this.state.values.password).then(res => {this.props.history.push('/systemuser')})
     console.log(this.state.button);
     console.log(this.state.values.login);
     console.log(this.state.values.password);
@@ -61,4 +64,4 @@ const Text = () =>{
   return text;
 }
 
-export default Authorization;
+export default withRouter(Authorization);

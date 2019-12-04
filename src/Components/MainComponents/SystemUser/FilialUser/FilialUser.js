@@ -77,7 +77,6 @@ class UsersFilial extends Component {
             userfilial: newData
           })
         })
-        
       }
 
       onFind = data => {
@@ -87,7 +86,8 @@ class UsersFilial extends Component {
     render() {
         return (
         <Table
-            className={'userfilial'}
+            classNameForm={'userfilial'}
+            classNameFind={'findBlock'}
             onAdd={this.onAddRow}
             onDelete={this.onDeleteRow}
             onUpdate={this.onUpdateRow}

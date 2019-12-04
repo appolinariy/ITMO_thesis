@@ -1,22 +1,11 @@
-.userinfo {
-    position: relative;
-    margin-top: 10px;
-}
 .currentuser {
-    position: relative;
-    margin-left: 70px;
-    margin-top: 40px;   
-    width: 844px;
     color: white;
     background: #ee4902bd;
-    padding: 10px 0 10px 15px;
+    padding: 10px;
+    margin: 40px 7.1% 0;
 }
 
 .system_user th {
     background: whitesmoke;
     color: black;
-}
-
-.system_user td:nth-child(4) {
-    width: 200px;
 }

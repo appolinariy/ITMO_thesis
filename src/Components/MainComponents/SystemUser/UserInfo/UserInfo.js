@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './UserInfo.css';
-import { getBankUserById as printBankUserInfo,} from '../../../../libs/effects';
+import { getBankUserById } from '../../../../libs/effects';
 
 import Table from "../../../Table/Table";
 
@@ -19,7 +19,7 @@ class UserInfo extends Component {
     }
 
     componentDidMount() {
-        printBankUserInfo('alexey_gum').then(response => {
+        getBankUserById('julia_romanova').then(response => {
             console.log(response)
             this.setState({userinfo: response})
         });
@@ -27,7 +27,7 @@ class UserInfo extends Component {
 
     render() {
         return (
-            <div className='userinfo'>
+            <>
                 <div className='currentuser'>Текущий пользователь в системе</div>
                 <Table 
                     className={'system_user'}
@@ -35,7 +35,7 @@ class UserInfo extends Component {
                     data={this.state.userinfo}
                     keyCol={this.state.keyCol}
                 />
-            </div>
+            </>
         );
     }
 }

@@ -1,10 +1,8 @@
 .filial_list {
-    position: relative;
-    margin: 50px 0 0 70px;
-    width: 844px;
     color: white;
     background: #ee4902bd;
-    padding: 10px 0 10px 15px;
+    padding: 10px;
+    margin: 40px 7.1% 0;
 }
 
 .filial td {

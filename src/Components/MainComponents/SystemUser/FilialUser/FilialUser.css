@@ -1,2 +1,10 @@
+.userfilial{
+   overflow-y: scroll;
+   overflow-x: hidden;
+   height: 36%;
+}
 
-
+.findBlock {
+   display: inline-flex;
+   align-items: center;
+}

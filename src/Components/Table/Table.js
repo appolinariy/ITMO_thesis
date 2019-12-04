@@ -23,7 +23,6 @@ class Table extends React.Component {
   handleDelete = id => {
     if(id) {
       let res = this.props.data.filter(row => {
-        //console.log(row, this.props.keyCol, row[this.props.keyCol], id)
         return row[this.props.keyCol] === id;
       });
       console.log(id);
@@ -57,13 +56,11 @@ class Table extends React.Component {
   handleEdit = e => {
     e.preventDefault()
     this.props.onUpdate(this.state.data)
-    // console.log('edited', this.state.data)
     this.setState({ data: {}, show: false, edit: false });
   }
 
   findUserIndex = id => {
     let item = this.props.data.find(el => el[this.props.keyCol] === id);
-    // console.log(item);
     this.setState({data: item})
   }
 
@@ -73,11 +70,9 @@ class Table extends React.Component {
     let data = this.props.data.filter(el => el[col].includes(id));
     console.log(data)
     this.props.onFind(data)
-    //this.setState({toRender: data})
   }
 
   render() {
-    //this.props.rowsToShow.includes(col.key) &&
     console.log(this.props.rowsToShow)
   let header = this.props.header.map(col => this.props.hideRows && !this.props.hideRows.includes(col.key) && <th>{col.name}</th>);
 
@@ -139,14 +134,14 @@ class Table extends React.Component {
             }}>Редактировать</button>}
             {this.props.onDelete && <button className='control_button' onClick={() => this.handleDelete(this.state.value)}>Удалить</button>}
           </div>  
-          {this.props.onFind && <form onSubmit={(e) => this.findItem(e, this.state.findVal, this.props.findCol)} >
+          {this.props.onFind && <form className={this.props.classNameFind} onSubmit={(e) => this.findItem(e, this.state.findVal, this.props.findCol)} >
             <input className='search_bar' type='text' name='find' value={this.state.find} onChange={e => this.setState({findVal: e.target.value})} /> 
             <button className='search_button' type='submit'>
               <img src={search_img} width='24px' height='24px' alt='Поиск'/>
             </button>
           </form>}
          </header>}
-         <form onSubmit={e => e.preventDefault()}>  
+         <form className={this.props.classNameForm} onSubmit={e => e.preventDefault()}>  
           <table className={this.props.className}>
             {this.props.control_input && <th />}
             {header}

@@ -5,17 +5,33 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import { withRouter } from "react-router";
 import './MainComponent.css';
 import Filial from './Filial/Filial.js';
 import SystemUser from './SystemUser/SystemUser.js';
+import Authorization from "../Authorization/Authorization";
+import { getBankUserById } from '../../libs/effects';
 
 class MainComponent extends Component {
-  
+
+  state = {
+    user: null
+  }
+
+  componentDidMount() {
+    let user = sessionStorage.getItem('user') 
+    console.log('user from cache', user)
+    //getBankUserById(user.id_user).then()
+    if(user && !user.id_user) {
+      this.props.history.push('/auth');
+    }
+  }
+
   render(){
     return(
-      <Router>
         <div className='content'>
-          <header>
+          {/*this.state.user &&
+          (*/}<header>
              <Link to='/'>
               <p>Филиалы</p>
             </Link>
@@ -28,39 +44,28 @@ class MainComponent extends Component {
             <Link to='/systemuser'>
               <p>Администрирование</p>
             </Link>
-          </header>
-
-          <Switch>
-            <Route path='/borrower'>
-              <RenderBorrower />
-            </Route>
-            <Route path='/debt'>
-              <RenderDebt />
-            </Route>
-            <Route path='/systemuser'>
-              <RenderSystemUser />
-            </Route>
-            <Route path='/'>
-              <RenderFilial />
-            </Route>
-          </Switch>
+          </header>{/*)
+          }*/}
+          <main className='main'>
+            <Switch>
+              <Route path='/borrower'>
+                <h1>Заемщики</h1>
+              </Route>
+              <Route path='/debt'>
+                <h1>Задолженности</h1>
+              </Route>
+              <Route path='/systemuser'>
+                <SystemUser />
+              </Route>
+              <Route exact path='/'>
+                <Filial />
+              </Route>
+              <Route path='/auth'><Authorization /></Route>
+            </Switch>
+          </main>
         </div>
-      </Router>
     );
   }
 }
 
-const RenderFilial = () => {
-  return <main><Filial /></main>;
-}
-const RenderBorrower = () => {
-  return <main><h1>Заемщики</h1></main>;
-}
-const RenderDebt = () => {
-  return <main><h1>Задолженности</h1></main>;
-}
-const RenderSystemUser = () => {
-  return <main><SystemUser /></main>;
-}
-
-export default MainComponent;
+export default withRouter(MainComponent);
