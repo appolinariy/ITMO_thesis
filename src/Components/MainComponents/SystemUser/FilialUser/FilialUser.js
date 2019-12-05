@@ -55,18 +55,18 @@ class UsersFilial extends Component {
         });
       };
     
-      onDeleteRow = row => {
-        console.log(`Удаление: ${row.id_user}`);
-        deleteBankUser(row.id_user).then((res) => {
-          let newData = this.state.userfilial;
-          newData = newData.filter(element => {
-            return element.id_user !== row.id_user;
-          });
-          this.setState({
-              userfilial: newData
-          })
-        })        
-      }
+      // onDeleteRow = row => {
+      //   console.log(`Удаление: ${row.id_user}`);
+      //   deleteBankUser(row.id_user).then((res) => {
+      //     let newData = this.state.userfilial;
+      //     newData = newData.filter(element => {
+      //       return element.id_user !== row.id_user;
+      //     });
+      //     this.setState({
+      //         userfilial: newData
+      //     })
+      //   })        
+      // }
       
       onUpdateRow = row => {
         updateBankUser(row, row.id_user).then(res => {
@@ -89,7 +89,7 @@ class UsersFilial extends Component {
             classNameForm={'userfilial'}
             classNameFind={'findBlock'}
             onAdd={this.onAddRow}
-            onDelete={this.onDeleteRow}
+            // onDelete={this.onDeleteRow}
             onUpdate={this.onUpdateRow}
             onFind={this.onFind}
             header={this.state.header}

@@ -46,23 +46,23 @@ class MainComponent extends Component {
             </Link>
           </header>{/*)
           }*/}
-          <main className='main'>
             <Switch>
-              <Route path='/borrower'>
-                <h1>Заемщики</h1>
-              </Route>
-              <Route path='/debt'>
-                <h1>Задолженности</h1>
-              </Route>
-              <Route path='/systemuser'>
-                <SystemUser />
-              </Route>
-              <Route exact path='/'>
-                <Filial />
-              </Route>
+              <div className='main'>
+                <Route path='/borrower'>
+                  <h1>Заемщики</h1>
+                </Route>
+                <Route path='/debt'>
+                  <h1>Задолженности</h1>
+                </Route>
+                <Route path='/systemuser'>
+                  <SystemUser />
+                </Route>
+                <Route exact path='/'>
+                  <Filial />
+                </Route>
+              </div>
               <Route path='/auth'><Authorization /></Route>
             </Switch>
-          </main>
         </div>
     );
   }
