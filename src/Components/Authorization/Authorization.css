@@ -46,7 +46,7 @@ input[type='text']:hover,[type='password']:hover{
     border: 1px solid #2e69ce;        
 }
 input[type='text']:focus,[type='password']:focus{
-    background: rgba(255, 221, 68, 0.863);        
+    background: rgba(255, 221, 68, 0.863);      
 }
 input[type='submit']{
     position: relative;

@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import './Filial.css';
-import { getFilials as printFilials} from '../../../libs/effects';
+import { getFilials as printFilials } from '../../../libs/effects';
 
 import Table from "../../Table/Table";
 
 class Filial extends Component {
     state = {
-        filialinfo: [ ],
+        filialinfo: [],
         header: [
-            {key: 'id_filial', name: '№'},
-            {key: 'address', name: 'Адрес банковского филиала'},
-            {key: 'phone_number', name: 'Контактный номер телефона'},            
+            { key: 'id_filial', name: '№' },
+            { key: 'address', name: 'Адрес банковского филиала' },
+            { key: 'phone_number', name: 'Контактный номер телефона' },
         ],
         keyCol: 'id_filial'
     }
@@ -18,7 +18,7 @@ class Filial extends Component {
     componentDidMount() {
         printFilials().then(response => {
             console.log(response)
-            this.setState({filialinfo: response})
+            this.setState({ filialinfo: response })
         });
     }
 
@@ -33,7 +33,7 @@ class Filial extends Component {
                     keyCol={this.state.keyCol}
                 />
             </>
-            
+
         );
     }
 }
