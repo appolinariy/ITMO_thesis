@@ -19,7 +19,8 @@ class UserInfo extends Component {
     }
 
     componentDidMount() {
-        getBankUserById('julia_romanova').then(response => {
+        console.log('userInfo props', this.props)
+        getBankUserById(this.props.id_user).then(response => {
             console.log(response)
             this.setState({userinfo: response})
         });

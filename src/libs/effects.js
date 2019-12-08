@@ -4,9 +4,10 @@ export const authorization = (login, password) => {
     return post('http://localhost:3000/auth', {login, password})
     .then(response => {
         // Закинуть в sessionStorage id_user и system role, в MainComponent их достать и проверить
-        sessionStorage.setItem('user', {id_user: response.id_user, system_role: response.system_role})
+        sessionStorage.setItem('user', JSON.stringify({id_user: response.id_user, system_role: response.system_role}))
+        return response
     })
-    .catch(error => error)
+    .catch(error => console.log(error))
 }
 
 export const getFilials = () => {
@@ -15,8 +16,8 @@ export const getFilials = () => {
         .catch(error => error)
 }
 
-export const getBankUserById = login => {
-    return get(`http://localhost:3000/bankuser/${login}`)
+export const getBankUserById = id_user => {
+    return get(`http://localhost:3000/bankuser/${id_user}`)
         .then(response => response.data)
         .catch(error => error)
 }
@@ -33,11 +34,11 @@ export const createBankUser = user => {
         .catch(error => error)    
 }
 
-export const deleteBankUser = id_user => {
-    return del(`http://localhost:3000/allbankusers/${id_user}`)
-    .then(response => response)
-    .catch(error => error)
-}
+// export const deleteBankUser = id_user => {
+//     return del(`http://localhost:3000/allbankusers/${id_user}`)
+//     .then(response => response)
+//     .catch(error => error)
+// }
 
 export const updateBankUser = (user, id_user) => {
     return update(`http://localhost:3000/allbankusers/${id_user}`, user)

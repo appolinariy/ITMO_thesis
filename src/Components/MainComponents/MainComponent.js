@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {
-  BrowserRouter as Router,
+  BrowserRouter,
   Switch,
   Route,
   Link
@@ -10,7 +10,6 @@ import './MainComponent.css';
 import Filial from './Filial/Filial.js';
 import SystemUser from './SystemUser/SystemUser.js';
 import Authorization from "../Authorization/Authorization";
-import { getBankUserById } from '../../libs/effects';
 
 class MainComponent extends Component {
 
@@ -19,20 +18,29 @@ class MainComponent extends Component {
   }
 
   componentDidMount() {
-    let user = sessionStorage.getItem('user') 
-    console.log('user from cache', user)
-    //getBankUserById(user.id_user).then()
-    if(user && !user.id_user) {
+    let user = JSON.parse(sessionStorage.getItem('user')) 
+    this.setState({user: user})
+    if(!user) {
       this.props.history.push('/auth');
     }
   }
 
+  componentDidUpdate(){
+    let user = JSON.parse(sessionStorage.getItem('user'))
+    if(!user) {
+      this.props.history.push('/auth');
+    }
+    if(user.id_user !== this.state.user.id_user) {
+      this.setState({user: user})
+    }
+  }
+
   render(){
-    return(
+    return this.state.user ? (
         <div className='content'>
-          {/*this.state.user &&
-          (*/}<header>
-             <Link to='/'>
+          {this.props.history.location.pathname !== '/auth' &&
+          (<header>
+             <Link to='/filials'>
               <p>Филиалы</p>
             </Link>
             <Link to='/borrower'>
@@ -44,27 +52,26 @@ class MainComponent extends Component {
             <Link to='/systemuser'>
               <p>Администрирование</p>
             </Link>
-          </header>{/*)
-          }*/}
+          </header>)}
             <Switch>
-              <div className='main'>
-                <Route path='/borrower'>
-                  <h1>Заемщики</h1>
-                </Route>
-                <Route path='/debt'>
-                  <h1>Задолженности</h1>
-                </Route>
-                <Route path='/systemuser'>
-                  <SystemUser />
-                </Route>
-                <Route exact path='/'>
-                  <Filial />
-                </Route>
-              </div>
-              <Route path='/auth'><Authorization /></Route>
+              <Route path='/borrower'>
+                <div className='main'><h1>Заемщики</h1></div>
+              </Route>
+              <Route path='/debt'>
+                <div className='main'><h1>Задолженности</h1></div>
+              </Route>
+              <Route path='/systemuser'>
+                <div className='main'><SystemUser user={this.state.user} /></div>
+              </Route>
+              <Route path='/filials'>
+                <div className='main'><Filial /></div>
+              </Route>
+              <Route path='/auth'>
+                <Authorization />
+              </Route>
             </Switch>
         </div>
-    );
+    ) : (<p>Loading ...</p>);
   }
 }
 
