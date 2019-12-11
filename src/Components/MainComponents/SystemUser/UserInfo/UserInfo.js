@@ -8,21 +8,20 @@ class UserInfo extends Component {
     state = {
         userinfo: [],
         header: [
-            {key: 'surname', name: 'Фамилия'},
-            {key: 'name', name: 'Имя'},
-            {key: 'father_name', name: 'Отчество'},
-            {key: 'position', name: 'Должность'},
-            {key: 'address', name: 'Адрес филиала'},
-            {key: 'login', name: 'Логин'},            
+            { key: 'surname', name: 'Фамилия' },
+            { key: 'name', name: 'Имя' },
+            { key: 'father_name', name: 'Отчество' },
+            { key: 'position', name: 'Должность' },
+            { key: 'address', name: 'Адрес филиала' },
+            { key: 'login', name: 'Логин' },
         ],
         keyCol: 'login'
     }
 
     componentDidMount() {
-        console.log('userInfo props', this.props)
         getBankUserById(this.props.id_user).then(response => {
             console.log(response)
-            this.setState({userinfo: response})
+            this.setState({ userinfo: response })
         });
     }
 
@@ -30,7 +29,7 @@ class UserInfo extends Component {
         return (
             <>
                 <div className='currentuser'>Текущий пользователь в системе</div>
-                <Table 
+                <Table
                     className={'system_user'}
                     header={this.state.header}
                     data={this.state.userinfo}

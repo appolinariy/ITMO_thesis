@@ -1,17 +1,22 @@
 import { get, post, update, del } from './requests';
 
 export const authorization = (login, password) => {
-    return post('http://localhost:3000/auth', {login, password})
-    .then(response => {
-        // Закинуть в sessionStorage id_user и system role, в MainComponent их достать и проверить
-        sessionStorage.setItem('user', JSON.stringify({id_user: response.id_user, system_role: response.system_role}))
-        return response
-    })
-    .catch(error => console.log(error))
+    return post('http://localhost:3000/auth', { login, password })
+        .then(response => {
+            sessionStorage.setItem('user', JSON.stringify({ id_user: response.id_user, system_role: response.system_role }))
+            return response
+        })
+        .catch(error => console.log(error))
 }
 
 export const getFilials = () => {
     return get('http://localhost:3000/filials')
+        .then(response => response.data)
+        .catch(error => error)
+}
+
+export const getAllClients = () => {
+    return get(`http://localhost:3000/allclients`)
         .then(response => response.data)
         .catch(error => error)
 }
@@ -31,7 +36,7 @@ export const getAllBankUser = () => {
 export const createBankUser = user => {
     return post(`http://localhost:3000/allbankusers`, user)
         .then(response => response)
-        .catch(error => error)    
+        .catch(error => error)
 }
 
 // export const deleteBankUser = id_user => {
@@ -42,6 +47,6 @@ export const createBankUser = user => {
 
 export const updateBankUser = (user, id_user) => {
     return update(`http://localhost:3000/allbankusers/${id_user}`, user)
-    .then(response => response)
-    .catch(error => error)
+        .then(response => response)
+        .catch(error => error)
 }

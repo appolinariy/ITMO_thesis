@@ -20,10 +20,10 @@
         "react"
     ],
     "rules": {
-        "linebreak-style": [
-            "error",
-            "windows"
-        ],
+        //"linebreak-style": [
+        //    "error",
+        //    "windows"
+        //],
         "react/prop-types": "off",
         "no-case-declarations": "off"
     },

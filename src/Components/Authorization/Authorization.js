@@ -32,7 +32,6 @@ class Authorization extends Component {
   }
 
   render() {
-    let content = (this.state.button === true) && <Text />;
     return (
       <main>
         <div className='mainblock'>
@@ -45,19 +44,9 @@ class Authorization extends Component {
             <input type='submit' value='Войти' />
           </form>
         </div>
-        {content}
       </main>
     );
   }
-}
-
-const Text = () => {
-  const text = (
-    <div>
-      <h1>Hello!:)</h1>
-    </div>
-  )
-  return text;
 }
 
 export default withRouter(Authorization);
