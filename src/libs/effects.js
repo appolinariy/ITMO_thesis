@@ -21,6 +21,24 @@ export const getAllClients = () => {
         .catch(error => error)
 }
 
+export const createClient = user => {
+    return post(`http://localhost:3000/allclients`, user)
+        .then(response => response)
+        .catch(error => error)
+}
+
+export const updateClient = (user, id_client) => {
+    return update(`http://localhost:3000/allclients/${id_client}`, user)
+        .then(response => response)
+        .catch(error => error)
+}
+
+export const deleteClient = id_client => {
+    return del(`http://localhost:3000/allclients/${id_client}`)
+        .then(response => response)
+        .catch(error => error)
+}
+
 export const getBankUserById = id_user => {
     return get(`http://localhost:3000/bankuser/${id_user}`)
         .then(response => response.data)

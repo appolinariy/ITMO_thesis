@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Borrower.css';
-import { getAllClients } from '../../../libs/effects';
+import { getAllClients, createClient, updateClient, deleteClient } from '../../../libs/effects';
 
 import Table from "../../Table/Table";
 
@@ -32,54 +32,58 @@ class Borrower extends Component {
         });
     }
 
+    //спросить у Сережи
     onCellEdit = (row, fieldName, value) => {
-        // const { userfilial } = this.state;
-        // let rowIdx;
-        // const targetRow = userfilial.find((prod, i) => {
-        //   if (prod.id === row.id) {
-        //     rowIdx = i;
-        //     return true;
-        //   }
-        //   return false;
-        // });
-        // if (targetRow) {
-        //   targetRow[fieldName] = value;
-        //   userfilial[rowIdx] = targetRow;
-        //   this.setState({ userfilial });
-        // }
+        const { clients } = this.state;
+        let rowIdx;
+        const targetRow = clients.find((prod, i) => {
+            if (prod.id === row.id) {
+                rowIdx = i;
+                return true;
+            }
+            return false;
+        });
+        if (targetRow) {
+            targetRow[fieldName] = value;
+            clients[rowIdx] = targetRow;
+            this.setState({ clients });
+        }
     };
 
+    //спросить у Сережи
     onAddRow = row => {
-        // createBankUser(row).then((res) => {
-        //   row.id_user = res.id_user;
-        // })
-        // this.setState({
-        //   userfilial: [...this.state.userfilial, row]
-        // });
+        createClient(row).then((res) => {
+            row.id_client = res.id_client;
+        })
+        this.setState({
+            clients: [...this.state.clients, row]
+        });
     };
 
+    //спросить у Сережи
     onDeleteRow = row => {
-        //   console.log(`Удаление: ${row.id_user}`);
-        //   deleteBankUser(row.id_user).then((res) => {
-        //     let newData = this.state.userfilial;
-        //     newData = newData.filter(element => {
-        //       return element.id_user !== row.id_user;
-        //     });
-        //     this.setState({
-        //         userfilial: newData
-        //     })
-        //   })        
+        console.log(`Удаление: ${row.id_client}`);
+        deleteClient(row.id_client).then((res) => {
+            let newData = this.state.clients;
+            newData = newData.filter(element => {
+                return element.id_client !== row.id_client;
+            });
+            this.setState({
+                clients: newData
+            })
+        })
     }
 
+    //спросить у Сережи
     onUpdateRow = row => {
-        // updateBankUser(row, row.id_user).then(res => {
-        //   let newData = this.state.userfilial;
-        //   let index = this.state.userfilial.indexOf(newData.find(el => el[this.state.keyCol] === row[this.state.keyCol]));
-        //   newData[index] = row;
-        //   this.setState({
-        //     userfilial: newData
-        //   })
-        // })
+        updateClient(row, row.id_client).then(res => {
+            let newData = this.state.clients;
+            let index = this.state.clients.indexOf(newData.find(el => el[this.state.keyCol] === row[this.state.keyCol]));
+            newData[index] = row;
+            this.setState({
+                clients: newData
+            })
+        })
     }
 
     onFind = data => {
@@ -101,7 +105,7 @@ class Borrower extends Component {
                 control_input
                 header_display
                 findCol='surname'
-                hideRows={this.state.hideRows}
+            // hideRows={this.state.hideRows}
             />
         );
     }
