@@ -57,12 +57,6 @@ export const createBankUser = user => {
         .catch(error => error)
 }
 
-// export const deleteBankUser = id_user => {
-//     return del(`http://localhost:3000/allbankusers/${id_user}`)
-//     .then(response => response)
-//     .catch(error => error)
-// }
-
 export const updateBankUser = (user, id_user) => {
     return update(`http://localhost:3000/allbankusers/${id_user}`, user)
         .then(response => response)

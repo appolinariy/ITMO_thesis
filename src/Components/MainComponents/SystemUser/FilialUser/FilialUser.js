@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './FilialUser.css';
-import { getAllBankUser as printAllBankUser, createBankUser, deleteBankUser, updateBankUser } from '../../../../libs/effects';
+import { getAllBankUser as printAllBankUser, createBankUser, updateBankUser } from '../../../../libs/effects';
 
 import Table from "../../../Table/Table";
 
@@ -55,18 +55,6 @@ class UsersFilial extends Component {
     });
   };
 
-  // onDeleteRow = row => {
-  //   deleteBankUser(row.id_user).then((res) => {
-  //     let newData = this.state.userfilial;
-  //     newData = newData.filter(element => {
-  //       return element.id_user !== row.id_user;
-  //     });
-  //     this.setState({
-  //       userfilial: newData
-  //     })
-  //   })
-  // }
-
   onUpdateRow = row => {
     updateBankUser(row, row.id_user).then(res => {
       let newData = this.state.userfilial;
@@ -88,7 +76,6 @@ class UsersFilial extends Component {
         classNameForm={'userfilial'}
         classNameFind={'findBlock'}
         onAdd={this.onAddRow}
-        // onDelete={this.onDeleteRow}
         onUpdate={this.onUpdateRow}
         onFind={this.onFind}
         header={this.state.header}

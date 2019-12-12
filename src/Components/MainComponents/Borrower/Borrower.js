@@ -8,7 +8,6 @@ class Borrower extends Component {
     state = {
         clients: [],
         header: [
-            // { key: 'id_client', name: '№' },
             { key: 'surname', name: 'Фамилия' },
             { key: 'name', name: 'Имя' },
             { key: 'father_name', name: 'Отчество' },
@@ -21,8 +20,7 @@ class Borrower extends Component {
             { key: 'passport_by', name: 'Кем выдан' },
 
         ],
-        // hideRows: ['id_client'],
-        keyCol: 'id_client'
+        keyCol: 'surname'
     }
 
     componentDidMount() {
@@ -32,7 +30,6 @@ class Borrower extends Component {
         });
     }
 
-    //спросить у Сережи
     onCellEdit = (row, fieldName, value) => {
         const { clients } = this.state;
         let rowIdx;
@@ -50,7 +47,6 @@ class Borrower extends Component {
         }
     };
 
-    //спросить у Сережи
     onAddRow = row => {
         createClient(row).then((res) => {
             row.id_client = res.id_client;
@@ -60,7 +56,6 @@ class Borrower extends Component {
         });
     };
 
-    //спросить у Сережи
     onDeleteRow = row => {
         console.log(`Удаление: ${row.id_client}`);
         deleteClient(row.id_client).then((res) => {
@@ -74,7 +69,6 @@ class Borrower extends Component {
         })
     }
 
-    //спросить у Сережи
     onUpdateRow = row => {
         updateClient(row, row.id_client).then(res => {
             let newData = this.state.clients;
@@ -105,7 +99,6 @@ class Borrower extends Component {
                 control_input
                 header_display
                 findCol='surname'
-            // hideRows={this.state.hideRows}
             />
         );
     }
