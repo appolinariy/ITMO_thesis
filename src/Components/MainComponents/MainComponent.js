@@ -25,16 +25,7 @@ class MainComponent extends Component {
       this.props.history.push('/auth');
     }
   }
-  // componentDidUpdate() {
-  //   let user = JSON.parse(sessionStorage.getItem('user'))
-  //   console.log('user form Session storage', user)
-  //   if (!user) {
-  //     this.props.history.push('/auth');
-  //   }
-  //   if (user.id_user !== this.state.user.id_user) {
-  //     this.setState({ user: user })
-  //   }
-  // }
+
   render() {
     return this.state.user ? (
       <div className='content'>

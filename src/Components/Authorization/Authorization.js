@@ -25,6 +25,7 @@ class Authorization extends Component {
     event.preventDefault();
     authorization(this.state.values.login, this.state.values.password).then(res => {
       res && this.props.history.push('/filials')
+      window.location.reload()
     })
     console.log(this.state.button);
     console.log(this.state.values.login);
