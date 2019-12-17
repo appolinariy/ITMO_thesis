@@ -34,7 +34,6 @@ a:last-child{
 }
 a:focus, a:hover {
     background: #ff4d00b0;
-    border-radius: 5px;
     transition: 1s;
 }
 
