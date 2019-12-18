@@ -32,7 +32,7 @@ class MainComponent extends Component {
         {this.props.history.location.pathname !== '/auth' &&
           (<header>
             <Link to='/filials'>
-              <p>Филиалы</p>
+              <p>Справочник</p>
             </Link>
             <Link to='/borrower'>
               <p>Заемщики</p>

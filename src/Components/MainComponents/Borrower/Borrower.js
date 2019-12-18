@@ -58,7 +58,7 @@ class Borrower extends Component {
 
     onDeleteRow = row => {
         console.log(`Удаление: ${row.id_client}`);
-        deleteClient(row.id_client).then((res) => {
+        deleteClient(row.id_client).then(() => {
             let newData = this.state.clients;
             newData = newData.filter(element => {
                 return element.id_client !== row.id_client;
@@ -70,7 +70,7 @@ class Borrower extends Component {
     }
 
     onUpdateRow = row => {
-        updateClient(row, row.id_client).then(res => {
+        updateClient(row, row.id_client).then(() => {
             let newData = this.state.clients;
             let index = this.state.clients.indexOf(newData.find(el => el[this.state.keyCol] === row[this.state.keyCol]));
             newData[index] = row;
@@ -99,6 +99,7 @@ class Borrower extends Component {
                 control_input
                 header_display
                 findCol='surname'
+                styles={{ width: '35%', marginTop: '3%' }}
             />
         );
     }

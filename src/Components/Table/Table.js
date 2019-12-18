@@ -7,7 +7,8 @@ class Table extends React.Component {
     value: 0,
     data: {},
     open: false,
-    rows: []
+    rows: [],
+    findVal: ''
   };
 
   componentDidMount() {
@@ -64,12 +65,14 @@ class Table extends React.Component {
     this.setState({ data: item })
   }
 
-  findItem = (e, id, col) => {
+  findItem = (e) => {
     e.preventDefault()
-    console.log(id, col)
-    let data = this.props.data.filter(el => el[col].includes(id));
-    console.log(data)
-    this.props.onFind(data)
+    this.props.onFind(this.state.findVal)
+  }
+
+  cancelFinding = () => {
+    this.setState({ findVal: '' })
+    this.props.onFind('')
   }
 
   render() {
@@ -99,14 +102,16 @@ class Table extends React.Component {
 
     let insert = this.props.header.map(el => <label key={el.key} htmlFor="name" className='alertName'>
       {el.name}
-      <input
-        type="text"
-        autoComplete="off"
-        id={el.key}
-        value={this.state.data[el.key]}
-        onChange={this.inputChange}
-        name={el.key}
-      />
+      {el.type == 'select' ? <select onChange={this.inputChange} name={el.key}>{el.options && el.options.map(option => <option key={option.id} value={option.text}>{option.text}</option>)}</select> :
+        <input
+          type="text"
+          autoComplete="off"
+          id={el.key}
+          value={this.state.data[el.key]}
+          onChange={this.inputChange}
+          name={el.key}
+        />
+      }
     </label>)
 
     return (
@@ -114,7 +119,9 @@ class Table extends React.Component {
         {this.state.show && (
           <div className='alertBlock' onClick={() => this.setState({ show: false })}>
             <form
+              autoComplete='disabled'
               className='add_row alertForm'
+              style={this.props.styles}
               onSubmit={this.state.edit ? this.handleEdit : this.handleAdd}
               onClick={e => e.stopPropagation()}>
               {insert}
@@ -136,8 +143,10 @@ class Table extends React.Component {
             }}>Редактировать</button>}
             {this.props.onDelete && <button className='control_button' onClick={() => this.handleDelete(this.state.value)}>Удалить</button>}
           </div>
-          {this.props.onFind && <form className={this.props.classNameFind} onSubmit={(e) => this.findItem(e, this.state.findVal, this.props.findCol)} >
-            <input className='search_bar' type='text' name='find' value={this.state.find} onChange={e => this.setState({ findVal: e.target.value })} />
+
+          {this.props.onFind && <form className={this.props.classNameFind} onSubmit={this.findItem} >
+            <input className='search_bar' type='text' name='find' value={this.state.findVal} onChange={e => this.setState({ findVal: e.target.value })} />
+            <button className='cancel_button' type='button' onClick={this.cancelFinding}>×</button>
             <button className='search_button' type='submit'>
               <img src={search_img} width='24px' height='24px' alt='Поиск' />
             </button>

@@ -1,23 +1,12 @@
 import React, { Component } from 'react';
 import './FilialUser.css';
-import { getAllBankUser as printAllBankUser, createBankUser, updateBankUser } from '../../../../libs/effects';
+import { getAllBankUser as printAllBankUser, createBankUser, updateBankUser, findBankUser } from '../../../../libs/effects';
 
 import Table from "../../../Table/Table";
 
 class UsersFilial extends Component {
   state = {
     userfilial: [],
-    header: [
-      { key: 'surname', name: 'Фамилия' },
-      { key: 'name', name: 'Имя' },
-      { key: 'father_name', name: 'Отчество' },
-      { key: 'position', name: 'Должность' },
-      { key: 'login', name: 'Логин' },
-      { key: 'password', name: 'Пароль' },
-      { key: 'id_filial', name: 'Филиал' },
-      { key: 'system_role', name: 'Роль в системе' },
-
-    ],
     hideRows: ['password'],
     keyCol: 'login'
   }
@@ -25,7 +14,9 @@ class UsersFilial extends Component {
   componentDidMount() {
     printAllBankUser().then(response => {
       console.log(response)
-      this.setState({ userfilial: response })
+      const filials = []
+      response.filials.forEach(filial => filials.push({ id: filial.id_filial, text: filial.address }))
+      this.setState({ userfilial: response.data, filials: filials })
     });
   }
 
@@ -56,7 +47,7 @@ class UsersFilial extends Component {
   };
 
   onUpdateRow = row => {
-    updateBankUser(row, row.id_user).then(res => {
+    updateBankUser(row, row.id_user).then(() => {
       let newData = this.state.userfilial;
       let index = this.state.userfilial.indexOf(newData.find(el => el[this.state.keyCol] === row[this.state.keyCol]));
       newData[index] = row;
@@ -67,10 +58,24 @@ class UsersFilial extends Component {
   }
 
   onFind = data => {
-    this.setState({ userfilial: data })
+    findBankUser(data).then(response => {
+      const filials = []
+      response.filials.forEach(filial => filials.push({ id: filial.id_filial, text: filial.address }))
+      this.setState({ userfilial: response.data, filials: filials })
+    })
   }
 
   render() {
+    let header = [
+      { key: 'surname', name: 'Фамилия' },
+      { key: 'name', name: 'Имя' },
+      { key: 'father_name', name: 'Отчество' },
+      { key: 'position', name: 'Должность' },
+      { key: 'login', name: 'Логин' },
+      { key: 'password', name: 'Пароль' },
+      { key: 'address', name: 'Филиал', type: 'select', options: this.state.filials },
+      { key: 'system_role', name: 'Роль в системе' },
+    ];
     return (
       <Table
         classNameForm={'userfilial'}
@@ -78,7 +83,7 @@ class UsersFilial extends Component {
         onAdd={this.onAddRow}
         onUpdate={this.onUpdateRow}
         onFind={this.onFind}
-        header={this.state.header}
+        header={header}
         data={this.state.userfilial}
         keyCol={this.state.keyCol}
         control_input

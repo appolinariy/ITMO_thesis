@@ -1,23 +1,25 @@
 const handleError = (response) => {
-    if(!response.status) {
+    if (!response.status) {
         throw Error(response.message)
     }
     return response
 }
 
+const baseUrl = 'http://localhost:3000'
+
 export const get = url =>
-    fetch(url, {
+    fetch(baseUrl + url, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
         }
     })
-    .then(response => response.json())
-    .then(handleError)
+        .then(response => response.json())
+        .then(handleError)
 //    .catch(error => error)
 
-export const post = (url, data) => 
-    fetch(url, {
+export const post = (url, data) =>
+    fetch(baseUrl + url, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -29,7 +31,7 @@ export const post = (url, data) =>
 //        .catch(error => error)
 
 export const update = (url, data) =>
-    fetch(url, {
+    fetch(baseUrl + url, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
@@ -41,7 +43,7 @@ export const update = (url, data) =>
 //        .catch(error => error)
 
 export const del = (url, data) =>
-    fetch(url, {
+    fetch(baseUrl + url, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'applications/json',

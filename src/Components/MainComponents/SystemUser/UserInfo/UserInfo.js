@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { withRouter } from "react-router-dom";
+
 import './UserInfo.css';
 import { getBankUserById } from '../../../../libs/effects';
 
@@ -25,10 +27,19 @@ class UserInfo extends Component {
         });
     }
 
+    logout = () => {
+        sessionStorage.removeItem('user');
+        this.props.history.push("/auth");
+    }
+
+
     render() {
         return (
             <>
-                <div className='currentuser'>Текущий пользователь в системе</div>
+                <div className='currentuser'>
+                    <p>Текущий пользователь в системе</p>
+                    <input className='logout' type='button' value='Выйти' onClick={this.logout} />
+                </div>
                 <Table
                     className={'system_user'}
                     header={this.state.header}
@@ -40,4 +51,4 @@ class UserInfo extends Component {
     }
 }
 
-export default UserInfo;
+export default withRouter(UserInfo);
