@@ -31,18 +31,26 @@ class MainComponent extends Component {
       <div className='content'>
         {this.props.history.location.pathname !== '/auth' &&
           (<header>
-            <Link to='/filials'>
-              <p>Справочник</p>
+            <p>
+              <Link to='/filials'>
+                Справочник
             </Link>
-            <Link to='/borrower'>
-              <p>Заемщики</p>
+            </p>
+            <p>
+              <Link to='/borrower'>
+                Заемщики
             </Link>
-            <Link to='debt'>
-              <p>Задолженности</p>
+            </p>
+            <p>
+              <Link to='debt'>
+                Задолженности
             </Link>
-            <Link to='/systemuser'>
-              <p>Администрирование</p>
+            </p>
+            <p>
+              <Link to='/systemuser'>
+                Администрирование
             </Link>
+            </p>
           </header>)}
         <Switch>
           <Route path='/borrower'>

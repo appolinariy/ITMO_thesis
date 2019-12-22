@@ -17,8 +17,40 @@ header {
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: space-evenly;
 }
+
+header p {
+    /* margin: auto; */
+    /* padding: 20px 80px; */
+    padding: 20px 7%;
+    border-right: 1pt solid #2e69ced8;    
+    /* border-right: 1pt solid #ff4d00b8;     */
+    /* /* width: 250px; */
+    /* height: 100%; */
+    /* padding-bottom: 20px; */
+    /* text-decoration: none; */
+    text-align: center;
+    
+    color: black;
+    /* border-right: 1px solid #2e69ced8; */
+}
+
+header p:last-child {
+    border: none;
+}
+
+header a:hover, a:focus {
+    /* background: #ff4d00b0; */
+    color: #ff4d00b0;
+    /* transition: 1s; */
+}
+
 a {
+    text-decoration: none;
+    color: black
+}
+/* a {
     margin: auto;
     border-right: 1pt solid #2e69ced8;    
     width: 250px;
@@ -26,7 +58,6 @@ a {
     padding-bottom: 20px;
     text-decoration: none;
     text-align: center;
-    text-decoration: none;
     color: black;
 }
 a:last-child{
@@ -35,7 +66,7 @@ a:last-child{
 a:focus, a:hover {
     background: #ff4d00b0;
     transition: 1s;
-}
+} */
 
 .main {
     margin: 25px auto 10px auto;
