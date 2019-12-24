@@ -12,12 +12,10 @@ class Table extends React.Component {
   };
 
   componentDidMount() {
-    console.log(this.props)
     this.setState({ rows: this.props.data })
   }
 
   handleChange = e => {
-    console.log(e.target.value, this.props.data);
     this.setState({ value: e.target.value });
   };
 
@@ -26,7 +24,6 @@ class Table extends React.Component {
       let res = this.props.data.filter(row => {
         return row[this.props.keyCol] === id;
       });
-      console.log(id);
       this.props.onDelete(res[0]);
       this.setState({ value: 0 });
     }
@@ -76,7 +73,6 @@ class Table extends React.Component {
   }
 
   render() {
-    console.log(this.props.rowsToShow)
     let header = this.props.header.map(col => this.props.hideRows && !this.props.hideRows.includes(col.key) && <th>{col.name}</th>);
 
     let content = this.props.data.map(el => {
@@ -102,7 +98,7 @@ class Table extends React.Component {
 
     let insert = this.props.header.map(el => <label key={el.key} htmlFor="name" className='alertName'>
       {el.name}
-      {el.type == 'select' ? <select onChange={this.inputChange} name={el.key}>{el.options && el.options.map(option => <option key={option.id} value={option.text}>{option.text}</option>)}</select> :
+      {el.type === 'select' ? <select onChange={this.inputChange} name={el.key}>{el.options && el.options.map(option => <option key={option.id} value={option.text}>{option.text}</option>)}</select> :
         <input
           type="text"
           autoComplete="off"

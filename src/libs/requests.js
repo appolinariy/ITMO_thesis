@@ -5,8 +5,8 @@ const handleError = (response) => {
     return response
 }
 
-// const baseUrl = 'http://localhost:3000'
-const baseUrl = 'http://192.168.1.75:3000'
+const baseUrl = 'http://localhost:3000'
+// const baseUrl = 'http://192.168.19.198:3000'
 
 export const get = url =>
     fetch(baseUrl + url, {
@@ -17,7 +17,6 @@ export const get = url =>
     })
         .then(response => response.json())
         .then(handleError)
-//    .catch(error => error)
 
 export const post = (url, data) =>
     fetch(baseUrl + url, {
@@ -29,7 +28,6 @@ export const post = (url, data) =>
     })
         .then(response => response.json())
         .then(handleError)
-//        .catch(error => error)
 
 export const update = (url, data) =>
     fetch(baseUrl + url, {
@@ -41,7 +39,6 @@ export const update = (url, data) =>
     })
         .then(response => response.json())
         .then(handleError)
-//        .catch(error => error)
 
 export const del = (url, data) =>
     fetch(baseUrl + url, {
@@ -53,4 +50,3 @@ export const del = (url, data) =>
     })
         .then(response => response.json())
         .then(handleError)
- //       .catch(error => error)
