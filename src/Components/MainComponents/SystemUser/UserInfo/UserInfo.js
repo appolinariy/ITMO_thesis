@@ -27,18 +27,11 @@ class UserInfo extends Component {
         });
     }
 
-    logout = () => {
-        sessionStorage.removeItem('user');
-        this.props.history.push("/auth");
-    }
-
-
     render() {
         return (
             <>
                 <div className='currentuser'>
                     <p>Текущий пользователь в системе</p>
-                    <input className='logout' type='button' value='Выйти' onClick={this.logout} />
                 </div>
                 <Table
                     className={'system_user'}

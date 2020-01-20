@@ -2,75 +2,68 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    background: #e0ece8;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 14pt;
-    
+    background: #fff;
+    color: #292929;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12pt;
     display: flex;
     flex-direction: column;
 }
 header {
-    margin: 15px auto 0 auto;
-    width: 70%;
-    height: 60px;
-    background: #ffffff;
-    display: flex;
-    flex-direction: row;
+    width: 100%;
+    height: 70px;
+    background: #fff;
+    font-size: 12.5pt;
+    display: inline-flex;
     align-items: center;
-    justify-content: space-evenly;
+    box-shadow: 0px 0px 30px 0px #2929293a;
 }
 
-header p {
-    /* margin: auto; */
-    /* padding: 20px 80px; */
-    padding: 20px 7%;
-    border-right: 1pt solid #2e69ced8;    
-    /* border-right: 1pt solid #ff4d00b8;     */
-    /* /* width: 250px; */
-    /* height: 100%; */
-    /* padding-bottom: 20px; */
-    /* text-decoration: none; */
-    text-align: center;
-    
-    color: black;
-    /* border-right: 1px solid #2e69ced8; */
+img{
+    margin-left: 5%;
 }
 
-header p:last-child {
-    border: none;
+.links{
+    margin-left: 6%;
+    width: 40%;
+    height: 100%;
+    display: inline-flex;
+    align-items: center;
+}
+.links p {
+    padding: 20px 7%;   
 }
 
-header a:hover, a:focus {
-    /* background: #ff4d00b0; */
-    color: #ff4d00b0;
-    /* transition: 1s; */
+.logout{
+    background: #ff4b5f;
+    border: 0;
+    color: white;
+    width: 120px;
+    height: 40px;
+    margin-left: 27%;
+    margin-right: 2%;
+    font-size: 12.5pt;
+    border-radius: 4px;
+}
+.logout:hover {
+    cursor: pointer;
+    background: #e74558; 
 }
 
 a {
     text-decoration: none;
-    color: black
+    color: #292929;
 }
-/* a {
-    margin: auto;
-    border-right: 1pt solid #2e69ced8;    
-    width: 250px;
-    height: 40px;
-    padding-bottom: 20px;
-    text-decoration: none;
-    text-align: center;
-    color: black;
+a:hover, a:focus {
+    cursor: pointer;
+    color: #ff4b5f;
+    transition: 0.5s;
 }
-a:last-child{
-    border-right: none;
-}
-a:focus, a:hover {
-    background: #ff4d00b0;
-    transition: 1s;
-} */
 
 .main {
-    margin: 25px auto 10px auto;
-    width: 70%;
-    height: 84%;
-    background: #ffffff;
+    margin: 1.5% auto 0 auto;
+    width: 75%;
+    height: 85%;
+    background: #fff;
+    box-shadow: 0px 0px 30px 0px #2929293a;
 }

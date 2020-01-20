@@ -7,20 +7,6 @@
     flex-direction: row;
     align-items: center;
 }
-.logout{
-    background: white;
-    border: 0;
-    color: black;
-    font-size: 11pt;
-    width: 120px;
-    height: 35px;
-    position: absolute;
-    right: 21%;
-}
-.logout:hover {
-    cursor: pointer;
-    background: whitesmoke;
-}
 .system_user th {
     background: whitesmoke;
     color: black;

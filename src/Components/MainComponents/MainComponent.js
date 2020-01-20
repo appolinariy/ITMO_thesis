@@ -4,6 +4,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import sovk from "./sovk.png"
 import { withRouter } from "react-router";
 import './MainComponent.css';
 import Filial from './Filial/Filial';
@@ -26,31 +27,40 @@ class MainComponent extends Component {
     }
   }
 
+  logout = () => {
+    sessionStorage.removeItem('user');
+    this.props.history.push("/auth");
+  }
+
   render() {
     return this.state.user ? (
       <div className='content'>
         {this.props.history.location.pathname !== '/auth' &&
           (<header>
-            <p>
-              <Link to='/filials'>
-                Справочник
+            <img src={sovk} width='200px' alt='Совкомбанк' />
+            <div className='links'>
+              <p>
+                <Link to='/filials'>
+                  Справочник
             </Link>
-            </p>
-            <p>
-              <Link to='/borrower'>
-                Заемщики
+              </p>
+              <p>
+                <Link to='/borrower'>
+                  Заемщики
             </Link>
-            </p>
-            <p>
-              <Link to='debt'>
-                Задолженности
+              </p>
+              <p>
+                <Link to='debt'>
+                  Задолженности
             </Link>
-            </p>
-            <p>
-              <Link to='/systemuser'>
-                Администрирование
+              </p>
+              <p>
+                <Link to='/systemuser'>
+                  Администрирование
             </Link>
-            </p>
+              </p>
+            </div>
+            <input className='logout' type='button' value='Выйти' onClick={this.logout} />
           </header>)}
         <Switch>
           <Route path='/borrower'>
