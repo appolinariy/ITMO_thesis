@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './Authorization.css';
 import { authorization } from "../../libs/effects";
 import { withRouter } from "react-router";
+import sovk from "./sovk.png";
 
 class Authorization extends Component {
   state = {
@@ -36,13 +37,14 @@ class Authorization extends Component {
     return (
       <main>
         <div className='mainblock'>
-          <h3>Авторизуйтесь в системе</h3>
+          <img src={sovk} width='300px' alt='Совкомбанк' />
+          <h3>ВХОД В СИСТЕМУ УЧЕТА КРЕДИТНЫХ ВЫПЛАТ</h3>
           <form onSubmit={this.handleSubmit}>
-            <label>Логин: </label>
-            <input type='text' autoComplete='off' name='login' placeholder='Введите логин' value={this.state.values.login} onChange={this.handleChange} />
-            <label>Пароль:</label>
-            <input type='password' autoComplete='off' name='password' placeholder='Введите пароль' value={this.state.values.password} onChange={this.handleChange} />
-            <input type='submit' value='Войти' />
+            <label>Введите логин:</label>
+            <input type='text' autoComplete='off' name='login' placeholder='Логин' value={this.state.values.login} onChange={this.handleChange} />
+            <label>Введите пароль:</label>
+            <input type='password' autoComplete='off' name='password' placeholder='Пароль' value={this.state.values.password} onChange={this.handleChange} />
+            <input type='submit' value='Войти в Систему' />
           </form>
         </div>
       </main>
