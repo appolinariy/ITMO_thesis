@@ -37,7 +37,10 @@ class MainComponent extends Component {
       <div className='content'>
         {this.props.history.location.pathname !== '/auth' &&
           (<header>
-            <img src={sovk} width='200px' alt='Совкомбанк' />
+            <div className='icon'>
+              <img src={sovk} width='190px' alt='Совкомбанк' />
+              <p className='SystemName'>Cистема учета кредитных выплат</p>
+            </div>
             <div className='links'>
               <p>
                 <Link to='/filials'>
