@@ -1,11 +1,16 @@
 .filial_list {
-    color: white;
-    background: #ee4902bd;
+    font-weight: bold;
     padding: 10px;
     margin: 40px 7.1% 0 7.05%;
 }
 
+.filial_list:hover{
+    color: #003791;
+}
+
 .filial td {
     border: 2pt solid white;
-    height: 30px;
+    height: 25px;
 }
+
+

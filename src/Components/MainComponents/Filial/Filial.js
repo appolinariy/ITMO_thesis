@@ -8,8 +8,8 @@ class Filial extends Component {
     state = {
         filialinfo: [],
         header: [
-            { key: 'id_filial', name: '№' },
-            { key: 'address', name: 'Адрес банковского филиала' },
+            // { key: 'id_filial', name: '№' },
+            { key: 'address', name: 'Адрес филиала' },
             { key: 'phone_number', name: 'Контактный номер телефона' },
         ],
         keyCol: 'id_filial'
@@ -25,7 +25,7 @@ class Filial extends Component {
     render() {
         return (
             <>
-                <div className='filial_list'>Список филиалов банка</div>
+                <div className='filial_list'>Отделения банка и телефоны для связи</div>
                 <Table
                     className={'filial'}
                     header={this.state.header}

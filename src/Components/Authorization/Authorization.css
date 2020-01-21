@@ -28,11 +28,10 @@ label{
     padding: 20px 0 5px 0;
     line-height: 22px;
 }
-input[type='text'],[type='password']{
+.mainblock input[type='text'],[type='password']{
     width: 335px;
     height: 25px;
     font-size: 12pt;
-    position: relative;
     border-radius: 4px;
     padding: 13px 15px;
     border: 1px solid #d2dce3;

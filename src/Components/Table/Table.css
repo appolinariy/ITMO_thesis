@@ -12,7 +12,7 @@ table {
 
 th {
     height: 50px;
-    background: rgba(47, 127, 233, 0.924);
+    background: #ff4b60;
     color: white;  
     vertical-align: middle;
 }
@@ -55,16 +55,17 @@ select{
 }
 
 button {
-    background: #ff4d00b0;
+    background: #003891ed;
     border: 0;
+    border-radius: 4px;
     color: white;
     font-size: 11pt;
     width: 120px;
-    height: 30px;
+    height: 35px;
 }
 button:hover {
     cursor: pointer;
-    background: #ee4902bd;
+    background: #002d75ed;
 }
 
 .button_container {
@@ -77,6 +78,8 @@ button:hover {
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    box-shadow: none;
+    margin-top: 2%;
 }
 
 button.control_button {
@@ -84,6 +87,12 @@ button.control_button {
 }
 
 .search_bar {
+    width: 400px;
+    height: 15px;
+    font-size: 12pt;
+    border-radius: 4px;
+    padding: 13px 15px;
+    border: 1px solid #d2dce3;
     margin-right: 10px;
 }
 .search_bar:hover {
@@ -91,10 +100,16 @@ button.control_button {
 }
 
 .search_button {
+    background: #fff;
     border-radius: 25px;
     vertical-align: middle;
+    padding-top: 5px;
     width: 42px;
     height: 42px;
+}
+.search_button:hover {
+    background: #E0E0E0;
+    transition: 0.3s;
 }
 
 .cancel_button {
@@ -128,10 +143,9 @@ button.control_button {
 .add_row.alertForm {
     width: 30%;
     margin: auto;
-    margin-top: 6%;
+    margin-top: 8%;
     background-color: white;
     padding: 30px;
-    border-radius: 5px;
 }
 
 .alertButton {

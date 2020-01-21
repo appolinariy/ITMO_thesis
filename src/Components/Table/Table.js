@@ -141,10 +141,10 @@ class Table extends React.Component {
           </div>
 
           {this.props.onFind && <form className={this.props.classNameFind} onSubmit={this.findItem} >
-            <input className='search_bar' type='text' name='find' value={this.state.findVal} onChange={e => this.setState({ findVal: e.target.value })} />
+            <input className='search_bar' type='text' name='find' placeholder='Поиск' value={this.state.findVal} onChange={e => this.setState({ findVal: e.target.value })} />
             <button className='cancel_button' type='button' onClick={this.cancelFinding}>×</button>
             <button className='search_button' type='submit'>
-              <img src={search_img} width='24px' height='24px' alt='Поиск' />
+              <img src={search_img} width='26px' alt='Поиск' />
             </button>
           </form>}
         </header>}

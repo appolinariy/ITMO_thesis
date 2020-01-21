@@ -99,7 +99,7 @@ class Borrower extends Component {
                 control_input
                 header_display
                 findCol='surname'
-                styles={{ width: '35%', marginTop: '3%' }}
+                styles={{ width: '35%', marginTop: '5%' }}
             />
         );
     }

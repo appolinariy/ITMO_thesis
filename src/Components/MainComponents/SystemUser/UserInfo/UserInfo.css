@@ -1,13 +1,14 @@
 .currentuser {
-    color: white;
-    background: #ee4902bd;
+    font-weight: bold;
     padding-left: 10px;
     margin: 40px 7.1% 0 7.05%;
     display: flex;
     flex-direction: row;
     align-items: center;
 }
-.system_user th {
-    background: whitesmoke;
-    color: black;
+.currentuser:hover{
+    color: #003791;
 }
+/* .system_user th {
+    ПЕРЕДЕЛАТЬ ВЫВОД ДАННЫХ О ТЕКУЩЕМ ПОЛЬЗОВАТЕЛЕ В КАРТОЧКУ
+} */
