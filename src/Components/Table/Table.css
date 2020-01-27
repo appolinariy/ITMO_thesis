@@ -57,7 +57,7 @@ select{
 button {
     background: #003891ed;
     border: 0;
-    border-radius: 4px;
+    /* border-radius: 4px; */
     color: white;
     font-size: 11pt;
     width: 120px;
@@ -90,7 +90,6 @@ button.control_button {
     width: 400px;
     height: 15px;
     font-size: 12pt;
-    border-radius: 4px;
     padding: 13px 15px;
     border: 1px solid #d2dce3;
     margin-right: 10px;
@@ -143,9 +142,9 @@ button.control_button {
 .add_row.alertForm {
     width: 30%;
     margin: auto;
-    margin-top: 8%;
+    margin-top: 6%;
     background-color: white;
-    padding: 30px;
+    padding: 15px 30px 30px 30px;
 }
 
 .alertButton {
@@ -154,6 +153,11 @@ button.control_button {
     margin-top: 30px;
 }
 
-.buttonOk {
+.buttonEdit {
    margin-right: 8px;
+   width: 175px;
 }
+
+.buttonAdd {
+    margin-right: 8px;
+ }

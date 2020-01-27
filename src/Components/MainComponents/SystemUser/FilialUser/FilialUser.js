@@ -13,7 +13,6 @@ class UsersFilial extends Component {
 
   componentDidMount() {
     printAllBankUser().then(response => {
-      console.log(response)
       const filials = []
       response.filials.forEach(filial => filials.push({ id: filial.id_filial, text: filial.address }))
       this.setState({ userfilial: response.data, filials: filials })
@@ -90,6 +89,7 @@ class UsersFilial extends Component {
         header_display
         findCol='surname'
         hideRows={this.state.hideRows}
+        alert_name='данных о пользователе'
       />
     );
   }

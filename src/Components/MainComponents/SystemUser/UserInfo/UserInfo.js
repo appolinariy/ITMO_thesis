@@ -10,20 +10,21 @@ class UserInfo extends Component {
     state = {
         userinfo: [],
         header: [
-            { key: 'surname', name: 'Фамилия' },
-            { key: 'name', name: 'Имя' },
-            { key: 'father_name', name: 'Отчество' },
+            { key: 'fio', name: 'ФИО' },
             { key: 'position', name: 'Должность' },
             { key: 'address', name: 'Адрес филиала' },
             { key: 'login', name: 'Логин' },
+            { key: 'system_role', name: 'Роль в системе' },
         ],
-        keyCol: 'login'
+        keyCol: 'login',
     }
 
     componentDidMount() {
         getBankUserById(this.props.id_user).then(response => {
-            console.log(response)
-            this.setState({ userinfo: response })
+            let response_copy = response;
+            response_copy[0].fio = response[0].surname + " " + response[0].name + " " + response[0].father_name;
+            this.setState({ userinfo: response_copy });
+            // console.log('ФИО: ' + this.state.userinfo[0].surname, this.state.userinfo[0].name, this.state.userinfo[0].father_name);
         });
     }
 

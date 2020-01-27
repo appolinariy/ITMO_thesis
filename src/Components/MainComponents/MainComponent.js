@@ -20,7 +20,6 @@ class MainComponent extends Component {
 
   componentDidMount() {
     let user = JSON.parse(sessionStorage.getItem('user'))
-    console.log('user from Session storage', user, !user, this.props.history)
     this.setState({ user: user })
     if (!user) {
       this.props.history.push('/auth');

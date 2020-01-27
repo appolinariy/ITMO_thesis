@@ -32,7 +32,7 @@ label{
     width: 335px;
     height: 25px;
     font-size: 12pt;
-    border-radius: 4px;
+    /* border-radius: 4px; */
     padding: 13px 15px;
     border: 1px solid #d2dce3;
 }
@@ -47,9 +47,9 @@ input[type='submit']{
     width: 160px;
     height: 45px;
     float: right;
-    border-radius: 4px;
+    /* border-radius: 4px; */
     margin-top: 25px;
-    font-size: 12.5pt;
+    font-size: 12.3pt;
 }
 input[type='submit']:hover{
     background: #e74558; 

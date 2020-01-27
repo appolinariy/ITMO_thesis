@@ -120,9 +120,10 @@ class Table extends React.Component {
               style={this.props.styles}
               onSubmit={this.state.edit ? this.handleEdit : this.handleAdd}
               onClick={e => e.stopPropagation()}>
+              {this.state.edit ? <h3>Окно редактирования {this.props.alert_name} </h3> : <h3>Окно добавления {this.props.alert_name} </h3>}
               {insert}
               <div className='alertButton'>
-                <button className='buttonOk' type="submit">Ок</button>
+                {this.state.edit ? <button className='buttonEdit' type="submit">Сохранить изменения</button> : <button className='buttonAdd' type="submit">Добавить</button>}
                 <button className='buttonClose' onClick={() => this.setState({ show: false })}>Отмена</button>
               </div>
             </form>
@@ -141,7 +142,7 @@ class Table extends React.Component {
           </div>
 
           {this.props.onFind && <form className={this.props.classNameFind} onSubmit={this.findItem} >
-            <input className='search_bar' type='text' name='find' placeholder='Поиск' value={this.state.findVal} onChange={e => this.setState({ findVal: e.target.value })} />
+            <input className='search_bar' type='text' name='find' autoComplete='off' placeholder='Поиск' value={this.state.findVal} onChange={e => this.setState({ findVal: e.target.value })} />
             <button className='cancel_button' type='button' onClick={this.cancelFinding}>×</button>
             <button className='search_button' type='submit'>
               <img src={search_img} width='26px' alt='Поиск' />
