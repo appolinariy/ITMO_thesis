@@ -11,6 +11,7 @@ class Borrower extends Component {
             { key: 'surname', name: 'Фамилия' },
             { key: 'name', name: 'Имя' },
             { key: 'father_name', name: 'Отчество' },
+            { key: 'fio', name: 'ФИО' },
             { key: 'birthday', name: 'Дата рождения' },
             { key: 'mail', name: 'Адрес электронной почты' },
             { key: 'phone_number', name: 'Номер телефона' },
@@ -20,12 +21,14 @@ class Borrower extends Component {
             { key: 'passport_by', name: 'Кем выдан' },
 
         ],
+        hideRows: ['surname', 'name', 'father_name'],
+        thForTable: ['fio'],
         keyCol: 'surname'
     }
 
     componentDidMount() {
         getAllClients().then(response => {
-            console.log(response)
+            response.forEach(borrower => borrower.fio = borrower.surname + ' ' + borrower.name + ' ' + borrower.father_name);
             this.setState({ clients: response })
         });
     }
@@ -100,6 +103,8 @@ class Borrower extends Component {
                 header_display
                 findCol='surname'
                 styles={{ width: '33%', marginTop: '4%' }}
+                thForTable={this.state.thForTable}
+                hideRows={this.state.hideRows}
                 alert_name='данных о заемщике'
             />
         );

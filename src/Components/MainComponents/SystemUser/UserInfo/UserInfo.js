@@ -21,10 +21,8 @@ class UserInfo extends Component {
 
     componentDidMount() {
         getBankUserById(this.props.id_user).then(response => {
-            let response_copy = response;
-            response_copy[0].fio = response[0].surname + " " + response[0].name + " " + response[0].father_name;
-            this.setState({ userinfo: response_copy });
-            // console.log('ФИО: ' + this.state.userinfo[0].surname, this.state.userinfo[0].name, this.state.userinfo[0].father_name);
+            response.forEach(user => user.fio = user.surname + ' ' + user.name + ' ' + user.father_name);
+            this.setState({ userinfo: response });
         });
     }
 

@@ -7,7 +7,8 @@ import Table from "../../../Table/Table";
 class UsersFilial extends Component {
   state = {
     userfilial: [],
-    hideRows: ['password'],
+    hideRows: ['password', 'surname', 'name', 'father_name'],
+    thForTable: ['fio'],
     keyCol: 'login'
   }
 
@@ -15,6 +16,7 @@ class UsersFilial extends Component {
     printAllBankUser().then(response => {
       const filials = []
       response.filials.forEach(filial => filials.push({ id: filial.id_filial, text: filial.address }))
+      response.data.forEach(user => user.fio = user.surname + ' ' + user.name + ' ' + user.father_name);
       this.setState({ userfilial: response.data, filials: filials })
     });
   }
@@ -69,6 +71,7 @@ class UsersFilial extends Component {
       { key: 'surname', name: 'Фамилия' },
       { key: 'name', name: 'Имя' },
       { key: 'father_name', name: 'Отчество' },
+      { key: 'fio', name: 'ФИО' },
       { key: 'position', name: 'Должность' },
       { key: 'login', name: 'Логин' },
       { key: 'password', name: 'Пароль' },
@@ -89,6 +92,7 @@ class UsersFilial extends Component {
         header_display
         findCol='surname'
         hideRows={this.state.hideRows}
+        thForTable={this.state.thForTable}
         alert_name='данных о пользователе'
       />
     );

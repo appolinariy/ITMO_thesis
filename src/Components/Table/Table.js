@@ -96,7 +96,9 @@ class Table extends React.Component {
       );
     });
 
-    let insert = this.props.header.map(el => <label key={el.key} htmlFor="name" className='alertName'>
+    let newHeader = this.props.header.filter(el => el.key != this.props.thForTable)
+
+    let insert = newHeader.map(el => <label key={el.key} htmlFor="name" className='alertName'>
       {el.name}
       {el.type === 'select' ? <select onChange={this.inputChange} name={el.key}>{el.options && el.options.map(option => <option key={option.id} value={option.text}>{option.text}</option>)}</select> :
         <input

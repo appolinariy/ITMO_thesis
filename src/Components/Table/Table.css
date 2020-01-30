@@ -1,5 +1,5 @@
 table {
-    background: #ccccccec;
+    background: #dddcdc;
     width: 100%;
     border-collapse: collapse;
     border: 1pt solid white;
@@ -13,12 +13,12 @@ table {
 th {
     height: 50px;
     background: #ff4b60;
-    color: white;  
+    color: white;     
     vertical-align: middle;
 }
 
 td {
-    border: 2pt solid white;
+    border-bottom: 2pt solid white;
     height: 50%;
     padding: 10px;
     text-align: center;
