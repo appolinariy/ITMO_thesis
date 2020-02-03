@@ -73,26 +73,24 @@ class Table extends React.Component {
   }
 
   render() {
-    let header = this.props.header.map(col => this.props.hideRows && !this.props.hideRows.includes(col.key) && <th>{col.name}</th>);
+    let header = this.props.header.map(col => this.props.hideRows && !this.props.hideRows.includes(col.key) && <th key={col.key}>{col.name}</th>);
 
     let content = this.props.data.map(el => {
 
-      let data = this.props.header.map(col => this.props.hideRows && !this.props.hideRows.includes(col.key) && <td>{el[col.key]}</td>);
+      let data = this.props.header.map(col => this.props.hideRows && !this.props.hideRows.includes(col.key) && <td key={el[col.key]}>{el[col.key]}</td>);
 
       return data && (
-        <>
-          <tr>
-            {this.props.control_input && <td>
-              <input
-                type="radio"
-                name="id"
-                value={el[this.props.keyCol]}
-                onChange={this.handleChange}
-              />
-            </td>}
-            {data}
-          </tr>
-        </>
+        <tr key={el.id_filial + el.address}>
+          {this.props.control_input && <td>
+            <input
+              type="radio"
+              name="id"
+              value={el[this.props.keyCol]}
+              onChange={this.handleChange}
+            />
+          </td>}
+          {data}
+        </tr>
       );
     });
 
@@ -153,9 +151,15 @@ class Table extends React.Component {
         </header>}
         <form className={this.props.classNameForm} onSubmit={e => e.preventDefault()}>
           <table className={this.props.className}>
-            {this.props.control_input && <th />}
-            {header}
-            {content}
+            <thead>
+
+              {this.props.control_input && <th />}
+
+              {header}
+            </thead>
+            <tbody>
+              {content}
+            </tbody>
           </table>
         </form>
       </div>
