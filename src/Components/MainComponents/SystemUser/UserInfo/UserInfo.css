@@ -6,9 +6,6 @@
     flex-direction: row;
     align-items: center;
 }
-.currentuser:hover{
-    color: #003791;
-}
 /* .system_user th {
     переделать в карточку ?
 } */

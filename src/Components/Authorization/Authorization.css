@@ -3,7 +3,7 @@ main{
     width: 100%;
     height: 100%;
     font-family: Arial, Helvetica, sans-serif;
-    background-color: #fff;
+    background-color: #f2f7f9;
     color: #292929;
     display: flex;
     flex-direction: column;
@@ -11,8 +11,8 @@ main{
 .mainblock{
     position: relative;
     width: 40%;
-    background-color: #fff;
     height: 65%;
+    background-color: #fff;
     margin: auto;
     font-size: 13pt;
     padding-top: 40px;
@@ -32,7 +32,7 @@ label{
     width: 335px;
     height: 25px;
     font-size: 12pt;
-    border-radius: 2px;
+    /* border-radius: 2px; */
     padding: 13px 15px;
     border: 1px solid #d2dce3;
 }
@@ -47,11 +47,11 @@ input[type='submit']{
     width: 160px;
     height: 45px;
     float: right;
-    border-radius: 2px;
+    border-radius: 5px;
     margin-top: 25px;
     font-size: 12.3pt;
 }
 input[type='submit']:hover{
-    background: #e74558; 
+    background-color: #e74558;
     cursor: pointer;
 }

@@ -1,8 +1,8 @@
 table {
-    background: #dddcdc;
+    background: #e1e7e9;
     width: 100%;
+    color: #292929;
     border-collapse: collapse;
-    border: 1pt solid white;
     font-size: 16px;
 }
 
@@ -12,13 +12,13 @@ table {
 
 th {
     height: 50px;
-    background: #ff4b60;
-    color: white;     
+    background: #ff4b5f;
+    color: #fff;     
     vertical-align: middle;
 }
 
 td {
-    border-bottom: 2pt solid white;
+    border-bottom: 2pt solid #fff;
     height: 50%;
     padding: 10px;
     text-align: center;
@@ -32,7 +32,6 @@ td {
 .add_row input[type='text'], select{
     background: #E0E0E0;
     border: 1px solid #000000;
-    border-radius: 2px;
     padding-left: 10px;
     width: 270px;
     height: 30px;
@@ -47,9 +46,7 @@ select{
 .add_row input[type='text']:hover, option:hover{
     border: 1px solid #2e69ce;        
 }
-.add_row input[type='text']:focus{
-    background: rgba(255, 221, 68, 0.863);        
-}
+
 .alertName {
     padding-top: 10px;
 }
@@ -57,11 +54,11 @@ select{
 button {
     background: #003891ed;
     border: 0;
-    border-radius: 2px;
+    border-radius: 4px;
     color: white;
-    font-size: 11.5pt;
-    width: 120px;
-    height: 35px;
+    font-size: 11pt;
+    width: 122px;
+    height: 37px;
 }
 button:hover {
     cursor: pointer;
@@ -91,7 +88,7 @@ button.control_button {
     height: 15px;
     font-size: 12pt;
     padding: 13px 15px;
-    border-radius: 2px;
+    /* border-radius: 2px; */
     border: 1px solid #d2dce3;
     margin-right: 10px;
 }
