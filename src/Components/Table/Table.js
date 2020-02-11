@@ -46,7 +46,6 @@ class Table extends React.Component {
         ...this.state.data,
         id: newId
       });
-
       this.setState({ data: {}, value: 0, show: false });
     }
   };
@@ -120,6 +119,7 @@ class Table extends React.Component {
               style={this.props.styles}
               onSubmit={this.state.edit ? this.handleEdit : this.handleAdd}
               onClick={e => e.stopPropagation()}>
+              <button className='cancelAlert' onClick={() => this.setState({ show: false })}>×</button>
               {this.state.edit ? <h3>Окно редактирования {this.props.alert_name} </h3> : <h3>Окно добавления {this.props.alert_name} </h3>}
               {insert}
               <div className='alertButton'>
@@ -143,7 +143,7 @@ class Table extends React.Component {
 
           {this.props.onFind && <form className={this.props.classNameFind} onSubmit={this.findItem} >
             <input className='search_bar' type='text' name='find' autoComplete='off' placeholder='Поиск' value={this.state.findVal} onChange={e => this.setState({ findVal: e.target.value })} />
-            <button className='cancel_button' type='button' onClick={this.cancelFinding}>×</button>
+            <button className='cancel_button' onClick={this.cancelFinding}>×</button>
             <button className='search_button' type='submit'>
               <img src={search_img} width='26px' alt='Поиск' />
             </button>
@@ -152,9 +152,7 @@ class Table extends React.Component {
         <form className={this.props.classNameForm} onSubmit={e => e.preventDefault()}>
           <table className={this.props.className}>
             <thead>
-
               {this.props.control_input && <th />}
-
               {header}
             </thead>
             <tbody>

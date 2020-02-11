@@ -136,7 +136,15 @@ button.control_button {
     font-size: 12pt;
     overflow-y: scroll;
 }
-
+.cancelAlert{
+    all: unset;
+    height: 2px;
+    margin-left: 98%;
+    font-size: 1.8em;
+}
+.cancelAlert:hover{
+    background-color: unset;
+}
 .add_row.alertForm {
     width: 30%;
     margin: auto;

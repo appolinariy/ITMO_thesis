@@ -28,22 +28,19 @@ class Authorization extends Component {
       res && this.props.history.push('/filials')
       window.location.reload()
     })
-    console.log(this.state.button);
-    console.log(this.state.values.login);
-    console.log(this.state.values.password);
   }
 
   render() {
     return (
       <main>
         <div className='mainblock'>
-          <img src={sovk} width='300px' alt='Совкомбанк' />
+          <img src={sovk} width='50%' alt='Совкомбанк' />
           <h3>ВХОД В СИСТЕМУ УЧЕТА КРЕДИТНЫХ ВЫПЛАТ</h3>
           <form onSubmit={this.handleSubmit}>
             <label>Введите логин:</label>
-            <input type='text' autoComplete='off' name='login' placeholder='Логин' value={this.state.values.login} onChange={this.handleChange} />
+            <input type='text' autoComplete='disabled' name='login' placeholder='Логин' value={this.state.values.login} onChange={this.handleChange} />
             <label>Введите пароль:</label>
-            <input type='password' autoComplete='off' name='password' placeholder='Пароль' value={this.state.values.password} onChange={this.handleChange} />
+            <input type='password' autoComplete='disabled' name='password' placeholder='Пароль' value={this.state.values.password} onChange={this.handleChange} />
             <input type='submit' value='Войти в Систему' />
           </form>
         </div>
