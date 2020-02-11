@@ -16,7 +16,7 @@ class UsersFilial extends Component {
     printAllBankUser().then(response => {
       const filials = []
       response.filials.forEach(filial => filials.push({ id: filial.id_filial, text: filial.address }))
-      response.data.forEach(user => user.fio = user.surname + ' ' + user.name + ' ' + user.father_name)
+      response.data.map(user => { user.fio = user.surname + ' ' + user.name + ' ' + user.father_name })
       this.setState({ userfilial: response.data, filials: filials })
     });
   }
@@ -62,7 +62,7 @@ class UsersFilial extends Component {
     findBankUser(data).then(response => {
       const filials = []
       response.filials.forEach(filial => filials.push({ id: filial.id_filial, text: filial.address }))
-      response.data.forEach(user => user.fio = user.surname + ' ' + user.name + ' ' + user.father_name)
+      response.data.map(user => { user.fio = user.surname + ' ' + user.name + ' ' + user.father_name })
       this.setState({ userfilial: response.data, filials: filials })
     })
   }

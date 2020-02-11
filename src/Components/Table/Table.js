@@ -74,12 +74,12 @@ class Table extends React.Component {
   render() {
     let header = this.props.header.map(col => this.props.hideRows && !this.props.hideRows.includes(col.key) && <th key={col.key}>{col.name}</th>);
 
-    let content = this.props.data.map(el => {
+    let content = this.props.data.map((el, index) => {
 
-      let data = this.props.header.map(col => this.props.hideRows && !this.props.hideRows.includes(col.key) && <td key={el[col.key]}>{el[col.key]}</td>);
+      let data = this.props.header.map(col => this.props.hideRows && !this.props.hideRows.includes(col.key) && <td key={index + col.key}>{el[col.key]}</td>);
 
       return data && (
-        <tr key={el.id_filial + el.address}>
+        <tr key={index}>
           {this.props.control_input && <td>
             <input
               type="radio"
@@ -95,7 +95,7 @@ class Table extends React.Component {
 
     let newHeader = this.props.header.filter(el => el.key != this.props.thForTable)
 
-    let insert = newHeader.map(el => <label key={el.key} htmlFor="name" className='alertName'>
+    let insert = newHeader.map(el => <label key={Math.random() * 1000} htmlFor="name" className='alertName'>
       {el.name}
       {el.type === 'select' ? <select onChange={this.inputChange} name={el.key}>{el.options && el.options.map(option => <option key={option.id} value={option.text}>{option.text}</option>)}</select> :
         <input
