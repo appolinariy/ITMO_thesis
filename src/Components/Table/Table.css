@@ -1,5 +1,5 @@
 table {
-    background: #e1e7e9;
+    background: #fff;
     width: 100%;
     color: #292929;
     border-collapse: collapse;
@@ -8,21 +8,41 @@ table {
 
 .table_container {
     margin: 0 7%;
+    border-radius: 5px;
+}
+.table_container .filial{
+    width: 60%;
+    border-radius: 5px;
+    background-color: #f2f7f9;
+}
+.filial tr {
+    border-top: 1.3pt solid #fff;
 }
 
 th {
     height: 50px;
-    background: #ff4b5f;
-    color: #fff;     
+    background-color: #008cff42;
+    font-weight: unset;
+    font-size: 13pt;
+    padding-left: 20px; 
     vertical-align: middle;
+    text-align: left;
 }
 
 td {
-    border-bottom: 2pt solid #fff;
     height: 50%;
     padding: 10px;
-    text-align: center;
+    padding-left: 20px;
+    text-align: left;
 }
+
+tr {
+    border-top: 1.3pt solid rgba(196, 196, 196, 0.5);
+}
+tr:hover{
+    background-color: rgba(0, 149, 236, 0.1);
+}
+
 
 .add_row {
     display: flex;
@@ -52,9 +72,9 @@ select{
 }
 
 button {
-    background: #003891ed;
+    background: #42a5f5;
     border: 0;
-    border-radius: 4px;
+    border-radius: 20px;
     color: white;
     font-size: 11pt;
     width: 122px;
@@ -62,7 +82,7 @@ button {
 }
 button:hover {
     cursor: pointer;
-    background: #002d75ed;
+    background: #3a8fd4;
 }
 
 .button_container {
@@ -88,7 +108,6 @@ button.control_button {
     height: 15px;
     font-size: 12pt;
     padding: 13px 15px;
-    /* border-radius: 2px; */
     border: 1px solid #d2dce3;
     margin-right: 10px;
 }

@@ -37,32 +37,32 @@ class MainComponent extends Component {
         {this.props.history.location.pathname !== '/auth' &&
           (<header>
             <div className='icon'>
-              <img src={sovk} width='190px' alt='Совкомбанк' />
-              <p className='SystemName'>Cистема учета кредитных выплат</p>
+              <img src={sovk} width='120px' alt='Совкомбанк' />
+              <p className='SystemName'>СИСТЕМА УЧЕТА КРЕДИТНЫХ ВЫПЛАТ</p>
             </div>
             <div className='links'>
-              <p>
+              <div className='modul'>
                 <Link to='/filials'>
                   Справочник
             </Link>
-              </p>
-              <p>
+              </div>
+              <div className='modul'>
                 <Link to='/borrower'>
                   Заемщики
             </Link>
-              </p>
-              <p>
+              </div>
+              <div className='modul'>
                 <Link to='debt'>
                   Задолженности
             </Link>
-              </p>
-              <p>
+              </div>
+              <div className='modul'>
                 <Link to='/systemuser'>
                   Администрирование
             </Link>
-              </p>
+              </div>
+              <input className='logout' type='button' value='Выйти' onClick={this.logout} />
             </div>
-            <input className='logout' type='button' value='Выйти' onClick={this.logout} />
           </header>)}
         <Switch>
           <Route path='/borrower'>
@@ -75,7 +75,7 @@ class MainComponent extends Component {
             <div className='main'><SystemUser user={this.state.user} /></div>
           </Route>
           <Route path='/filials'>
-            <div className='main'><Filial /></div>
+            <div className='main filial'><Filial /></div>
           </Route>
           <Route path='/auth'>
             <Authorization />

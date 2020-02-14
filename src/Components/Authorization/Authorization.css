@@ -9,16 +9,20 @@ main{
     flex-direction: column;
 }
 .mainblock{
-    width: 40%;
-    height: 63%;
+    width: 45%;
+    height: 65%;
     background-color: #fff;
     margin: auto;
     font-size: 13pt;
     padding-top: 45px;
     display: flex;
+    border-radius: 5px;
     flex-direction: column;
     box-shadow: 0px 0px 30px 0px #2929293a;
     align-items: center;
+}
+img{
+    margin: 15px;
 }
 label,input {
     display: block;
@@ -30,29 +34,28 @@ label{
 }
 .mainblock input[type='text'],[type='password']{
     margin: auto;
-    width: 335px;
+    width: 360px;
     height: 25px;
     font-size: 12pt;
-    /* border-radius: 2px; */
     padding: 13px 15px;
     border: 1px solid #d2dce3;
 }
 input[type='text']:hover,[type='password']:hover{
-    border: 1px solid #2a5fbb;  
+    border: 1px solid #3b92da;  
     transition: 0.3s;    
 }
 input[type='submit']{
-    background: #ff4b5f;
+    background: rgba(86, 170, 60, 0.938);
     border: 0;
     color: white;
-    width: 160px;
+    width: 48%;
     height: 45px;
     float: right;
-    border-radius: 5px;
-    margin-top: 25px;
+    border-radius: 20px;
+    margin-top: 30px;
     font-size: 12.3pt;
 }
 input[type='submit']:hover{
-    background-color: #e74558;
+    background-color: rgb(80, 160, 55);
     cursor: pointer;
 }
