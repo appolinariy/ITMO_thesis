@@ -6,15 +6,19 @@ table {
     font-size: 16px;
 }
 
-.table_container {
-    margin: 0 7%;
+.table_container .borrower, .filialUser{
+    max-width: 90%;
     border-radius: 5px;
+    margin: 0 auto 0 auto;
 }
+
 .table_container .filial{
     width: 60%;
+    margin: 0 7%;
     border-radius: 5px;
     background-color: #f2f7f9;
 }
+
 .filial tr {
     border-top: 1.3pt solid #fff;
 }
@@ -27,6 +31,12 @@ th {
     padding-left: 20px; 
     vertical-align: middle;
     text-align: left;
+}
+th:first-child {
+    border-radius: 5px 0 0 0;
+}
+th:last-child {
+    border-radius: 0 5px 0 0;
 }
 
 td {
@@ -43,7 +53,6 @@ tr:hover{
     background-color: rgba(0, 149, 236, 0.1);
 }
 
-
 .add_row {
     display: flex;
     flex-direction: column;
@@ -57,7 +66,7 @@ tr:hover{
     height: 30px;
     float: right;
     box-shadow: inset 0px 5px 5px rgba(0, 0, 0, 0.1);
-    font-size: 11pt;
+    font-size: 12pt;
 }
 select{
     width: 281px;
@@ -76,9 +85,10 @@ button {
     border: 0;
     border-radius: 20px;
     color: white;
-    font-size: 11pt;
-    width: 122px;
-    height: 37px;
+    font-size: 12pt;
+    margin-right: 8px;
+    width: 140px;
+    height: 39px;
 }
 button:hover {
     cursor: pointer;
@@ -94,20 +104,33 @@ button:hover {
     flex-direction: row-reverse;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 40px;
     width: 100%;
     box-shadow: none;
-    margin-top: 2%;
+    padding: 28px 0 28px 0;
+}
+.button_container {
+    margin-right: 3.8%;
+}
+.findBlock {
+    margin-left: 80px;
 }
 
 button.control_button {
     margin-left: 5px;
 }
 
+.findBlock {
+    display: inline-flex;
+    align-items: center;
+ }
+
 .search_bar {
     width: 400px;
-    height: 15px;
+    height: 18px;
     font-size: 12pt;
     padding: 13px 15px;
+    border-radius: 5px;
     border: 1px solid #d2dce3;
     margin-right: 10px;
 }
@@ -120,6 +143,7 @@ button.control_button {
     border-radius: 25px;
     vertical-align: middle;
     padding-top: 5px;
+    margin-left: 5px;
     width: 42px;
     height: 42px;
 }
@@ -132,7 +156,7 @@ button.control_button {
     all: unset;
     width: 30px;
     height: 32px;
-    margin: -4px 5px 0 -40px;
+    margin: -1px 5px 0 -40px;
     text-align: center;
     font-size: 1.5em;
     font-weight: 200;

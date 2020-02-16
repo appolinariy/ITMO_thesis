@@ -93,7 +93,7 @@ class Table extends React.Component {
       );
     });
 
-    let newHeader = this.props.header.filter(el => el.key != this.props.thForTable)
+    let newHeader = this.props.header.filter(el => el.key !== this.props.thForTable)
 
     let insert = newHeader.map(el => <label key={Math.random() * 1000} htmlFor="name" className='alertName'>
       {el.name}
@@ -130,7 +130,7 @@ class Table extends React.Component {
           </div>
         )}
         {this.props.header_display && <header className='table_header'>
-          <div>
+          <div className='button_container'>
             {this.props.onAdd && <button className='control_button' onClick={() => this.setState({ show: true })}>Добавить</button>}
             {this.props.onUpdate && <button className='control_button' onClick={() => {
               if (this.state.value) {
@@ -141,11 +141,11 @@ class Table extends React.Component {
             {this.props.onDelete && <button className='control_button' onClick={() => this.handleDelete(this.state.value)}>Удалить</button>}
           </div>
 
-          {this.props.onFind && <form className={this.props.classNameFind} onSubmit={this.findItem} >
+          {this.props.onFind && <form className='findBlock' onSubmit={this.findItem} >
             <input className='search_bar' type='text' name='find' autoComplete='off' placeholder='Поиск' value={this.state.findVal} onChange={e => this.setState({ findVal: e.target.value })} />
             <button className='cancel_button' onClick={this.cancelFinding}>×</button>
             <button className='search_button' type='submit'>
-              <img src={search_img} width='26px' alt='Поиск' />
+              <img src={search_img} width='25px' alt='Поиск' />
             </button>
           </form>}
         </header>}

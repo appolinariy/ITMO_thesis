@@ -21,7 +21,7 @@ main{
     box-shadow: 0px 0px 30px 0px #2929293a;
     align-items: center;
 }
-img{
+img .bankIcon{
     margin: 15px;
 }
 label,input {

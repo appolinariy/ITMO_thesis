@@ -34,7 +34,7 @@ class Authorization extends Component {
     return (
       <main>
         <div className='mainblock'>
-          <img src={sovk} width='30%' alt='Совкомбанк' />
+          <img className='bankIcon' src={sovk} width='30%' alt='Совкомбанк' />
           <h3>ВХОД В СИСТЕМУ УЧЕТА КРЕДИТНЫХ ВЫПЛАТ</h3>
           <form onSubmit={this.handleSubmit}>
             <label>Введите логин:</label>

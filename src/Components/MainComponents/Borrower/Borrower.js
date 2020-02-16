@@ -90,8 +90,8 @@ class Borrower extends Component {
     render() {
         return (
             <Table
+                className={'borrower'}
                 classNameForm={'clients'}
-                classNameFind={'findBlock'}
                 onAdd={this.onAddRow}
                 onDelete={this.onDeleteRow}
                 onUpdate={this.onUpdateRow}

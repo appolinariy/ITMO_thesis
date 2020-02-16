@@ -1,9 +1,5 @@
 .userfilial{
-   overflow-y: scroll;
-   max-height: 350px;
-}
-
-.findBlock {
-   display: inline-flex;
-   align-items: center;
+   overflow-y: auto;
+   overflow-x: auto;
+   max-height: 374px;
 }

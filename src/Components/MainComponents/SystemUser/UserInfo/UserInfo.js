@@ -29,7 +29,7 @@ class UserInfo extends Component {
     render() {
         return (
             <>
-                <div className='currentuser'>
+                {/* <div className='currentuser'>
                     <p>Текущий пользователь в системе</p>
                 </div>
                 <Table
@@ -37,7 +37,7 @@ class UserInfo extends Component {
                     header={this.state.header}
                     data={this.state.userinfo}
                     keyCol={this.state.keyCol}
-                />
+                /> */}
             </>
         );
     }
