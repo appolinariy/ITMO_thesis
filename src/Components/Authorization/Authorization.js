@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './Authorization.css';
 import { authorization } from "../../libs/effects";
 import { withRouter } from "react-router";
-import sovk from "./sovk.png";
+import logo1 from "./logo1.png";
 
 class Authorization extends Component {
   state = {
@@ -34,7 +34,7 @@ class Authorization extends Component {
     return (
       <main>
         <div className='mainblock'>
-          <img className='bankIcon' src={sovk} width='30%' alt='Совкомбанк' />
+          <img className='bankIcon' src={logo1} width='35%' alt='Совкомбанк' />
           <h3>ВХОД В СИСТЕМУ УЧЕТА КРЕДИТНЫХ ВЫПЛАТ</h3>
           <form onSubmit={this.handleSubmit}>
             <label>Введите логин:</label>

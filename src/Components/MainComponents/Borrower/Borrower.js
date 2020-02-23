@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Borrower.css';
-import { getAllClients, createClient, updateClient, deleteClient } from '../../../libs/effects';
+import { getAllClients, createClient, updateClient, deleteClient, findClient } from '../../../libs/effects';
 
 import Table from "../../Table/Table";
 
@@ -84,7 +84,10 @@ class Borrower extends Component {
     }
 
     onFind = data => {
-        this.setState({ clients: data })
+        findClient(data).then(response => {
+            response.data.forEach(borrower => borrower.fio = borrower.surname + ' ' + borrower.name + ' ' + borrower.father_name);
+            this.setState({ clients: response.data })
+        })
     }
 
     render() {

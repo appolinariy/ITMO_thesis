@@ -24,6 +24,9 @@ main{
 img .bankIcon{
     margin: 15px;
 }
+h3 {
+    margin-top: 35px;
+}
 label,input {
     display: block;
 }

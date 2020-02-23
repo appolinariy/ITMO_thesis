@@ -1,5 +1,6 @@
 import { get, post, update, del } from './requests';
 
+//AUTH
 export const authorization = (login, password) => {
     return post('/auth', { login, password })
         .then(response => {
@@ -9,12 +10,14 @@ export const authorization = (login, password) => {
         .catch(error => console.log(error))
 }
 
+//FILIALS
 export const getFilials = () => {
     return get('/filials')
         .then(response => response.data)
         .catch(error => error)
 }
 
+//CLIENTS (Borrowers)
 export const getAllClients = () => {
     return get(`/allclients`)
         .then(response => response.data)
@@ -39,6 +42,19 @@ export const deleteClient = id_client => {
         .catch(error => error)
 }
 
+export const findClient = (surname) => {
+    if (surname.length) {
+        return get(`/findclients/${surname}`)
+            .then(res => res)
+            .catch(err => console.log(err))
+    } else {
+        return get(`/allclients`)
+            .then(response => response)
+            .catch(error => error)
+    }
+}
+
+//ADMINKA
 export const getBankUserById = id_user => {
     return get(`/bankuser/${id_user}`)
         .then(response => response.data)

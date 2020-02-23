@@ -4,7 +4,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import sovk from "./sovk.png"
+import logo1 from "./logo1.png"
 import { withRouter } from "react-router";
 import './MainComponent.css';
 import Filial from './Filial/Filial';
@@ -37,7 +37,7 @@ class MainComponent extends Component {
         {this.props.history.location.pathname !== '/auth' &&
           (<header>
             <div className='icon'>
-              <img src={sovk} width='120px' alt='Совкомбанк' />
+              <img src={logo1} width='25%' alt='Совкомбанк' />
               <p className='SystemName'>СИСТЕМА УЧЕТА КРЕДИТНЫХ ВЫПЛАТ</p>
             </div>
             <div className='links'>
