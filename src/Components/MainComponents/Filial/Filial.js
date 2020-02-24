@@ -8,7 +8,6 @@ class Filial extends Component {
     state = {
         filialinfo: [],
         header: [
-            // { key: 'id_filial', name: '№' },
             { key: 'address', name: 'Адрес филиала' },
             { key: 'phone_number', name: 'Контактный номер телефона' },
         ],
@@ -17,7 +16,6 @@ class Filial extends Component {
 
     componentDidMount() {
         printFilials().then(response => {
-            console.log(response)
             this.setState({ filialinfo: response })
         });
     }
@@ -32,8 +30,8 @@ class Filial extends Component {
                     data={this.state.filialinfo}
                     keyCol={this.state.keyCol}
                 />
+                {/* <p>Ссылка на официальный сайт: WEB_PAGE</p> */}
             </>
-
         );
     }
 }

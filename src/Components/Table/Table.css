@@ -1,159 +1,222 @@
 table {
-    background: #ccccccec;
-    width: 100%;
-    border-collapse: collapse;
-    border: 1pt solid white;
-    font-size: 16px;
+  background: #fff;
+  width: 100%;
+  color: #292929;
+  border-collapse: collapse;
+  font-size: 16px;
 }
 
-.table_container {
-    margin: 0 7%;
+.table_container .borrower,
+.filialUser {
+  max-width: 90%;
+  border-radius: 5px;
+  margin: 0 auto 0 auto;
+}
+
+.table_container .filial {
+  width: 60%;
+  margin: 0 7%;
+  border-radius: 5px;
+  background-color: #f2f7f9;
+}
+
+.filial tr {
+  border-top: 1.3pt solid #fff;
 }
 
 th {
-    height: 50px;
-    background: #ff4b60;
-    color: white;  
-    vertical-align: middle;
+  height: 50px;
+  background-color: #008cff42;
+  font-weight: unset;
+  color: #001d3398;
+  font-weight: bolder;
+  font-size: 12pt;
+  padding-left: 20px;
+  vertical-align: middle;
+  text-align: left;
+}
+th:first-child {
+  border-radius: 5px 0 0 0;
+}
+th:last-child {
+  border-radius: 0 5px 0 0;
 }
 
 td {
-    border: 2pt solid white;
-    height: 50%;
-    padding: 10px;
-    text-align: center;
+  height: 50%;
+  padding: 10px;
+  padding-left: 20px;
+  text-align: left;
+}
+
+tr {
+  border-top: 1.3pt solid rgba(196, 196, 196, 0.5);
+}
+tr:hover {
+  background-color: rgba(0, 149, 236, 0.1);
 }
 
 .add_row {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
-.add_row input[type='text'], select{
-    background: #E0E0E0;
-    border: 1px solid #000000;
-    border-radius: 2px;
-    padding-left: 10px;
-    width: 270px;
-    height: 30px;
-    float: right;
-    box-shadow: inset 0px 5px 5px rgba(0, 0, 0, 0.1);
-    font-size: 11pt;
+.radio_btn {
+  transform: scale(1.3);
+  cursor: pointer;
+  outline: none;
 }
-select{
-    width: 281px;
-    height: 35px;
+
+.add_row input[type="text"],
+select {
+  background: #e0e0e0;
+  border: 1.2px solid #000000;
+  padding-left: 10px;
+  width: 270px;
+  height: 30px;
+  float: right;
+  outline: none;
+  box-shadow: inset 0px 5px 5px rgba(0, 0, 0, 0.1);
+  font-size: 12pt;
 }
-.add_row input[type='text']:hover, option:hover{
-    border: 1px solid #2e69ce;        
+select {
+  width: 281px;
+  height: 35px;
 }
-.add_row input[type='text']:focus{
-    background: rgba(255, 221, 68, 0.863);        
-}
-.alertName {
-    padding-top: 10px;
+.add_row input[type="text"]:hover,
+option:hover {
+  border: 1.2px solid #408ece;
 }
 
 button {
-    background: #003891ed;
-    border: 0;
-    border-radius: 4px;
-    color: white;
-    font-size: 11pt;
-    width: 120px;
-    height: 35px;
+  background: #42a5f5;
+  border: 0;
+  border-radius: 20px;
+  color: white;
+  font-size: 12pt;
+  margin-right: 8px;
+  width: 140px;
+  height: 39px;
+  outline: none;
 }
 button:hover {
-    cursor: pointer;
-    background: #002d75ed;
+  cursor: pointer;
+  background: #3a8fd4;
 }
 
 .button_container {
-    float: right;
+  float: right;
 }
 
 .table_header {
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    box-shadow: none;
-    margin-top: 2%;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+  width: 100%;
+  box-shadow: none;
+  padding: 28px 0 28px 0;
+}
+.button_container {
+  margin-right: 3.8%;
+}
+.findBlock {
+  margin-left: 80px;
 }
 
 button.control_button {
-    margin-left: 5px;
+  margin-left: 5px;
+}
+
+.findBlock {
+  display: inline-flex;
+  align-items: center;
 }
 
 .search_bar {
-    width: 400px;
-    height: 15px;
-    font-size: 12pt;
-    border-radius: 4px;
-    padding: 13px 15px;
-    border: 1px solid #d2dce3;
-    margin-right: 10px;
-}
-.search_bar:hover {
-    border: 1px solid #2e69ce;
+  width: 400px;
+  height: 18px;
+  font-size: 12pt;
+  padding: 13px 15px;
+  border-radius: 5px;
+  border: 1px solid #d2dce3;
+  outline: none;
+  margin-right: 10px;
 }
 
 .search_button {
-    background: #fff;
-    border-radius: 25px;
-    vertical-align: middle;
-    padding-top: 5px;
-    width: 42px;
-    height: 42px;
+  background: #fff;
+  border-radius: 25px;
+  vertical-align: middle;
+  padding-top: 5px;
+  margin-left: 5px;
+  width: 42px;
+  height: 42px;
+  outline: none;
 }
 .search_button:hover {
-    background: #E0E0E0;
-    transition: 0.3s;
+  background: #e0e0e0;
 }
 
 .cancel_button {
-    all: unset;
-    width: 30px;
-    height: 32px;
-    margin: -4px 5px 0 -40px;
-    text-align: center;
-    font-size: 1.5em;
-    font-weight: 200;
-    z-index: 1;
+  all: unset;
+  width: 30px;
+  height: 32px;
+  margin: -1px 5px 0 -40px;
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: 200;
+  outline: none;
+  z-index: 1;
 }
 
 .cancel_button:hover {
-    cursor: pointer;
-    background-color: unset;
+  cursor: pointer;
+  background-color: unset;
 }
 
 .alertBlock {
-    position: absolute;
-    width: 100%;
-    height: 100%; 
-    background-color: rgba(0, 0, 0, 0.4);
-    z-index: 2;
-    top: 0;
-    left: 0;
-    font-size: 12pt;
-    overflow-y: scroll;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 2;
+  top: 0;
+  left: 0;
+  font-size: 12pt;
 }
 
+.cancelAlert {
+  all: unset;
+  height: 2px;
+  margin-left: 94%;
+  font-size: 30px;
+}
+.cancelAlert:hover {
+  background-color: unset;
+}
 .add_row.alertForm {
-    width: 30%;
-    margin: auto;
-    margin-top: 8%;
-    background-color: white;
-    padding: 30px;
+  width: 32%;
+  margin: 5% auto 0 auto;
+  background-color: white;
+  padding: 10px 0 30px 30px;
+}
+
+.inputBlock {
+  max-height: 436px;
+  padding-right: 15px;
+  overflow-y: auto;
 }
 
 .alertButton {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 30px;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 30px;
+  margin-right: 10px;
 }
 
-.buttonOk {
-   margin-right: 8px;
+.buttonEdit {
+  margin-right: 10px;
+  width: 187px;
 }

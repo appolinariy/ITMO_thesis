@@ -5,8 +5,7 @@ const handleError = (response) => {
     return response
 }
 
-const baseUrl = 'http://localhost:3000'
-// const baseUrl = 'http://192.168.19.198:3000'
+const baseUrl = 'http://localhost:3001';
 
 export const get = url =>
     fetch(baseUrl + url, {

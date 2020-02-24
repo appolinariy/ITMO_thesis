@@ -7,15 +7,19 @@ import Table from "../../../Table/Table";
 class UsersFilial extends Component {
   state = {
     userfilial: [],
-    hideRows: ['password'],
+    hideRows: ['password', 'surname', 'name', 'father_name'],
+    thForTable: ['fio'],
     keyCol: 'login'
   }
 
   componentDidMount() {
     printAllBankUser().then(response => {
-      console.log(response)
       const filials = []
       response.filials.forEach(filial => filials.push({ id: filial.id_filial, text: filial.address }))
+      response.data.map(user => {
+        user.fio = user.surname + ' ' + user.name + ' ' + user.father_name
+        return user
+      })
       this.setState({ userfilial: response.data, filials: filials })
     });
   }
@@ -61,6 +65,10 @@ class UsersFilial extends Component {
     findBankUser(data).then(response => {
       const filials = []
       response.filials.forEach(filial => filials.push({ id: filial.id_filial, text: filial.address }))
+      response.data.map(user => {
+        user.fio = user.surname + ' ' + user.name + ' ' + user.father_name
+        return user
+      })
       this.setState({ userfilial: response.data, filials: filials })
     })
   }
@@ -70,6 +78,7 @@ class UsersFilial extends Component {
       { key: 'surname', name: 'Фамилия' },
       { key: 'name', name: 'Имя' },
       { key: 'father_name', name: 'Отчество' },
+      { key: 'fio', name: 'ФИО' },
       { key: 'position', name: 'Должность' },
       { key: 'login', name: 'Логин' },
       { key: 'password', name: 'Пароль' },
@@ -78,8 +87,8 @@ class UsersFilial extends Component {
     ];
     return (
       <Table
+        className={'filialUser'}
         classNameForm={'userfilial'}
-        classNameFind={'findBlock'}
         onAdd={this.onAddRow}
         onUpdate={this.onUpdateRow}
         onFind={this.onFind}
@@ -90,6 +99,8 @@ class UsersFilial extends Component {
         header_display
         findCol='surname'
         hideRows={this.state.hideRows}
+        thForTable={this.state.thForTable}
+        alert_name='данных о пользователе'
       />
     );
   }
