@@ -27,7 +27,9 @@ th {
     height: 50px;
     background-color: #008cff42;
     font-weight: unset;
-    font-size: 13pt;
+    color: #001d3398;
+    font-weight: bolder;
+    font-size: 12pt;
     padding-left: 20px; 
     vertical-align: middle;
     text-align: left;
@@ -65,6 +67,7 @@ tr:hover{
     width: 270px;
     height: 30px;
     float: right;
+    outline: none;
     box-shadow: inset 0px 5px 5px rgba(0, 0, 0, 0.1);
     font-size: 12pt;
 }
@@ -73,7 +76,7 @@ select{
     height: 35px;
 }
 .add_row input[type='text']:hover, option:hover{
-    border: 1px solid #2e69ce;        
+    border: 1.2px solid #408ece;       
 }
 
 .alertName {
@@ -89,6 +92,7 @@ button {
     margin-right: 8px;
     width: 140px;
     height: 39px;
+    outline: none;
 }
 button:hover {
     cursor: pointer;
@@ -132,10 +136,8 @@ button.control_button {
     padding: 13px 15px;
     border-radius: 5px;
     border: 1px solid #d2dce3;
+    outline: none;
     margin-right: 10px;
-}
-.search_bar:hover {
-    border: 1px solid #2e69ce;
 }
 
 .search_button {
@@ -146,10 +148,10 @@ button.control_button {
     margin-left: 5px;
     width: 42px;
     height: 42px;
+    outline: none;
 }
 .search_button:hover {
     background: #E0E0E0;
-    transition: 0.3s;
 }
 
 .cancel_button {
@@ -160,6 +162,7 @@ button.control_button {
     text-align: center;
     font-size: 1.5em;
     font-weight: 200;
+    outline: none;
     z-index: 1;
 }
 
@@ -203,10 +206,6 @@ button.control_button {
 }
 
 .buttonEdit {
-   margin-right: 8px;
-   width: 175px;
+   margin-right: 10px;
+   width: 187px;
 }
-
-.buttonAdd {
-    margin-right: 8px;
- }

@@ -120,7 +120,7 @@ class Table extends React.Component {
               onSubmit={this.state.edit ? this.handleEdit : this.handleAdd}
               onClick={e => e.stopPropagation()}>
               <button className='cancelAlert' onClick={() => this.setState({ show: false })}>×</button>
-              {this.state.edit ? <h3>Окно редактирования {this.props.alert_name} </h3> : <h3>Окно добавления {this.props.alert_name} </h3>}
+              {this.state.edit ? <h4>Окно редактирования {this.props.alert_name} </h4> : <h4>Окно добавления {this.props.alert_name} </h4>}
               {insert}
               <div className='alertButton'>
                 {this.state.edit ? <button className='buttonEdit' type="submit">Сохранить изменения</button> : <button className='buttonAdd' type="submit">Добавить</button>}
@@ -145,7 +145,7 @@ class Table extends React.Component {
             <input className='search_bar' type='text' name='find' autoComplete='off' placeholder='Поиск' value={this.state.findVal} onChange={e => this.setState({ findVal: e.target.value })} />
             <button className='cancel_button' onClick={this.cancelFinding}>×</button>
             <button className='search_button' type='submit'>
-              <img src={search_img} width='25px' alt='Поиск' />
+              <img src={search_img} width='24px' alt='Поиск' />
             </button>
           </form>}
         </header>}

@@ -4,7 +4,7 @@ import { withRouter } from "react-router-dom";
 import './UserInfo.css';
 import { getBankUserById } from '../../../../libs/effects';
 
-import Table from "../../../Table/Table";
+// import Table from "../../../Table/Table";
 
 class UserInfo extends Component {
     state = {

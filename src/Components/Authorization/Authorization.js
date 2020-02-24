@@ -35,7 +35,7 @@ class Authorization extends Component {
       <main>
         <div className='mainblock'>
           <img className='bankIcon' src={logo1} width='35%' alt='Совкомбанк' />
-          <h3>ВХОД В СИСТЕМУ УЧЕТА КРЕДИТНЫХ ВЫПЛАТ</h3>
+          <h4>ВХОД В СИСТЕМУ УЧЕТА КРЕДИТНЫХ ВЫПЛАТ</h4>
           <form onSubmit={this.handleSubmit}>
             <label>Введите логин:</label>
             <input type='text' autoComplete='disabled' name='login' placeholder='Логин' value={this.state.values.login} onChange={this.handleChange} />

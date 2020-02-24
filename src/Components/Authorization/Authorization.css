@@ -24,9 +24,10 @@ main{
 img .bankIcon{
     margin: 15px;
 }
-h3 {
+h4 {
     margin-top: 35px;
 }
+
 label,input {
     display: block;
 }
@@ -37,16 +38,17 @@ label{
 }
 .mainblock input[type='text'],[type='password']{
     margin: auto;
+    outline: none;
     width: 360px;
     height: 25px;
     font-size: 12pt;
     padding: 13px 15px;
     border: 1px solid #d2dce3;
 }
-input[type='text']:hover,[type='password']:hover{
-    border: 1px solid #3b92da;  
-    transition: 0.3s;    
+input[type='text']:hover, input[type='text']:focus,[type='password']:hover, [type='password']:focus{
+    border: 1.3px solid #4ba3ebe1;     
 }
+
 input[type='submit']{
     background: rgba(86, 170, 60, 0.938);
     border: 0;
@@ -56,6 +58,7 @@ input[type='submit']{
     float: right;
     border-radius: 20px;
     margin-top: 30px;
+    outline: none;
     font-size: 12.3pt;
 }
 input[type='submit']:hover{
