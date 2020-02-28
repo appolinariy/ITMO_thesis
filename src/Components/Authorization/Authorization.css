@@ -1,67 +1,72 @@
-main{
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #f2f7f9;
-    color: #292929;
-    display: flex;
-    flex-direction: column;
+main {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f2f7f9;
+  color: #292929;
+  display: flex;
+  flex-direction: column;
 }
-.mainblock{
-    width: 45%;
-    height: 65%;
-    background-color: #fff;
-    margin: auto;
-    font-size: 13pt;
-    padding-top: 45px;
-    display: flex;
-    border-radius: 5px;
-    flex-direction: column;
-    box-shadow: 0px 0px 30px 0px #2929293a;
-    align-items: center;
+.mainblock {
+  width: 45%;
+  height: 65%;
+  background-color: #fff;
+  margin: auto;
+  font-size: 13pt;
+  padding-top: 45px;
+  display: flex;
+  border-radius: 5px;
+  flex-direction: column;
+  box-shadow: 0px 0px 30px 0px #2929293a;
+  align-items: center;
 }
-img .bankIcon{
-    margin: 15px;
+img .bankIcon {
+  margin: 15px;
 }
 h4 {
-    margin-top: 35px;
+  margin-top: 35px;
 }
 
-label,input {
-    display: block;
+label,
+input {
+  display: block;
 }
-label{
-    padding: 20px 0 5px 0;
-    margin: 0;
-    line-height: 22px;
+label {
+  padding: 20px 0 5px 0;
+  margin: 0;
+  line-height: 22px;
 }
-.mainblock input[type='text'],[type='password']{
-    margin: auto;
-    outline: none;
-    width: 360px;
-    height: 25px;
-    font-size: 12pt;
-    padding: 13px 15px;
-    border: 1px solid #d2dce3;
+.mainblock input[type="text"],
+[type="password"] {
+  margin: auto;
+  outline: none;
+  width: 360px;
+  height: 25px;
+  font-size: 12pt;
+  padding: 13px 15px;
+  border: 1.3px solid #d2dce3;
 }
-input[type='text']:hover, input[type='text']:focus,[type='password']:hover, [type='password']:focus{
-    border: 1.3px solid #4ba3ebe1;     
+input[type="text"]:hover,
+input[type="text"]:focus,
+[type="password"]:hover,
+[type="password"]:focus {
+  border: 1.3px solid #4ba3ebe1;
 }
 
-input[type='submit']{
-    background: rgba(86, 170, 60, 0.938);
-    border: 0;
-    color: white;
-    width: 48%;
-    height: 45px;
-    float: right;
-    border-radius: 20px;
-    margin-top: 30px;
-    outline: none;
-    font-size: 12.3pt;
+input[type="submit"] {
+  background: rgba(86, 170, 60, 0.938);
+  border: 0;
+  color: white;
+  width: 48%;
+  height: 45px;
+  float: right;
+  border-radius: 20px;
+  margin-top: 30px;
+  outline: none;
+  font-size: 12.3pt;
 }
-input[type='submit']:hover{
-    background-color: rgb(80, 160, 55);
-    cursor: pointer;
+input[type="submit"]:hover {
+  background-color: rgb(80, 160, 55);
+  cursor: pointer;
 }

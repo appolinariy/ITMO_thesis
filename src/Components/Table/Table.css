@@ -140,7 +140,7 @@ button.control_button {
   font-size: 12pt;
   padding: 13px 15px;
   border-radius: 5px;
-  border: 1px solid #d2dce3;
+  border: 1.3px solid #d2dce3;
   outline: none;
   margin-right: 10px;
 }
@@ -199,12 +199,13 @@ button.control_button {
 .add_row.alertForm {
   width: 32%;
   margin: 5% auto 0 auto;
+  border-radius: 3px;
   background-color: white;
   padding: 10px 0 30px 30px;
 }
 
 .inputBlock {
-  max-height: 436px;
+  max-height: 440px;
   padding-right: 15px;
   overflow-y: auto;
 }
