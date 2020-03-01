@@ -10,7 +10,8 @@ class Authorization extends Component {
       login: "",
       password: ""
     },
-    button: false
+    button: false,
+    log_in: 1
   };
 
   handleChange = event => {
@@ -24,12 +25,18 @@ class Authorization extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    authorization(this.state.values.login, this.state.values.password).then(
-      res => {
-        res && this.props.history.push("/filials");
-        window.location.reload();
-      }
-    );
+    if (!this.state.values.login || !this.state.values.password) {
+      this.setState({ log_in: 3 });
+    } else {
+      authorization(this.state.values.login, this.state.values.password).then(
+        res => {
+          res && this.setState({ log_in: 1 });
+          res && this.props.history.push("/filials");
+          res && window.location.reload();
+          this.setState({ log_in: 2 });
+        }
+      );
+    }
   };
 
   render() {
@@ -57,6 +64,12 @@ class Authorization extends Component {
               value={this.state.values.password}
               onChange={this.handleChange}
             />
+            {this.state.log_in === 2 && (
+              <h4 className="incorrect">Ошибка: неверный логин или пароль</h4>
+            )}
+            {this.state.log_in === 3 && (
+              <h4 className="incorrect">Ошибка: не все поля были заполнены</h4>
+            )}
             <input type="submit" value="Войти в Систему" />
           </form>
         </div>

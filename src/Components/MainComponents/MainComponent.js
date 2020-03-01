@@ -41,7 +41,7 @@ class MainComponent extends Component {
                   this.state.user.name +
                   " " +
                   this.state.user.father_name}
-                <img className="userpic" src={user1} width="37px" alt="user" />
+                <img className="userpic" src={user1} width="35px" alt="user" />
               </div>
             </div>
             <div className="links">
