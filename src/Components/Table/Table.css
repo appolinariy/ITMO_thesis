@@ -67,8 +67,23 @@ tr:hover {
   outline: none;
 }
 
+.add_row input[type="password"] {
+  all: inherit;
+  background: #e0e0e0;
+  border: 1.2px solid #000000;
+  padding-left: 10px;
+  padding-top: 5px;
+  width: 270px;
+  height: 25px;
+  float: right;
+  outline: none;
+  box-shadow: inset 0px 5px 5px rgba(0, 0, 0, 0.1);
+  font-size: 12pt;
+}
+
 .add_row input[type="text"],
-select {
+.add_row input[type="email"],
+.add_row select {
   background: #e0e0e0;
   border: 1.2px solid #000000;
   padding-left: 10px;
@@ -79,12 +94,14 @@ select {
   box-shadow: inset 0px 5px 5px rgba(0, 0, 0, 0.1);
   font-size: 12pt;
 }
-select {
+.add_row select {
   width: 281px;
   height: 35px;
 }
 .add_row input[type="text"]:hover,
-option:hover {
+.add_row [type="password"]:hover,
+.add_row input[type="email"]:hover,
+.add_row option:hover {
   border: 1.2px solid #408ece;
 }
 

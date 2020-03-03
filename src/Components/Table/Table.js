@@ -112,7 +112,7 @@ class Table extends React.Component {
     });
 
     let newHeader = this.props.header.filter(
-      el => el.key !== this.props.thForTable
+      el => el.key != this.props.thForTable
     );
 
     return (

@@ -15,6 +15,7 @@ class UsersFilial extends Component {
     hideRows: ["password", "surname", "name", "father_name"],
     thForTable: ["fio"],
     keyCol: "login"
+    // rule: ["Администратор", "Экономист", "Юрист"]
   };
 
   componentDidMount() {
@@ -86,20 +87,64 @@ class UsersFilial extends Component {
 
   render() {
     let header = [
-      { key: "surname", name: "Фамилия" },
-      { key: "name", name: "Имя" },
-      { key: "father_name", name: "Отчество" },
-      { key: "fio", name: "ФИО" },
-      { key: "position", name: "Должность" },
-      { key: "login", name: "Логин" },
-      { key: "password", name: "Пароль" },
+      {
+        key: "surname",
+        name: "Фамилия",
+        type: "text",
+        pattern: /[А-Я][а-я]*/,
+        placeholder: "Иванов"
+      },
+      {
+        key: "name",
+        name: "Имя",
+        type: "text",
+        pattern: /[А-Я][а-я]*/,
+        placeholder: "Иван"
+      },
+      {
+        key: "father_name",
+        name: "Отчество",
+        type: "text",
+        pattern: /[А-Я][а-я]*/,
+        placeholder: "Иванович"
+      },
+      {
+        key: "position",
+        name: "Должность",
+        type: "text",
+        pattern: /^[А-Яа-яЁё\s]+$/,
+        placeholder: "Старший экономист"
+      },
+      {
+        key: "login",
+        name: "Логин",
+        type: "text",
+        pattern: /^[a-zA-Z][a-zA-Z0-9-_.]{3,20}$/,
+        placeholder: "ivan_1"
+      },
+      {
+        key: "password",
+        name: "Пароль",
+        type: "password",
+        pattern: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$/,
+        placeholder: "Passw0rd"
+      },
       {
         key: "address",
         name: "Филиал",
         type: "select",
-        options: this.state.filials
+        options: this.state.filials,
+        pattern: ""
       },
-      { key: "system_role", name: "Роль в системе" }
+      {
+        key: "system_role",
+        name: "Роль в системе",
+        type: "text",
+        // options: this.state.rule,
+        pattern: "",
+        placeholder: "Экономист"
+      },
+      { key: "fio", name: "ФИО" }
     ];
     return (
       <Table
