@@ -6,6 +6,7 @@ import { withRouter } from "react-router";
 import "./MainComponent.css";
 import Filial from "./Filial/Filial";
 import Borrower from "./Borrower/Borrower";
+import Contract from "./Contract/contract";
 import SystemUser from "./SystemUser/SystemUser";
 import Authorization from "../Authorization/Authorization";
 
@@ -52,7 +53,10 @@ class MainComponent extends Component {
                 <Link to="/borrower">Заемщики</Link>
               </div>
               <div className="modul">
-                <Link to="debt">Задолженности</Link>
+                <Link to="/contract">Контракты</Link>
+              </div>
+              <div className="modul">
+                <Link to="/debt">Выплаты</Link>
               </div>
               <div className="modul">
                 <Link to="/systemuser">Администрирование</Link>
@@ -72,9 +76,14 @@ class MainComponent extends Component {
               <Borrower />
             </div>
           </Route>
+          <Route path="/contract">
+            <div className="main">
+              <Contract />
+            </div>
+          </Route>
           <Route path="/debt">
             <div className="main">
-              <h1>Задолженности</h1>
+              <h1>Выплаты</h1>
             </div>
           </Route>
           <Route path="/systemuser">

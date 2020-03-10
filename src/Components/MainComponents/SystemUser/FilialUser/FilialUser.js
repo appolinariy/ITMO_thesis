@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./FilialUser.css";
 import {
-  getAllBankUser as printAllBankUser,
+  getAllBankUser,
   createBankUser,
   updateBankUser,
   findBankUser
@@ -14,12 +14,16 @@ class UsersFilial extends Component {
     userfilial: [],
     hideRows: ["password", "surname", "name", "father_name"],
     thForTable: ["fio"],
-    keyCol: "login"
-    // rule: ["Администратор", "Экономист", "Юрист"]
+    keyCol: "login",
+    rule: [
+      { id: 1, text: "Администратор" },
+      { id: 2, text: "Экономист" },
+      { id: 3, text: "Юрист" }
+    ]
   };
 
   componentDidMount() {
-    printAllBankUser().then(response => {
+    getAllBankUser().then(response => {
       const filials = [];
       response.filials.forEach(filial =>
         filials.push({ id: filial.id_filial, text: filial.address })
@@ -29,6 +33,7 @@ class UsersFilial extends Component {
         return user;
       });
       this.setState({ userfilial: response.data, filials: filials });
+      // console.log(this.state.filials);
     });
   }
 
@@ -87,6 +92,7 @@ class UsersFilial extends Component {
 
   render() {
     let header = [
+      { key: "fio", name: "ФИО" },
       {
         key: "surname",
         name: "Фамилия",
@@ -139,12 +145,11 @@ class UsersFilial extends Component {
       {
         key: "system_role",
         name: "Роль в системе",
-        type: "text",
-        // options: this.state.rule,
-        pattern: "",
-        placeholder: "Экономист"
-      },
-      { key: "fio", name: "ФИО" }
+        type: "select",
+        options: this.state.rule,
+        pattern: ""
+        // placeholder: "Экономист"
+      }
     ];
     return (
       <Table

@@ -16,7 +16,7 @@ export const Alert = ({
     <label key={index} className="alertName">
       {el.name}
       {el.type === "select" ? (
-        <select onChange={onChange} name={el.key} required>
+        <select onChange={onChange} value={data[el.key]} name={el.key} required>
           {el.options &&
             el.options.map(option => (
               <option key={option.id} value={option.text}>
@@ -29,7 +29,7 @@ export const Alert = ({
           type={el.type}
           autoComplete="off"
           id={el.key}
-          value={data[el.key]}
+          defaultValue={data[el.key]}
           onChange={onChange}
           name={el.key}
           pattern={el.pattern.source}
