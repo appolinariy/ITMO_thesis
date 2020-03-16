@@ -63,6 +63,27 @@ export const findClient = surname => {
   }
 };
 
+//CONTRACTS
+export const getContracts = () => {
+  return get(`/allcontracts`)
+    .then(response => response)
+    .catch(error => error);
+};
+
+export const findContract = number_contract => {
+  if (number_contract.length) {
+    return get(`/findcontract/${number_contract}`)
+      .then(res => res)
+      .catch(err => console.log(err));
+  } else {
+    return get(`/allcontracts`)
+      .then(response => response)
+      .catch(error => error);
+  }
+};
+
+//PAYMENTS
+
 //ADMINKA
 export const getBankUserById = id_user => {
   return get(`/bankuser/${id_user}`)
