@@ -70,6 +70,12 @@ export const getContracts = () => {
     .catch(error => error);
 };
 
+export const createContract = contract => {
+  return post(`/allcontract`, contract)
+    .then(response => response)
+    .catch(error => error);
+};
+
 export const findContract = number_contract => {
   if (number_contract.length) {
     return get(`/findcontract/${number_contract}`)

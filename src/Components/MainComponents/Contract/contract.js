@@ -1,7 +1,11 @@
 import React, { Component } from "react";
 import "./contract.css";
 import Table from "../../Table/Table";
-import { getContracts, findContract } from "../../../libs/effects";
+import {
+  getContracts,
+  createContract,
+  findContract
+} from "../../../libs/effects";
 
 class Contract extends Component {
   state = {
@@ -82,7 +86,14 @@ class Contract extends Component {
     }
   };
 
-  onAddRow = () => {};
+  onAddRow = () => {
+    // createContract(row).then(res => {
+    //   row.id_contract = res.id_contract;
+    // });
+    // this.setState({
+    //   clients: [...this.state.contracts, row]
+    // });
+  };
 
   onFind = data => {
     findContract(data).then(response => {
@@ -120,10 +131,10 @@ class Contract extends Component {
         keyCol={this.state.keyCol}
         control_input
         header_display
-        // findCol="surname"
+        findCol="number_contract"
         hideRows={this.state.hideRows}
         thForTable={this.state.thForTable}
-        alert_name="данные по контракту"
+        alert_name="данных по контракту"
       />
     );
   }
