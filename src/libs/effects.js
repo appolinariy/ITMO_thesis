@@ -71,7 +71,7 @@ export const getContracts = () => {
 };
 
 export const createContract = contract => {
-  return post(`/allcontract`, contract)
+  return post(`/allcontracts`, contract)
     .then(response => response)
     .catch(error => error);
 };

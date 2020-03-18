@@ -10,43 +10,26 @@ import {
 class Contract extends Component {
   state = {
     contracts: [],
-    hideRows: ["surname", "name", "father_name"],
-    thForTable: ["fio"],
-    keyCol: "number_contract",
-    header: [
-      {
-        key: "number_contract",
-        name: "Номер контракта"
-      },
-      {
-        key: "fio",
-        name: "Заемщик"
-      },
-      {
-        key: "start_date",
-        name: "Дата заключения"
-      },
-      {
-        key: "term_contract",
-        name: "Срок (мес.)"
-      },
-      {
-        key: "amount_contract",
-        name: "Сумма контракта (руб.)"
-      },
-      {
-        key: "year_percent",
-        name: "Процентная ставка (%)"
-      },
-      {
-        key: "status_contract",
-        name: "Статус контракта"
-      }
-    ]
+    percent_year: [
+      { id: 1, text: "8.0" },
+      { id: 2, text: "8.5" },
+      { id: 3, text: "9.0" },
+      { id: 4, text: "9.9" }
+    ],
+    thForTable: ["flag_payment"],
+    keyCol: "number_contract"
   };
 
   componentDidMount() {
     getContracts().then(response => {
+      const borrowers = [];
+      response.borrowers.forEach(borrower =>
+        borrowers.push({
+          id: borrower.id_client,
+          text:
+            borrower.surname + " " + borrower.name + " " + borrower.father_name
+        })
+      );
       response.data.map(element => {
         element.fio =
           element.surname + " " + element.name + " " + element.father_name;
@@ -59,13 +42,13 @@ class Contract extends Component {
           .split("/")
           .join(".");
         if (element.flag_payment) {
-          element.status_contract = "Завершен";
+          element.flag_payment = "Завершен";
         } else {
-          element.status_contract = "Активен";
+          element.flag_payment = "Активен";
         }
         return element;
       });
-      this.setState({ contracts: response.data });
+      this.setState({ contracts: response.data, borrowers: borrowers });
     });
   }
 
@@ -86,13 +69,14 @@ class Contract extends Component {
     }
   };
 
-  onAddRow = () => {
-    // createContract(row).then(res => {
-    //   row.id_contract = res.id_contract;
-    // });
-    // this.setState({
-    //   clients: [...this.state.contracts, row]
-    // });
+  onAddRow = row => {
+    console.log("put row", row);
+    createContract(row).then(res => {
+      row.id_contract = res.id_contract;
+    });
+    this.setState({
+      contracts: [...this.state.contracts, row]
+    });
   };
 
   onFind = data => {
@@ -120,13 +104,63 @@ class Contract extends Component {
   };
 
   render() {
+    let header = [
+      {
+        key: "number_contract",
+        name: "Номер контракта",
+        type: "text",
+        pattern: "",
+        placeholder: "346790"
+      },
+      {
+        key: "fio",
+        name: "Заемщик",
+        type: "select",
+        options: this.state.borrowers,
+        pattern: ""
+      },
+      {
+        key: "start_date",
+        name: "Дата заключения",
+        type: "text",
+        pattern: /[0-9]{2}\.[0-9]{2}\.[0-9]{4}/,
+        placeholder: "01.01.1995"
+      },
+      {
+        key: "term_contract",
+        name: "Срок (мес.)",
+        type: "text",
+        pattern: "",
+        placeholder: "12"
+      },
+      {
+        key: "amount_contract",
+        name: "Сумма контракта (руб.)",
+        type: "text",
+        pattern: "",
+        placeholder: "500000.0"
+      },
+      {
+        key: "year_percent",
+        name: "Процентная ставка (%)",
+        type: "select",
+        options: this.state.percent_year,
+        pattern: ""
+      },
+      {
+        key: "flag_payment",
+        name: "Статус контракта",
+        type: "text",
+        pattern: ""
+      }
+    ];
     return (
       <Table
         className={"filialUser"}
         classNameForm={"userfilial"}
         onAdd={this.onAddRow}
         onFind={this.onFind}
-        header={this.state.header}
+        header={header}
         data={this.state.contracts}
         keyCol={this.state.keyCol}
         control_input

@@ -33,7 +33,6 @@ class UsersFilial extends Component {
         return user;
       });
       this.setState({ userfilial: response.data, filials: filials });
-      // console.log(this.state.filials);
     });
   }
 
@@ -148,7 +147,6 @@ class UsersFilial extends Component {
         type: "select",
         options: this.state.rule,
         pattern: ""
-        // placeholder: "Экономист"
       }
     ];
     return (
