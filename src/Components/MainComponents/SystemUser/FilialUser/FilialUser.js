@@ -162,6 +162,7 @@ class UsersFilial extends Component {
         control_input
         header_display
         findCol="surname"
+        styles={{ marginTop: "6%" }}
         hideRows={this.state.hideRows}
         thForTable={this.state.thForTable}
         alert_name="данных о пользователе"

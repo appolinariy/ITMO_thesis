@@ -109,7 +109,7 @@ class Contract extends Component {
         key: "number_contract",
         name: "Номер контракта",
         type: "text",
-        pattern: "",
+        pattern: /{0-9}{6,}/,
         placeholder: "346790"
       },
       {
@@ -130,14 +130,14 @@ class Contract extends Component {
         key: "term_contract",
         name: "Срок (мес.)",
         type: "text",
-        pattern: "",
-        placeholder: "12"
+        pattern: /\d{1,2}/,
+        placeholder: "Кол-во месяцев: 3-96"
       },
       {
         key: "amount_contract",
         name: "Сумма контракта (руб.)",
         type: "text",
-        pattern: "",
+        pattern: /\d+(\.\d{1})?/,
         placeholder: "500000.0"
       },
       {

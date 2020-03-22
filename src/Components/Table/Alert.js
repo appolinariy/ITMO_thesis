@@ -12,9 +12,8 @@ export const Alert = ({
   handleEdit,
   styles
 }) => {
-  console.log(data, header);
   let insert = header.map((el, index) => {
-    if (el.type == "select") {
+    if (el.type === "select") {
       data[el.key] = data[el.key] ? data[el.key] : el.options[0].text;
     }
     return (

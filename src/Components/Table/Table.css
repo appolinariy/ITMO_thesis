@@ -204,6 +204,11 @@ button.control_button {
   font-size: 12pt;
 }
 
+.alertBlock h4 {
+  margin: 15px 0 40px 0;
+  color: #292929e5;
+}
+
 .cancelAlert {
   all: unset;
   height: 2px;
@@ -215,7 +220,7 @@ button.control_button {
 }
 .add_row.alertForm {
   width: 32%;
-  margin: 5% auto 0 auto;
+  margin: 10% auto 0 auto;
   border-radius: 3px;
   background-color: white;
   padding: 10px 0 30px 30px;
