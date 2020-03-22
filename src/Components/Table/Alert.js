@@ -12,30 +12,43 @@ export const Alert = ({
   handleEdit,
   styles
 }) => {
-  let insert = header.map((el, index) => (
-    <label key={index} className="alertName">
-      {el.name}
-      {el.type === "select" ? (
-        <select onChange={onChange} name={el.key}>
-          {el.options &&
-            el.options.map(option => (
-              <option key={option.id} value={option.text}>
-                {option.text}
-              </option>
-            ))}
-        </select>
-      ) : (
-        <input
-          type="text"
-          autoComplete="off"
-          id={el.key}
-          value={data[el.key]}
-          onChange={onChange}
-          name={el.key}
-        />
-      )}
-    </label>
-  ));
+  let insert = header.map((el, index) => {
+    if (el.type === "select") {
+      data[el.key] = data[el.key] ? data[el.key] : el.options[0].text;
+    }
+    return (
+      <label key={index} className="alertName">
+        {el.name}
+        {el.type === "select" ? (
+          <select
+            onChange={onChange}
+            value={data[el.key]}
+            name={el.key}
+            required
+          >
+            {el.options &&
+              el.options.map(option => (
+                <option key={option.id} value={option.text}>
+                  {option.text}
+                </option>
+              ))}
+          </select>
+        ) : (
+          <input
+            type={el.type}
+            autoComplete="off"
+            id={el.key}
+            defaultValue={data[el.key]}
+            onChange={onChange}
+            name={el.key}
+            pattern={el.pattern.source}
+            placeholder={el.placeholder}
+            required
+          />
+        )}
+      </label>
+    );
+  });
 
   return (
     <div className="alertBlock" onClick={onClose}>

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
-
 import "./UserInfo.css";
 import { getBankUserById } from "../../../../libs/effects";
 

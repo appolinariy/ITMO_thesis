@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import './Authorization.css';
+import React, { Component } from "react";
+import "./Authorization.css";
 import { authorization } from "../../libs/effects";
 import { withRouter } from "react-router";
 import logo1 from "./logo1.png";
@@ -7,10 +7,11 @@ import logo1 from "./logo1.png";
 class Authorization extends Component {
   state = {
     values: {
-      login: '',
-      password: ''
+      login: "",
+      password: ""
     },
-    button: false
+    button: false,
+    log_in: 1
   };
 
   handleChange = event => {
@@ -20,28 +21,56 @@ class Authorization extends Component {
         [event.target.name]: event.target.value
       }
     });
-  }
+  };
 
   handleSubmit = event => {
     event.preventDefault();
-    authorization(this.state.values.login, this.state.values.password).then(res => {
-      res && this.props.history.push('/filials')
-      window.location.reload()
-    })
-  }
+    if (!this.state.values.login || !this.state.values.password) {
+      this.setState({ log_in: 3 });
+    } else {
+      authorization(this.state.values.login, this.state.values.password).then(
+        res => {
+          res && this.setState({ log_in: 1 });
+          res && this.props.history.push("/filials");
+          res && window.location.reload();
+          this.setState({ log_in: 2 });
+        }
+      );
+    }
+  };
 
   render() {
     return (
       <main>
-        <div className='mainblock'>
-          <img className='bankIcon' src={logo1} width='35%' alt='Совкомбанк' />
+        <div className="mainblock">
+          <img className="bankIcon" src={logo1} width="35%" alt="Совкомбанк" />
           <h4>ВХОД В СИСТЕМУ УЧЕТА КРЕДИТНЫХ ВЫПЛАТ</h4>
           <form onSubmit={this.handleSubmit}>
             <label>Введите логин:</label>
-            <input type='text' autoComplete='disabled' name='login' placeholder='Логин' value={this.state.values.login} onChange={this.handleChange} />
+            <input
+              type="text"
+              autoComplete="disabled"
+              name="login"
+              placeholder="Логин"
+              value={this.state.values.login}
+              onChange={this.handleChange}
+            />
             <label>Введите пароль:</label>
-            <input type='password' autoComplete='disabled' name='password' placeholder='Пароль' value={this.state.values.password} onChange={this.handleChange} />
-            <input type='submit' value='Войти в Систему' />
+            <input
+              type="password"
+              autoComplete="disabled"
+              name="password"
+              placeholder="Пароль"
+              value={this.state.values.password}
+              onChange={this.handleChange}
+            />
+            {this.state.log_in === 2 && (
+              <h4 className="incorrect">Ошибка: неверный логин или пароль</h4>
+            )}
+            {this.state.log_in === 3 && (
+              <h4 className="incorrect">Ошибка: не все поля были заполнены</h4>
+            )}
+            <input type="submit" value="Войти в Систему" />
           </form>
         </div>
       </main>

@@ -14,17 +14,77 @@ class Borrower extends Component {
   state = {
     clients: [],
     header: [
-      { key: "surname", name: "Фамилия" },
-      { key: "name", name: "Имя" },
-      { key: "father_name", name: "Отчество" },
+      {
+        key: "surname",
+        name: "Фамилия",
+        type: "text",
+        pattern: /[А-Я][а-я]*/,
+        placeholder: "Иванов"
+      },
+      {
+        key: "name",
+        name: "Имя",
+        type: "text",
+        pattern: /[А-Я][а-я]*/,
+        placeholder: "Иван"
+      },
+      {
+        key: "father_name",
+        name: "Отчество",
+        type: "text",
+        pattern: /[А-Я][а-я]*/,
+        placeholder: "Иванович"
+      },
       { key: "fio", name: "ФИО" },
-      { key: "birthday", name: "Дата рождения" },
-      { key: "mail", name: "Адрес электронной почты" },
-      { key: "phone_number", name: "Номер телефона" },
-      { key: "address", name: "Адрес проживания" },
-      { key: "passport_number", name: "Номер паспорта" },
-      { key: "exp_passport_date", name: "Действителен до" },
-      { key: "passport_by", name: "Кем выдан" }
+      {
+        key: "birthday",
+        type: "text",
+        name: "Дата рождения",
+        pattern: /[0-9]{2}\.[0-9]{2}\.[0-9]{4}/,
+        placeholder: "01.01.1995"
+      },
+      {
+        key: "mail",
+        name: "Адрес электронной почты",
+        type: "email",
+        pattern: "",
+        placeholder: "name@mail.ru"
+      },
+      {
+        key: "phone_number",
+        name: "Номер телефона",
+        type: "text",
+        pattern: /^\+\d \(\d{3}\) \d{3}-\d{2}-\d{2}$/,
+        placeholder: "+7 (xxx) xxx-xx-xx"
+      },
+      {
+        key: "address",
+        name: "Адрес проживания",
+        type: "text",
+        pattern: "",
+        placeholder: "г. Москва, Ленинский пр.22/1, кв.1"
+      },
+      {
+        key: "passport_number",
+        name: "Номер паспорта",
+        type: "text",
+        pattern: /\d{4} \d{6}/,
+        placeholder: "4014 213528"
+      },
+      {
+        key: "exp_passport_date",
+        name: "Действителен до",
+        type: "text",
+        pattern: /[0-9]{2}\.[0-9]{2}\.[0-9]{4}/,
+        placeholder: "01.01.2025"
+      },
+      {
+        key: "passport_by",
+        name: "Кем выдан",
+        type: "text",
+        pattern: "",
+        placeholder: "240-003, ГУ МВД России по Лен.Области, 2018"
+      }
     ],
     hideRows: ["surname", "name", "father_name"],
     thForTable: ["fio"],
@@ -33,11 +93,19 @@ class Borrower extends Component {
 
   componentDidMount() {
     getAllClients().then(response => {
-      response.forEach(
-        borrower =>
-          (borrower.fio =
-            borrower.surname + " " + borrower.name + " " + borrower.father_name)
-      );
+      response.map(borrower => {
+        borrower.fio =
+          borrower.surname + " " + borrower.name + " " + borrower.father_name;
+        borrower.birthday = new Date(borrower.birthday)
+          .toLocaleDateString()
+          .split("/")
+          .join(".");
+        borrower.exp_passport_date = new Date(borrower.exp_passport_date)
+          .toLocaleDateString()
+          .split("/")
+          .join(".");
+        return borrower;
+      });
       this.setState({ clients: response });
     });
   }
@@ -96,11 +164,19 @@ class Borrower extends Component {
 
   onFind = data => {
     findClient(data).then(response => {
-      response.data.forEach(
-        borrower =>
-          (borrower.fio =
-            borrower.surname + " " + borrower.name + " " + borrower.father_name)
-      );
+      response.data.forEach(borrower => {
+        borrower.fio =
+          borrower.surname + " " + borrower.name + " " + borrower.father_name;
+        borrower.birthday = new Date(borrower.birthday)
+          .toLocaleDateString()
+          .split("/")
+          .join(".");
+        borrower.exp_passport_date = new Date(borrower.exp_passport_date)
+          .toLocaleDateString()
+          .split("/")
+          .join(".");
+        return borrower;
+      });
       this.setState({ clients: response.data });
     });
   };

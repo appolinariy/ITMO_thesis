@@ -67,8 +67,23 @@ tr:hover {
   outline: none;
 }
 
+.add_row input[type="password"] {
+  all: inherit;
+  background: #e0e0e0;
+  border: 1.2px solid #000000;
+  padding-left: 10px;
+  padding-top: 5px;
+  width: 270px;
+  height: 25px;
+  float: right;
+  outline: none;
+  box-shadow: inset 0px 5px 5px rgba(0, 0, 0, 0.1);
+  font-size: 12pt;
+}
+
 .add_row input[type="text"],
-select {
+.add_row input[type="email"],
+.add_row select {
   background: #e0e0e0;
   border: 1.2px solid #000000;
   padding-left: 10px;
@@ -79,12 +94,14 @@ select {
   box-shadow: inset 0px 5px 5px rgba(0, 0, 0, 0.1);
   font-size: 12pt;
 }
-select {
+.add_row select {
   width: 281px;
   height: 35px;
 }
 .add_row input[type="text"]:hover,
-option:hover {
+.add_row [type="password"]:hover,
+.add_row input[type="email"]:hover,
+.add_row option:hover {
   border: 1.2px solid #408ece;
 }
 
@@ -140,7 +157,7 @@ button.control_button {
   font-size: 12pt;
   padding: 13px 15px;
   border-radius: 5px;
-  border: 1px solid #d2dce3;
+  border: 1.3px solid #d2dce3;
   outline: none;
   margin-right: 10px;
 }
@@ -187,6 +204,11 @@ button.control_button {
   font-size: 12pt;
 }
 
+.alertBlock h4 {
+  margin: 15px 0 40px 0;
+  color: #292929e5;
+}
+
 .cancelAlert {
   all: unset;
   height: 2px;
@@ -198,13 +220,14 @@ button.control_button {
 }
 .add_row.alertForm {
   width: 32%;
-  margin: 5% auto 0 auto;
+  margin: 10% auto 0 auto;
+  border-radius: 3px;
   background-color: white;
   padding: 10px 0 30px 30px;
 }
 
 .inputBlock {
-  max-height: 436px;
+  max-height: 440px;
   padding-right: 15px;
   overflow-y: auto;
 }

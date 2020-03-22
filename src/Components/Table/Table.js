@@ -111,9 +111,16 @@ class Table extends React.Component {
       );
     });
 
-    let newHeader = this.props.header.filter(
-      el => el.key !== this.props.thForTable
-    );
+    let newHeader = this.props.header.filter(el => {
+      let flag = true;
+      this.props.thForTable &&
+        this.props.thForTable.forEach(th => {
+          if (el.key === th) {
+            flag = false;
+          }
+        });
+      return flag;
+    });
 
     return (
       <div className="table_container">
