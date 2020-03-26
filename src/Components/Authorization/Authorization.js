@@ -43,8 +43,8 @@ class Authorization extends Component {
     return (
       <main>
         <div className="mainblock">
-          <img className="bankIcon" src={logo1} width="35%" alt="Совкомбанк" />
-          <h4>ВХОД В СИСТЕМУ УЧЕТА КРЕДИТНЫХ ВЫПЛАТ</h4>
+          <img className="bankIcon" src={logo1} width="27%" alt="SkyBank" />
+          <p className="nameSystem">ВХОД В СИСТЕМУ УЧЕТА КРЕДИТНЫХ ВЫПЛАТ</p>
           <form onSubmit={this.handleSubmit}>
             <label>Введите логин:</label>
             <input
@@ -65,12 +65,12 @@ class Authorization extends Component {
               onChange={this.handleChange}
             />
             {this.state.log_in === 2 && (
-              <h4 className="incorrect">Ошибка: неверный логин или пароль</h4>
+              <h5 className="incorrect">Ошибка: неверный логин или пароль</h5>
             )}
             {this.state.log_in === 3 && (
-              <h4 className="incorrect">Ошибка: не все поля были заполнены</h4>
+              <h5 className="incorrect">Ошибка: не все поля были заполнены</h5>
             )}
-            <input type="submit" value="Войти в Систему" />
+            <input type="submit" value="Войти" />
           </form>
         </div>
       </main>

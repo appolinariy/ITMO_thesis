@@ -3,7 +3,7 @@ table {
   width: 100%;
   color: #292929;
   border-collapse: collapse;
-  font-size: 16px;
+  font-size: 10pt;
 }
 
 .table_container .borrower,
@@ -30,7 +30,6 @@ th {
   font-weight: unset;
   color: #001d3398;
   font-weight: bolder;
-  font-size: 12pt;
   padding-left: 20px;
   vertical-align: middle;
   text-align: left;
@@ -70,39 +69,37 @@ tr:hover {
 .add_row input[type="password"] {
   all: inherit;
   background: #e0e0e0;
-  border: 1.2px solid #000000;
+  border: 1.1px solid #000000;
   padding-left: 10px;
   padding-top: 5px;
-  width: 270px;
-  height: 25px;
+  width: 250px;
+  height: 21px;
   float: right;
   outline: none;
   box-shadow: inset 0px 5px 5px rgba(0, 0, 0, 0.1);
-  font-size: 12pt;
 }
 
 .add_row input[type="text"],
 .add_row input[type="email"],
 .add_row select {
   background: #e0e0e0;
-  border: 1.2px solid #000000;
+  border: 1.1px solid #000000;
   padding-left: 10px;
-  width: 270px;
-  height: 30px;
+  width: 250px;
+  height: 28px;
   float: right;
   outline: none;
   box-shadow: inset 0px 5px 5px rgba(0, 0, 0, 0.1);
-  font-size: 12pt;
 }
 .add_row select {
-  width: 281px;
-  height: 35px;
+  width: 262px;
+  height: 33px;
 }
 .add_row input[type="text"]:hover,
 .add_row [type="password"]:hover,
 .add_row input[type="email"]:hover,
 .add_row option:hover {
-  border: 1.2px solid #408ece;
+  border: 1.1px solid #408ece;
 }
 
 button {
@@ -110,10 +107,9 @@ button {
   border: 0;
   border-radius: 20px;
   color: white;
-  font-size: 12pt;
   margin-right: 8px;
-  width: 140px;
-  height: 39px;
+  width: 130px;
+  height: 35px;
   outline: none;
 }
 button:hover {
@@ -133,7 +129,7 @@ button:hover {
   margin-bottom: 40px;
   width: 100%;
   box-shadow: none;
-  padding: 28px 0 28px 0;
+  padding: 25px 0 25px 0;
 }
 .button_container {
   margin-right: 3.8%;
@@ -152,9 +148,8 @@ button.control_button {
 }
 
 .search_bar {
-  width: 400px;
-  height: 18px;
-  font-size: 12pt;
+  width: 345px;
+  height: 15px;
   padding: 13px 15px;
   border-radius: 5px;
   border: 1.3px solid #d2dce3;
@@ -168,8 +163,8 @@ button.control_button {
   vertical-align: middle;
   padding-top: 5px;
   margin-left: 5px;
-  width: 42px;
-  height: 42px;
+  width: 40px;
+  height: 40px;
   outline: none;
 }
 .search_button:hover {
@@ -201,11 +196,11 @@ button.control_button {
   z-index: 2;
   top: 0;
   left: 0;
-  font-size: 12pt;
+  font-size: 10pt;
 }
 
 .alertBlock h4 {
-  margin: 15px 0 40px 0;
+  margin: 20px 0 20px 0;
   color: #292929e5;
 }
 
@@ -213,7 +208,8 @@ button.control_button {
   all: unset;
   height: 2px;
   margin-left: 94%;
-  font-size: 30px;
+  color: rgba(0, 0, 0, 0.8);
+  font-size: 25px;
 }
 .cancelAlert:hover {
   background-color: unset;
@@ -227,7 +223,7 @@ button.control_button {
 }
 
 .inputBlock {
-  max-height: 440px;
+  max-height: 27vmax;
   padding-right: 15px;
   overflow-y: auto;
 }

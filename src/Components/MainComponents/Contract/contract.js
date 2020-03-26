@@ -157,7 +157,7 @@ class Contract extends Component {
     return (
       <Table
         className={"filialUser"}
-        classNameForm={"userfilial"}
+        classNameForm={"contracts"}
         onAdd={this.onAddRow}
         onFind={this.onFind}
         header={header}

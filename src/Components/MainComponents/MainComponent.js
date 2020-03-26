@@ -34,7 +34,7 @@ class MainComponent extends Component {
         {this.props.history.location.pathname !== "/auth" && (
           <header>
             <div className="icon">
-              <img src={logo1} width="140px" alt="SkyBank" />
+              <img src={logo1} width="120px" alt="SkyBank" />
               <p className="SystemName">СИСТЕМА УЧЕТА КРЕДИТНЫХ ВЫПЛАТ</p>
               <div className="currentUser">
                 {this.state.user.surname +
@@ -42,7 +42,7 @@ class MainComponent extends Component {
                   this.state.user.name +
                   " " +
                   this.state.user.father_name}
-                <img className="userpic" src={user1} width="35px" alt="user" />
+                <img className="userpic" src={user1} width="30px" alt="user" />
               </div>
             </div>
             <div className="links">
