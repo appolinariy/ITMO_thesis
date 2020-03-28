@@ -89,6 +89,20 @@ export const findContract = number_contract => {
 };
 
 //PAYMENTS
+export const addPaymentDebt = (
+  number_contract,
+  current_date_pay,
+  current_amount_pay
+) => {
+  return update(`/allpayments/${number_contract}`, {
+    current_date_pay,
+    current_amount_pay
+  })
+    .then(res => {
+      console.log(res);
+    })
+    .catch(error => console.log(error));
+};
 
 //ADMINKA
 export const getBankUserById = id_user => {

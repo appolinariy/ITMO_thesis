@@ -9,6 +9,7 @@ import Borrower from "./Borrower/Borrower";
 import Contract from "./Contract/contract";
 import SystemUser from "./SystemUser/SystemUser";
 import Authorization from "../Authorization/Authorization";
+import { Payment } from "./Payment/payment";
 
 class MainComponent extends Component {
   state = {
@@ -83,7 +84,7 @@ class MainComponent extends Component {
           </Route>
           <Route path="/debt">
             <div className="main">
-              <h1>Выплаты</h1>
+              <Payment />
             </div>
           </Route>
           <Route path="/systemuser">
