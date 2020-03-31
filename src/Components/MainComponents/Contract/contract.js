@@ -4,7 +4,8 @@ import Table from "../../Table/Table";
 import {
   getContracts,
   createContract,
-  findContract
+  findContract,
+  filterContract
 } from "../../../libs/effects";
 
 class Contract extends Component {
@@ -34,10 +35,6 @@ class Contract extends Component {
         element.fio =
           element.surname + " " + element.name + " " + element.father_name;
         element.start_date = new Date(element.start_date)
-          .toLocaleDateString()
-          .split("/")
-          .join(".");
-        element.end_date = new Date(element.start_date)
           .toLocaleDateString()
           .split("/")
           .join(".");
@@ -88,19 +85,48 @@ class Contract extends Component {
           .toLocaleDateString()
           .split("/")
           .join(".");
-        element.end_date = new Date(element.start_date)
-          .toLocaleDateString()
-          .split("/")
-          .join(".");
         if (element.flag_payment) {
-          element.status_contract = "Завершен";
+          element.flag_payment = "Завершен";
         } else {
-          element.status_contract = "Активен";
+          element.flag_payment = "Активен";
         }
         return element;
       });
       this.setState({ contracts: response.data });
     });
+  };
+
+  onFilterDate = (fromdate, todate) => {
+    if (fromdate && todate) {
+      filterContract(
+        new Date(fromdate)
+          .toLocaleDateString()
+          .split("/")
+          .join("."),
+        new Date(todate)
+          .toLocaleDateString()
+          .split("/")
+          .join(".")
+      ).then(response => {
+        response.data.map(element => {
+          element.fio =
+            element.surname + " " + element.name + " " + element.father_name;
+          element.start_date = new Date(element.start_date)
+            .toLocaleDateString()
+            .split("/")
+            .join(".");
+          if (element.flag_payment) {
+            element.flag_payment = "Завершен";
+          } else {
+            element.flag_payment = "Активен";
+          }
+          return element;
+        });
+        this.setState({ contracts: response.data });
+      });
+    } else {
+      this.componentDidMount();
+    }
   };
 
   render() {
@@ -160,6 +186,7 @@ class Contract extends Component {
         classNameForm={"contracts"}
         onAdd={this.onAddRow}
         onFind={this.onFind}
+        onFilterDate={this.onFilterDate}
         header={header}
         data={this.state.contracts}
         keyCol={this.state.keyCol}

@@ -88,6 +88,18 @@ export const findContract = number_contract => {
   }
 };
 
+export const filterContract = (from_date, to_date) => {
+  if (from_date.length && to_date.length) {
+    return get(`/filtercontract/fromdate/${from_date}/todate/${to_date}`)
+      .then(res => res)
+      .catch(err => console.log(err));
+  } else {
+    return get(`/allcontracts`)
+      .then(response => response)
+      .catch(error => error);
+  }
+};
+
 //PAYMENTS
 export const addPaymentDebt = (
   number_contract,

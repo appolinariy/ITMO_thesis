@@ -125,21 +125,46 @@ button:hover {
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-between;
-  align-items: center;
   margin-bottom: 40px;
   width: 100%;
   box-shadow: none;
   padding: 25px 0 25px 0;
+  align-items: center;
 }
 .button_container {
-  margin-right: 3.8%;
+  margin-right: 2.5%;
 }
 .findBlock {
   margin-left: 80px;
 }
 
-button.control_button {
-  margin-left: 5px;
+.filterDate {
+  display: inline-flex;
+  align-items: center;
+}
+
+input[type="date"]::-webkit-inner-spin-button {
+  display: none;
+}
+input[type="date"]::-webkit-calendar-picker-indicator {
+  color: #2c3e50;
+}
+
+.filterDate input[type="date"] {
+  width: 120px;
+  height: 15px;
+  padding: 10px 10px;
+  border-radius: 5px;
+  border: 1.2px solid #d2dce3;
+  outline: none;
+  margin-right: 10px;
+  color: #001d3398;
+  font-family: "Helvetica", arial, sans-serif;
+}
+
+.filterDate input[type="date"]:hover,
+input[type="date"]:focus {
+  border: 1.2px solid #4ba3ebe1;
 }
 
 .findBlock {

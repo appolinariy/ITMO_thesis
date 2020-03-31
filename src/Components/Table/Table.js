@@ -10,7 +10,10 @@ class Table extends React.Component {
     data: {},
     open: false,
     rows: [],
-    findVal: ""
+    findVal: "",
+    // filterDate: { fromdate: "", todate: "" }
+    fromdate: "",
+    todate: ""
   };
 
   componentDidMount() {
@@ -71,6 +74,11 @@ class Table extends React.Component {
   cancelFinding = () => {
     this.setState({ findVal: "" });
     this.props.onFind("");
+  };
+
+  filterDate = e => {
+    e.preventDefault();
+    this.props.onFilterDate(this.state.fromdate, this.state.todate);
   };
 
   render() {
@@ -140,6 +148,26 @@ class Table extends React.Component {
         {this.props.header_display && (
           <header className="table_header">
             <div className="button_container">
+              {this.props.onFilterDate && (
+                <form className="filterDate" onSubmit={this.filterDate}>
+                  <input
+                    type="date"
+                    name="fromdate"
+                    value={this.state.fromdate}
+                    onChange={e => this.setState({ fromdate: e.target.value })}
+                  />
+                  <input
+                    type="date"
+                    name="todate"
+                    value={this.state.todate}
+                    onChange={e => this.setState({ todate: e.target.value })}
+                  />
+                  <button className="onFilter" type="submit">
+                    Применить
+                  </button>
+                </form>
+              )}
+
               {this.props.onAdd && (
                 <button
                   className="control_button"
@@ -148,6 +176,7 @@ class Table extends React.Component {
                   Добавить
                 </button>
               )}
+
               {this.props.onUpdate && (
                 <button
                   className="control_button"
@@ -162,6 +191,7 @@ class Table extends React.Component {
                   Редактировать
                 </button>
               )}
+
               {this.props.onDelete && (
                 <button
                   className="control_button"
