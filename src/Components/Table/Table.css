@@ -81,16 +81,23 @@ tr:hover {
 
 .add_row input[type="text"],
 .add_row input[type="email"],
+.add_row input[type="date"],
 .add_row select {
   background: #e0e0e0;
   border: 1.1px solid #000000;
   padding-left: 10px;
   width: 250px;
-  height: 28px;
+  height: 30px;
   float: right;
   outline: none;
   box-shadow: inset 0px 5px 5px rgba(0, 0, 0, 0.1);
 }
+
+.add_row input[type="date"] {
+  height: 32px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 .add_row select {
   width: 262px;
   height: 33px;
@@ -98,8 +105,14 @@ tr:hover {
 .add_row input[type="text"]:hover,
 .add_row [type="password"]:hover,
 .add_row input[type="email"]:hover,
-.add_row option:hover {
+.add_row select:hover {
   border: 1.1px solid #408ece;
+}
+.add_row input[type="text"]:focus,
+.add_row [type="password"]:focus,
+.add_row input[type="email"]:focus,
+.add_row select:focus {
+  border: 1.2px solid #408ece;
 }
 
 button {

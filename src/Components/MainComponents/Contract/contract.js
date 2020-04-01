@@ -148,9 +148,10 @@ class Contract extends Component {
       {
         key: "start_date",
         name: "Дата заключения",
-        type: "text",
-        pattern: /[0-9]{2}\.[0-9]{2}\.[0-9]{4}/,
-        placeholder: "01.01.1995"
+        type: "date",
+        // pattern: /[0-9]{2}\.[0-9]{2}\.[0-9]{4}/,
+        pattern: ""
+        // placeholder: "01.01.1995"
       },
       {
         key: "term_contract",

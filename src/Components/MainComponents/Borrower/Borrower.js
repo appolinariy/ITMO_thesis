@@ -38,10 +38,9 @@ class Borrower extends Component {
       { key: "fio", name: "ФИО" },
       {
         key: "birthday",
-        type: "text",
         name: "Дата рождения",
-        pattern: /[0-9]{2}\.[0-9]{2}\.[0-9]{4}/,
-        placeholder: "01.01.1995"
+        type: "date",
+        pattern: ""
       },
       {
         key: "mail",
@@ -74,9 +73,8 @@ class Borrower extends Component {
       {
         key: "exp_passport_date",
         name: "Действителен до",
-        type: "text",
-        pattern: /[0-9]{2}\.[0-9]{2}\.[0-9]{4}/,
-        placeholder: "01.01.2025"
+        type: "date",
+        pattern: ""
       },
       {
         key: "passport_by",
