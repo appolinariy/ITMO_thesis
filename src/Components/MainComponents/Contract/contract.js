@@ -49,23 +49,6 @@ class Contract extends Component {
     });
   }
 
-  onCellEdit = (row, fieldName, value) => {
-    const { contracts } = this.state;
-    let rowIdx;
-    const targetRow = contracts.find((prod, i) => {
-      if (prod.id === row.id) {
-        rowIdx = i;
-        return true;
-      }
-      return false;
-    });
-    if (targetRow) {
-      targetRow[fieldName] = value;
-      contracts[rowIdx] = targetRow;
-      this.setState({ contracts });
-    }
-  };
-
   onAddRow = row => {
     console.log("put row", row);
     createContract(row).then(res => {
@@ -149,9 +132,7 @@ class Contract extends Component {
         key: "start_date",
         name: "Дата заключения",
         type: "date",
-        // pattern: /[0-9]{2}\.[0-9]{2}\.[0-9]{4}/,
         pattern: ""
-        // placeholder: "01.01.1995"
       },
       {
         key: "term_contract",
@@ -191,7 +172,6 @@ class Contract extends Component {
         header={header}
         data={this.state.contracts}
         keyCol={this.state.keyCol}
-        control_input
         header_display
         findCol="number_contract"
         hideRows={this.state.hideRows}

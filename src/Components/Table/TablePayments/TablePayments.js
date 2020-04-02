@@ -1,10 +1,10 @@
 import React from "react";
-import "./Table.css";
-import search_img from "./search.png";
+import "../Table.css";
+import search_img from "../search.png";
 
-import { Alert } from "./Alert";
+import { Alert } from "./AlertPayments";
 
-class Table extends React.Component {
+class TablePayments extends React.Component {
   state = {
     value: 0,
     data: {},
@@ -81,6 +81,42 @@ class Table extends React.Component {
   };
 
   render() {
+    let headerList = this.props.headerList.map(
+      col =>
+        this.props.ListHideRows &&
+        !this.props.ListHideRows.includes(col.key) && (
+          <th key={col.key}>{col.name}</th>
+        )
+    );
+
+    let list = this.props.list.map((el, index) => {
+      let listdata = this.props.headerList.map(
+        col =>
+          this.props.ListHideRows &&
+          !this.props.ListHideRows.includes(col.key) && (
+            <td key={index + col.key}>{el[col.key]}</td>
+          )
+      );
+      return (
+        listdata && (
+          <tr key={index}>
+            {listdata}
+            {this.props.control_input_list && (
+              <td>
+                <input
+                  className="radio_btn"
+                  type="radio"
+                  name="id"
+                  value={el[this.props.keyCol]}
+                  onChange={this.handleChange}
+                />
+              </td>
+            )}
+          </tr>
+        )
+      );
+    });
+
     let header = this.props.header.map(
       col =>
         this.props.hideRows &&
@@ -98,27 +134,10 @@ class Table extends React.Component {
           )
       );
 
-      return (
-        data && (
-          <tr key={index}>
-            {this.props.control_input && (
-              <td>
-                <input
-                  className="radio_btn"
-                  type="radio"
-                  name="id"
-                  value={el[this.props.keyCol]}
-                  onChange={this.handleChange}
-                />
-              </td>
-            )}
-            {data}
-          </tr>
-        )
-      );
+      return data && <tr key={index}>{data}</tr>;
     });
 
-    let newHeader = this.props.header.filter(el => {
+    let newHeader = this.props.headerList.filter(el => {
       let flag = true;
       this.props.thForTable &&
         this.props.thForTable.forEach(th => {
@@ -147,7 +166,7 @@ class Table extends React.Component {
         {this.props.header_display && (
           <header className="table_header">
             <div className="button_container">
-              {this.props.onFilterDate && (
+              {/* {this.props.onFilterDate && (
                 <form className="filterDate" onSubmit={this.filterDate}>
                   <input
                     type="date"
@@ -165,7 +184,7 @@ class Table extends React.Component {
                     Применить
                   </button>
                 </form>
-              )}
+              )} */}
 
               {this.props.onAdd && (
                 <button
@@ -173,30 +192,6 @@ class Table extends React.Component {
                   onClick={() => this.setState({ show: true })}
                 >
                   Добавить
-                </button>
-              )}
-
-              {this.props.onUpdate && (
-                <button
-                  className="control_button"
-                  onClick={() => {
-                    if (this.state.value) {
-                      this.setState({ show: true, edit: true }, () =>
-                        this.findUserIndex(this.state.value)
-                      );
-                    }
-                  }}
-                >
-                  Редактировать
-                </button>
-              )}
-
-              {this.props.onDelete && (
-                <button
-                  className="control_button"
-                  onClick={() => this.handleDelete(this.state.value)}
-                >
-                  Удалить
                 </button>
               )}
             </div>
@@ -226,11 +221,17 @@ class Table extends React.Component {
           className={this.props.classNameForm}
           onSubmit={e => e.preventDefault()}
         >
-          <table className={this.props.className}>
-            <thead>
-              {this.props.control_input && <th />}
-              {header}
-            </thead>
+          <div className="listContract">
+            <table>
+              <thead>
+                {headerList}
+                {this.props.control_input_list && <th />}
+              </thead>
+              <tbody>{list}</tbody>
+            </table>
+          </div>
+          <table>
+            <thead>{header}</thead>
             <tbody>{content}</tbody>
           </table>
         </form>
@@ -239,10 +240,10 @@ class Table extends React.Component {
   }
 }
 
-Table.defaultProps = {
+TablePayments.defaultProps = {
   hideRows: [],
   control_input: false,
   header_display: false
 };
 
-export default Table;
+export default TablePayments;

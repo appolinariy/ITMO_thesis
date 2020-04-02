@@ -9,7 +9,7 @@ import Borrower from "./Borrower/Borrower";
 import Contract from "./Contract/contract";
 import SystemUser from "./SystemUser/SystemUser";
 import Authorization from "../Authorization/Authorization";
-import { Payment } from "./Payment/payment";
+import Payment from "./Payment/payment";
 
 class MainComponent extends Component {
   state = {
