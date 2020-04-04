@@ -2,13 +2,14 @@
   display: inline-flex;
   margin: 0 2% 0 6%;
   width: 88%;
-  max-height: 24.1vmax;
+  max-height: 55vh;
 }
 
 .listContract {
   margin-right: 3%;
-  width: 31%;
+  width: 27%;
   overflow-y: auto;
+  border-radius: 5px 0 5px 0;
 }
 .listContract tr:hover {
   cursor: pointer;

@@ -101,6 +101,12 @@ export const filterContract = (from_date, to_date) => {
 };
 
 //PAYMENTS
+export const getPaymentSchedule = number_contract => {
+  return get(`/allpayments/${number_contract}`)
+    .then(res => res)
+    .catch(err => console.log(err));
+};
+
 export const addPaymentDebt = (
   number_contract,
   current_date_pay,

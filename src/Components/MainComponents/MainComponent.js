@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Switch, Route, Link } from "react-router-dom";
-import logo1 from "./logo1.png";
+import logo1 from "../Authorization/logo1.png";
 import user1 from "./user1.png";
 import { withRouter } from "react-router";
 import "./MainComponent.css";
@@ -43,7 +43,7 @@ class MainComponent extends Component {
                   this.state.user.name +
                   " " +
                   this.state.user.father_name}
-                <img className="userpic" src={user1} width="30px" alt="user" />
+                <img className="userpic" src={user1} width="27px" alt="user" />
               </div>
             </div>
             <div className="links">

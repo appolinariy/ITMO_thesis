@@ -21,7 +21,7 @@ table {
 }
 
 .filial tr {
-  border-top: 1.3pt solid #fff;
+  border-bottom: 1.3pt solid #fff;
 }
 
 th {
@@ -40,6 +40,9 @@ th:first-child {
 th:last-child {
   border-radius: 0 5px 0 0;
 }
+/* th:hover {
+  background-color: ;
+} */
 
 td {
   height: 50%;
@@ -49,10 +52,20 @@ td {
 }
 
 tr {
-  border-top: 1.3pt solid rgba(196, 196, 196, 0.5);
+  border-bottom: 1.3pt solid rgba(196, 196, 196, 0.5);
 }
-tr:hover {
+tr:last-child {
+  border-bottom: 0;
+}
+tr.trMain:hover {
   background-color: rgba(0, 149, 236, 0.1);
+}
+
+.selected {
+  background-color: rgba(122, 238, 87, 0.5);
+}
+.unselected:hover {
+  background-color: rgba(122, 238, 87, 0.2);
 }
 
 .add_row {
@@ -146,6 +159,8 @@ button:hover {
 }
 .button_container {
   margin-right: 2.5%;
+  display: flex;
+  align-items: center;
 }
 .findBlock {
   margin-left: 80px;

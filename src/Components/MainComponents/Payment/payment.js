@@ -1,8 +1,12 @@
 import React, { Component } from "react";
 import TablePayments from "../../Table/TablePayments/TablePayments";
 import "./payment.css";
-import { getContracts, findContract } from "../../../libs/effects";
-import { addPaymentDebt } from "../../../libs/effects";
+import {
+  getContracts,
+  findContract,
+  getPaymentSchedule
+} from "../../../libs/effects";
+// import { addPaymentDebt } from "../../../libs/effects";
 
 // export const Payment = () => {
 //   const handleClick = () => {
@@ -17,7 +21,7 @@ class Payment extends Component {
     contractsAlert: [],
     graphic_payments: [],
     thForTable: ["number_contract_fio"],
-    ListHideRows: ["number_contract"],
+    ListHideRows: ["number_contract", "current_date_pay", "current_amount_pay"],
     keyCol: "number_contract"
   };
 
@@ -67,6 +71,15 @@ class Payment extends Component {
     });
   };
 
+  handleList = number_contract => {
+    if (number_contract.length) {
+      getPaymentSchedule(number_contract).then(response => {
+        console.log(response.data);
+        // this.setState({ graphic_payments: response.data });
+      });
+    }
+  };
+
   // onFilterPayment = () => {};
 
   render() {
@@ -84,6 +97,19 @@ class Payment extends Component {
         type: "select",
         options: this.state.number_contract,
         pattern: ""
+      },
+      {
+        key: "current_date_pay",
+        name: "Дата выплаты",
+        type: "date",
+        pattern: ""
+      },
+      {
+        key: "current_amount_pay",
+        name: "Сумма выплаты (руб.)",
+        type: "text",
+        pattern: /\d+(\.\d{1})?/,
+        placeholder: "500000.0"
       }
     ];
     let headerTable = [
@@ -102,13 +128,13 @@ class Payment extends Component {
           classNameForm={"formPayment"}
           onAdd={this.onAddRow}
           onFind={this.onFind}
+          handleList={this.handleList}
           // onFilterPayment={this.onFilterPayment}
           headerList={headerList}
           header={headerTable}
           list={this.state.contracts}
           data={this.state.graphic_payments}
           keyCol={this.state.keyCol}
-          control_input_list
           header_display
           findCol="number_contract"
           ListHideRows={this.state.ListHideRows}

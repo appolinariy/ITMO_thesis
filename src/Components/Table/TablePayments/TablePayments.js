@@ -1,7 +1,6 @@
 import React from "react";
 import "../Table.css";
 import search_img from "../search.png";
-
 import { Alert } from "./AlertPayments";
 
 class TablePayments extends React.Component {
@@ -12,11 +11,19 @@ class TablePayments extends React.Component {
     rows: [],
     findVal: "",
     fromdate: "",
-    todate: ""
+    todate: "",
+    selected: ""
   };
 
   componentDidMount() {
     this.setState({ rows: this.props.data });
+  }
+  componentDidUpdate() {
+    const item = this.props.list[0];
+    if (item && !this.state.selected) {
+      this.setState({ selected: item.number_contract });
+      this.props.handleList(item.number_contract);
+    }
   }
 
   handleChange = e => {
@@ -80,6 +87,12 @@ class TablePayments extends React.Component {
     this.props.onFilterDate(this.state.fromdate, this.state.todate);
   };
 
+  handleList = value => {
+    console.log(value);
+    this.props.handleList(value);
+    this.setState({ selected: value });
+  };
+
   render() {
     let headerList = this.props.headerList.map(
       col =>
@@ -89,7 +102,7 @@ class TablePayments extends React.Component {
         )
     );
 
-    let list = this.props.list.map((el, index) => {
+    let contentList = this.props.list.map((el, index) => {
       let listdata = this.props.headerList.map(
         col =>
           this.props.ListHideRows &&
@@ -99,7 +112,15 @@ class TablePayments extends React.Component {
       );
       return (
         listdata && (
-          <tr key={index}>
+          <tr
+            className={
+              this.state.selected === el.number_contract
+                ? "selected"
+                : "unselected"
+            }
+            key={index}
+            onClick={() => this.handleList(el.number_contract)}
+          >
             {listdata}
             {this.props.control_input_list && (
               <td>
@@ -134,7 +155,13 @@ class TablePayments extends React.Component {
           )
       );
 
-      return data && <tr key={index}>{data}</tr>;
+      return (
+        data && (
+          <tr className="trMain" key={index}>
+            {data}
+          </tr>
+        )
+      );
     });
 
     let newHeader = this.props.headerList.filter(el => {
@@ -224,14 +251,18 @@ class TablePayments extends React.Component {
           <div className="listContract">
             <table>
               <thead>
-                {headerList}
-                {this.props.control_input_list && <th />}
+                <tr>
+                  {headerList}
+                  {this.props.control_input_list && <th />}
+                </tr>
               </thead>
-              <tbody>{list}</tbody>
+              <tbody>{contentList}</tbody>
             </table>
           </div>
           <table>
-            <thead>{header}</thead>
+            <thead>
+              <tr>{header}</tr>
+            </thead>
             <tbody>{content}</tbody>
           </table>
         </form>

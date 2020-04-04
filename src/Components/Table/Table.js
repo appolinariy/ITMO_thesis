@@ -100,7 +100,7 @@ class Table extends React.Component {
 
       return (
         data && (
-          <tr key={index}>
+          <tr key={index} className="trMain">
             {this.props.control_input && (
               <td>
                 <input
@@ -228,8 +228,10 @@ class Table extends React.Component {
         >
           <table className={this.props.className}>
             <thead>
-              {this.props.control_input && <th />}
-              {header}
+              <tr>
+                {this.props.control_input && <th />}
+                {header}
+              </tr>
             </thead>
             <tbody>{content}</tbody>
           </table>
