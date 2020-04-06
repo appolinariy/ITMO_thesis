@@ -88,7 +88,39 @@ export const findContract = number_contract => {
   }
 };
 
+export const filterContract = (from_date, to_date) => {
+  if (from_date.length && to_date.length) {
+    return get(`/filtercontract/fromdate/${from_date}/todate/${to_date}`)
+      .then(res => res)
+      .catch(err => console.log(err));
+  } else {
+    return get(`/allcontracts`)
+      .then(response => response)
+      .catch(error => error);
+  }
+};
+
 //PAYMENTS
+export const getPaymentSchedule = number_contract => {
+  return get(`/allpayments/${number_contract}`)
+    .then(res => res)
+    .catch(err => console.log(err));
+};
+
+export const addPaymentDebt = (
+  number_contract,
+  current_date_pay,
+  current_amount_pay
+) => {
+  return update(`/allpayments/${number_contract}`, {
+    current_date_pay,
+    current_amount_pay
+  })
+    .then(res => {
+      console.log(res);
+    })
+    .catch(error => console.log(error));
+};
 
 //ADMINKA
 export const getBankUserById = id_user => {

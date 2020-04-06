@@ -1,10 +1,11 @@
 import React, { Component } from "react";
-import "./contract.css";
+import "../tableBlock.css";
 import Table from "../../Table/Table";
 import {
   getContracts,
   createContract,
-  findContract
+  findContract,
+  filterContract
 } from "../../../libs/effects";
 
 class Contract extends Component {
@@ -37,10 +38,6 @@ class Contract extends Component {
           .toLocaleDateString()
           .split("/")
           .join(".");
-        element.end_date = new Date(element.start_date)
-          .toLocaleDateString()
-          .split("/")
-          .join(".");
         if (element.flag_payment) {
           element.flag_payment = "Завершен";
         } else {
@@ -51,23 +48,6 @@ class Contract extends Component {
       this.setState({ contracts: response.data, borrowers: borrowers });
     });
   }
-
-  onCellEdit = (row, fieldName, value) => {
-    const { contracts } = this.state;
-    let rowIdx;
-    const targetRow = contracts.find((prod, i) => {
-      if (prod.id === row.id) {
-        rowIdx = i;
-        return true;
-      }
-      return false;
-    });
-    if (targetRow) {
-      targetRow[fieldName] = value;
-      contracts[rowIdx] = targetRow;
-      this.setState({ contracts });
-    }
-  };
 
   onAddRow = row => {
     console.log("put row", row);
@@ -88,19 +68,48 @@ class Contract extends Component {
           .toLocaleDateString()
           .split("/")
           .join(".");
-        element.end_date = new Date(element.start_date)
-          .toLocaleDateString()
-          .split("/")
-          .join(".");
         if (element.flag_payment) {
-          element.status_contract = "Завершен";
+          element.flag_payment = "Завершен";
         } else {
-          element.status_contract = "Активен";
+          element.flag_payment = "Активен";
         }
         return element;
       });
       this.setState({ contracts: response.data });
     });
+  };
+
+  onFilterDate = (fromdate, todate) => {
+    if (fromdate && todate) {
+      filterContract(
+        new Date(fromdate)
+          .toLocaleDateString()
+          .split("/")
+          .join("."),
+        new Date(todate)
+          .toLocaleDateString()
+          .split("/")
+          .join(".")
+      ).then(response => {
+        response.data.map(element => {
+          element.fio =
+            element.surname + " " + element.name + " " + element.father_name;
+          element.start_date = new Date(element.start_date)
+            .toLocaleDateString()
+            .split("/")
+            .join(".");
+          if (element.flag_payment) {
+            element.flag_payment = "Завершен";
+          } else {
+            element.flag_payment = "Активен";
+          }
+          return element;
+        });
+        this.setState({ contracts: response.data });
+      });
+    } else {
+      this.componentDidMount();
+    }
   };
 
   render() {
@@ -122,9 +131,8 @@ class Contract extends Component {
       {
         key: "start_date",
         name: "Дата заключения",
-        type: "text",
-        pattern: /[0-9]{2}\.[0-9]{2}\.[0-9]{4}/,
-        placeholder: "01.01.1995"
+        type: "date",
+        pattern: ""
       },
       {
         key: "term_contract",
@@ -156,14 +164,14 @@ class Contract extends Component {
     ];
     return (
       <Table
-        className={"filialUser"}
-        classNameForm={"userfilial"}
+        className={"contracts"}
+        classNameForm={"tableBlock"}
         onAdd={this.onAddRow}
         onFind={this.onFind}
+        onFilterDate={this.onFilterDate}
         header={header}
         data={this.state.contracts}
         keyCol={this.state.keyCol}
-        control_input
         header_display
         findCol="number_contract"
         hideRows={this.state.hideRows}

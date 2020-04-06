@@ -11,7 +11,7 @@
 header {
   height: 18%;
   background: #fff;
-  font-size: 13pt;
+  font-size: 11pt;
   display: flex;
   flex-direction: column;
   box-shadow: 0px 0px 30px 0px #2929293a;
@@ -19,7 +19,7 @@ header {
 
 .icon {
   display: inline-flex;
-  height: 47%;
+  height: 45%;
   margin-left: 4%;
   align-items: center;
 }
@@ -27,7 +27,7 @@ header {
 .SystemName {
   width: 18%;
   margin-left: 20px;
-  font-size: 9pt;
+  font-size: 8.5pt;
   padding-top: 10px;
   color: rgba(0, 0, 0, 0.5);
   font-weight: bold;
@@ -35,9 +35,9 @@ header {
 
 .currentUser {
   display: flex;
-  width: 19%;
-  height: 45px;
-  font-size: 12pt;
+  width: 18%;
+  height: 37px;
+  font-size: 10pt;
   color: #0582a8b9;
   border-radius: 20px;
   background-color: #f2f7f9c4;
@@ -66,14 +66,14 @@ header {
 }
 
 .logout {
-  background: rgba(86, 170, 60, 0.938);
+  background: rgba(86, 170, 60, 0.89);
   border: 0;
   color: white;
-  width: 130px;
-  height: 40px;
+  width: 120px;
+  height: 35px;
   margin-inline-start: auto;
   margin-right: 50px;
-  font-size: 13pt;
+  font-size: 11pt;
   outline: none;
   border-radius: 20px;
 }
@@ -86,8 +86,8 @@ a {
   text-decoration: none;
   display: block;
   color: #292929;
-  width: 190px;
-  height: 29px;
+  width: 170px;
+  height: 26px;
   border-radius: 20px;
   padding-top: 9px;
 }

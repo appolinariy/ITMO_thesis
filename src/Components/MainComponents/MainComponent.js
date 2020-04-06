@@ -1,14 +1,15 @@
 import React, { Component } from "react";
 import { Switch, Route, Link } from "react-router-dom";
-import logo1 from "./logo1.png";
+import logo1 from "../Authorization/logo1.png";
 import user1 from "./user1.png";
 import { withRouter } from "react-router";
 import "./MainComponent.css";
 import Filial from "./Filial/Filial";
 import Borrower from "./Borrower/Borrower";
 import Contract from "./Contract/contract";
-import SystemUser from "./SystemUser/SystemUser";
+import Adminka from "./Adminka/Adminka";
 import Authorization from "../Authorization/Authorization";
+import Payment from "./Payment/payment";
 
 class MainComponent extends Component {
   state = {
@@ -34,7 +35,7 @@ class MainComponent extends Component {
         {this.props.history.location.pathname !== "/auth" && (
           <header>
             <div className="icon">
-              <img src={logo1} width="140px" alt="SkyBank" />
+              <img src={logo1} width="120px" alt="SkyBank" />
               <p className="SystemName">СИСТЕМА УЧЕТА КРЕДИТНЫХ ВЫПЛАТ</p>
               <div className="currentUser">
                 {this.state.user.surname +
@@ -42,7 +43,7 @@ class MainComponent extends Component {
                   this.state.user.name +
                   " " +
                   this.state.user.father_name}
-                <img className="userpic" src={user1} width="35px" alt="user" />
+                <img className="userpic" src={user1} width="27px" alt="user" />
               </div>
             </div>
             <div className="links">
@@ -59,7 +60,7 @@ class MainComponent extends Component {
                 <Link to="/debt">Выплаты</Link>
               </div>
               <div className="modul">
-                <Link to="/systemuser">Администрирование</Link>
+                <Link to="/adminka">Администрирование</Link>
               </div>
               <input
                 className="logout"
@@ -83,12 +84,12 @@ class MainComponent extends Component {
           </Route>
           <Route path="/debt">
             <div className="main">
-              <h1>Выплаты</h1>
+              <Payment />
             </div>
           </Route>
-          <Route path="/systemuser">
+          <Route path="/adminka">
             <div className="main">
-              <SystemUser user={this.state.user} />
+              <Adminka user={this.state.user} />
             </div>
           </Route>
           <Route path="/filials">

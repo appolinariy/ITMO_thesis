@@ -9,11 +9,11 @@ main {
   flex-direction: column;
 }
 .mainblock {
-  width: 45%;
-  height: 65%;
+  width: 42%;
+  height: 62%;
   background-color: #fff;
   margin: auto;
-  font-size: 13pt;
+  font-size: 11pt;
   padding-top: 45px;
   display: flex;
   border-radius: 5px;
@@ -21,18 +21,18 @@ main {
   box-shadow: 0px 0px 30px 0px #2929293a;
   align-items: center;
 }
-img .bankIcon {
-  margin: 15px;
-}
-h4 {
-  margin-top: 35px;
+
+p.nameSystem {
+  color: rgb(0, 0, 0, 0.78);
+  font-size: 10.5pt;
+  margin-top: 30px;
 }
 
-h4.incorrect {
+h5.incorrect {
   padding-top: 15px;
   margin: 0;
   color: rgba(253, 48, 48, 0.952);
-  font-size: 10pt;
+  font-size: 9pt;
 }
 
 label,
@@ -48,30 +48,29 @@ label {
 [type="password"] {
   margin: auto;
   outline: none;
-  width: 360px;
-  height: 25px;
-  font-size: 12pt;
+  width: 310px;
+  height: 18px;
   padding: 13px 15px;
-  border: 1.3px solid #d2dce3;
+  border: 1.2px solid #d2dce3;
 }
 input[type="text"]:hover,
 input[type="text"]:focus,
 [type="password"]:hover,
 [type="password"]:focus {
-  border: 1.3px solid #4ba3ebe1;
+  border: 1.2px solid #4ba3ebe1;
 }
 
 input[type="submit"] {
   background: rgba(86, 170, 60, 0.938);
   border: 0;
   color: white;
-  width: 48%;
-  height: 45px;
+  width: 125px;
+  height: 39px;
   float: right;
   border-radius: 20px;
-  margin-top: 30px;
+  margin-top: 40px;
   outline: none;
-  font-size: 12.3pt;
+  font-size: 11pt;
 }
 input[type="submit"]:hover {
   background-color: rgb(80, 160, 55);

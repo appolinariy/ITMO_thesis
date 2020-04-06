@@ -3,34 +3,34 @@ table {
   width: 100%;
   color: #292929;
   border-collapse: collapse;
-  font-size: 16px;
+  font-size: 10pt;
 }
 
-.table_container .borrower,
-.filialUser {
-  max-width: 90%;
+.borrower,
+.filialUser,
+.contracts {
+  width: 93%;
+  margin: 0 3% 0 4%;
   border-radius: 5px;
-  margin: 0 auto 0 auto;
 }
 
-.table_container .filial {
+.filial table {
   width: 60%;
   margin: 0 7%;
   border-radius: 5px;
-  background-color: #f2f7f9;
 }
 
 .filial tr {
-  border-top: 1.3pt solid #fff;
+  border-bottom: 1.3pt solid #eee;
+}
+.filial tr:last-child {
+  border-bottom: 1.3pt solid #eee;
 }
 
 th {
   height: 50px;
   background-color: #008cff42;
-  font-weight: unset;
-  color: #001d3398;
-  font-weight: bolder;
-  font-size: 12pt;
+  color: #00325c98;
   padding-left: 20px;
   vertical-align: middle;
   text-align: left;
@@ -50,10 +50,20 @@ td {
 }
 
 tr {
-  border-top: 1.3pt solid rgba(196, 196, 196, 0.5);
+  border-bottom: 1.3pt solid rgba(196, 196, 196, 0.5);
 }
-tr:hover {
+tr:last-child {
+  border-bottom: 0;
+}
+tr.trMain:hover {
   background-color: rgba(0, 149, 236, 0.1);
+}
+
+.selected {
+  background-color: rgba(122, 238, 87, 0.5);
+}
+.unselected:hover {
+  background-color: rgba(122, 238, 87, 0.2);
 }
 
 .add_row {
@@ -70,38 +80,49 @@ tr:hover {
 .add_row input[type="password"] {
   all: inherit;
   background: #e0e0e0;
-  border: 1.2px solid #000000;
+  border: 1.1px solid #000000;
   padding-left: 10px;
   padding-top: 5px;
-  width: 270px;
-  height: 25px;
+  width: 250px;
+  height: 21px;
   float: right;
   outline: none;
   box-shadow: inset 0px 5px 5px rgba(0, 0, 0, 0.1);
-  font-size: 12pt;
 }
 
 .add_row input[type="text"],
 .add_row input[type="email"],
+.add_row input[type="date"],
 .add_row select {
   background: #e0e0e0;
-  border: 1.2px solid #000000;
+  border: 1.1px solid #000000;
   padding-left: 10px;
-  width: 270px;
+  width: 250px;
   height: 30px;
   float: right;
   outline: none;
   box-shadow: inset 0px 5px 5px rgba(0, 0, 0, 0.1);
-  font-size: 12pt;
 }
+
+.add_row input[type="date"] {
+  height: 32px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 .add_row select {
-  width: 281px;
-  height: 35px;
+  width: 262px;
+  height: 33px;
 }
 .add_row input[type="text"]:hover,
 .add_row [type="password"]:hover,
 .add_row input[type="email"]:hover,
-.add_row option:hover {
+.add_row select:hover {
+  border: 1.1px solid #408ece;
+}
+.add_row input[type="text"]:focus,
+.add_row [type="password"]:focus,
+.add_row input[type="email"]:focus,
+.add_row select:focus {
   border: 1.2px solid #408ece;
 }
 
@@ -110,10 +131,9 @@ button {
   border: 0;
   border-radius: 20px;
   color: white;
-  font-size: 12pt;
   margin-right: 8px;
-  width: 140px;
-  height: 39px;
+  width: 130px;
+  height: 35px;
   outline: none;
 }
 button:hover {
@@ -129,21 +149,48 @@ button:hover {
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-between;
-  align-items: center;
   margin-bottom: 40px;
   width: 100%;
   box-shadow: none;
-  padding: 28px 0 28px 0;
+  padding: 25px 0 25px 0;
+  align-items: center;
 }
 .button_container {
-  margin-right: 3.8%;
+  margin-right: 2.5%;
+  display: flex;
+  align-items: center;
 }
 .findBlock {
   margin-left: 80px;
 }
 
-button.control_button {
-  margin-left: 5px;
+.filterDate {
+  display: inline-flex;
+  align-items: center;
+}
+
+input[type="date"]::-webkit-inner-spin-button {
+  display: none;
+}
+input[type="date"]::-webkit-calendar-picker-indicator {
+  color: #2c3e50;
+}
+
+.filterDate input[type="date"] {
+  width: 120px;
+  height: 15px;
+  padding: 10px 10px;
+  border-radius: 5px;
+  border: 1.2px solid #d2dce3;
+  outline: none;
+  margin-right: 10px;
+  color: #001d3398;
+  font-family: "Helvetica", arial, sans-serif;
+}
+
+.filterDate input[type="date"]:hover,
+input[type="date"]:focus {
+  border: 1.2px solid #4ba3ebe1;
 }
 
 .findBlock {
@@ -152,12 +199,11 @@ button.control_button {
 }
 
 .search_bar {
-  width: 400px;
-  height: 18px;
-  font-size: 12pt;
+  width: 345px;
+  height: 15px;
   padding: 13px 15px;
   border-radius: 5px;
-  border: 1.3px solid #d2dce3;
+  border: 1.2px solid #d2dce3;
   outline: none;
   margin-right: 10px;
 }
@@ -168,8 +214,8 @@ button.control_button {
   vertical-align: middle;
   padding-top: 5px;
   margin-left: 5px;
-  width: 42px;
-  height: 42px;
+  width: 40px;
+  height: 40px;
   outline: none;
 }
 .search_button:hover {
@@ -201,11 +247,11 @@ button.control_button {
   z-index: 2;
   top: 0;
   left: 0;
-  font-size: 12pt;
+  font-size: 10pt;
 }
 
 .alertBlock h4 {
-  margin: 15px 0 40px 0;
+  margin: 20px 0 20px 0;
   color: #292929e5;
 }
 
@@ -213,7 +259,8 @@ button.control_button {
   all: unset;
   height: 2px;
   margin-left: 94%;
-  font-size: 30px;
+  color: rgba(0, 0, 0, 0.8);
+  font-size: 25px;
 }
 .cancelAlert:hover {
   background-color: unset;
@@ -227,7 +274,7 @@ button.control_button {
 }
 
 .inputBlock {
-  max-height: 440px;
+  max-height: 27vmax;
   padding-right: 15px;
   overflow-y: auto;
 }

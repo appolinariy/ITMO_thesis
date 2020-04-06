@@ -1,0 +1,22 @@
+.formPayment {
+  display: inline-flex;
+  margin: 0 3% 0 5%;
+  width: 92%;
+  max-height: 55vh;
+}
+
+.listContract {
+  margin-right: 3%;
+  width: 18%;
+  overflow-y: auto;
+  border-radius: 5px;
+}
+.listContract tr:hover {
+  cursor: pointer;
+}
+
+.listPayment {
+  width: 82%;
+  overflow-y: auto;
+  border-radius: 5px;
+}
