@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./FilialUser.css";
+import "../../tableBlock.css";
 import {
   getAllBankUser,
   createBankUser,
@@ -9,7 +9,7 @@ import {
 
 import Table from "../../../Table/Table";
 
-class UsersFilial extends Component {
+class SystemUsers extends Component {
   state = {
     userfilial: [],
     hideRows: ["password", "surname", "name", "father_name"],
@@ -152,7 +152,7 @@ class UsersFilial extends Component {
     return (
       <Table
         className={"filialUser"}
-        classNameForm={"userfilial"}
+        classNameForm={"tableBlock"}
         onAdd={this.onAddRow}
         onUpdate={this.onUpdateRow}
         onFind={this.onFind}
@@ -171,4 +171,4 @@ class UsersFilial extends Component {
   }
 }
 
-export default UsersFilial;
+export default SystemUsers;

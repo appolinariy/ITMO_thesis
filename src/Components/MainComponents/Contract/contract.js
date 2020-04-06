@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./contract.css";
+import "../tableBlock.css";
 import Table from "../../Table/Table";
 import {
   getContracts,
@@ -165,7 +165,7 @@ class Contract extends Component {
     return (
       <Table
         className={"filialUser"}
-        classNameForm={"contracts"}
+        classNameForm={"tableBlock"}
         onAdd={this.onAddRow}
         onFind={this.onFind}
         onFilterDate={this.onFilterDate}

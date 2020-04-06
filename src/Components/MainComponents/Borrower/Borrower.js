@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./Borrower.css";
+import "../tableBlock.css";
 import {
   getAllClients,
   createClient,
@@ -183,7 +183,7 @@ class Borrower extends Component {
     return (
       <Table
         className={"borrower"}
-        classNameForm={"clients"}
+        classNameForm={"tableBlock"}
         onAdd={this.onAddRow}
         onDelete={this.onDeleteRow}
         onUpdate={this.onUpdateRow}

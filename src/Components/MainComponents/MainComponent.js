@@ -7,7 +7,7 @@ import "./MainComponent.css";
 import Filial from "./Filial/Filial";
 import Borrower from "./Borrower/Borrower";
 import Contract from "./Contract/contract";
-import SystemUser from "./SystemUser/SystemUser";
+import Adminka from "./Adminka/Adminka";
 import Authorization from "../Authorization/Authorization";
 import Payment from "./Payment/payment";
 
@@ -60,7 +60,7 @@ class MainComponent extends Component {
                 <Link to="/debt">Выплаты</Link>
               </div>
               <div className="modul">
-                <Link to="/systemuser">Администрирование</Link>
+                <Link to="/adminka">Администрирование</Link>
               </div>
               <input
                 className="logout"
@@ -87,9 +87,9 @@ class MainComponent extends Component {
               <Payment />
             </div>
           </Route>
-          <Route path="/systemuser">
+          <Route path="/adminka">
             <div className="main">
-              <SystemUser user={this.state.user} />
+              <Adminka user={this.state.user} />
             </div>
           </Route>
           <Route path="/filials">

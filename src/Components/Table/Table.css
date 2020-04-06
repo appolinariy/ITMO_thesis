@@ -40,9 +40,6 @@ th:first-child {
 th:last-child {
   border-radius: 0 5px 0 0;
 }
-/* th:hover {
-  background-color: ;
-} */
 
 td {
   height: 50%;
