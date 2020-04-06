@@ -71,11 +71,32 @@ class Payment extends Component {
     });
   };
 
+  toNormalDate = date => {
+    date = new Date(date)
+      .toLocaleDateString()
+      .split("/")
+      .join(".");
+    return date;
+  };
+
   handleList = number_contract => {
     if (number_contract.length) {
       getPaymentSchedule(number_contract).then(response => {
-        console.log(response.data);
-        // this.setState({ graphic_payments: response.data });
+        response.data.map(element => {
+          if (element.plan_date_pay != null) {
+            element.plan_date_pay = this.toNormalDate(element.plan_date_pay);
+          }
+          if (element.fact_date_pay != null) {
+            element.fact_date_pay = this.toNormalDate(element.fact_date_pay);
+          }
+          if (element.fact_date_penya != null) {
+            element.fact_date_penya = this.toNormalDate(
+              element.fact_date_penya
+            );
+          }
+          return element;
+        });
+        this.setState({ graphic_payments: response.data });
       });
     }
   };
@@ -114,17 +135,58 @@ class Payment extends Component {
     ];
     let headerTable = [
       {
-        key: "number_contract",
-        name: "Графа таблицы",
-        type: "text",
-        pattern: /{0-9}{6,}/,
-        placeholder: "346790"
+        key: "plan_date_pay",
+        name: "Плановая дата выплаты по кредиту",
+        type: "",
+        pattern: ""
+      },
+      {
+        key: "plan_amount_pay",
+        name: "Плановая сумма выплаты по кредиту(руб.)",
+        type: "",
+        pattern: ""
+      },
+      {
+        key: "fact_date_pay",
+        name: "Фактическая дата выплаты",
+        type: "date",
+        pattern: ""
+      },
+      {
+        key: "fact_amount_pay",
+        name: "Фактическая сумма выплаты (руб.)",
+        type: "",
+        pattern: ""
+      },
+      {
+        key: "debt_month_pay",
+        name: "Задолженность за месяц",
+        type: "",
+        pattern: ""
+      },
+      {
+        key: "debt_penya",
+        name: "Долг по пени",
+        type: "",
+        pattern: ""
+      },
+      {
+        key: "fact_date_penya",
+        name: "Фактическая дата выплаты",
+        type: "date",
+        pattern: ""
+      },
+      {
+        key: "fact_amount_penya",
+        name: "Фактическая сумма выплаты (руб.)",
+        type: "",
+        pattern: ""
       }
     ];
     return (
       <>
         <TablePayments
-          className={"filialUser"}
+          // className={"filialUser"}
           classNameForm={"formPayment"}
           onAdd={this.onAddRow}
           onFind={this.onFind}

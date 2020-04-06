@@ -6,30 +6,31 @@ table {
   font-size: 10pt;
 }
 
-.table_container .borrower,
-.filialUser {
-  max-width: 90%;
+.borrower,
+.filialUser,
+.contracts {
+  width: 93%;
+  margin: 0 3% 0 4%;
   border-radius: 5px;
-  margin: 0 auto 0 auto;
 }
 
-.table_container .filial {
+.filial table {
   width: 60%;
   margin: 0 7%;
   border-radius: 5px;
-  background-color: #f2f7f9;
 }
 
 .filial tr {
-  border-bottom: 1.3pt solid #fff;
+  border-bottom: 1.3pt solid #eee;
+}
+.filial tr:last-child {
+  border-bottom: 1.3pt solid #eee;
 }
 
 th {
   height: 50px;
   background-color: #008cff42;
-  font-weight: unset;
-  color: #001d3398;
-  font-weight: bolder;
+  color: #00325c98;
   padding-left: 20px;
   vertical-align: middle;
   text-align: left;

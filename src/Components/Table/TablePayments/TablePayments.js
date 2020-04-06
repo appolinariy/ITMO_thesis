@@ -88,7 +88,6 @@ class TablePayments extends React.Component {
   };
 
   handleList = value => {
-    console.log(value);
     this.props.handleList(value);
     this.setState({ selected: value });
   };
@@ -259,12 +258,14 @@ class TablePayments extends React.Component {
               <tbody>{contentList}</tbody>
             </table>
           </div>
-          <table>
-            <thead>
-              <tr>{header}</tr>
-            </thead>
-            <tbody>{content}</tbody>
-          </table>
+          <div className="listPayment">
+            <table>
+              <thead>
+                <tr>{header}</tr>
+              </thead>
+              <tbody>{content}</tbody>
+            </table>
+          </div>
         </form>
       </div>
     );
