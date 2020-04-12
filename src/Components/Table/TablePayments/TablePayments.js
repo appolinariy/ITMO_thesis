@@ -30,16 +30,6 @@ class TablePayments extends React.Component {
     this.setState({ value: e.target.value });
   };
 
-  handleDelete = id => {
-    if (id) {
-      let res = this.props.data.filter(row => {
-        return row[this.props.keyCol] === id;
-      });
-      this.props.onDelete(res[0]);
-      this.setState({ value: 0 });
-    }
-  };
-
   inputChange = e => {
     this.setState({
       data: {
@@ -59,12 +49,6 @@ class TablePayments extends React.Component {
       });
       this.setState({ data: {}, value: 0, show: false });
     }
-  };
-
-  handleEdit = e => {
-    e.preventDefault();
-    this.props.onUpdate(this.state.data);
-    this.setState({ data: {}, show: false, edit: false });
   };
 
   findUserIndex = id => {
@@ -178,14 +162,12 @@ class TablePayments extends React.Component {
       <div className="table_container">
         {this.state.show && (
           <Alert
-            edit={this.state.edit}
             header={newHeader}
             onClose={() => this.setState({ show: false })}
             data={this.state.data}
             title={this.props.alert_name}
             onChange={this.inputChange}
             handleAdd={this.handleAdd}
-            handleEdit={this.handleEdit}
             styles={this.props.styles}
           />
         )}
@@ -217,7 +199,7 @@ class TablePayments extends React.Component {
                   className="control_button"
                   onClick={() => this.setState({ show: true })}
                 >
-                  Добавить
+                  Внести платеж
                 </button>
               )}
             </div>

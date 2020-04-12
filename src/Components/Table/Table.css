@@ -290,3 +290,15 @@ input[type="date"]:focus {
   margin-right: 10px;
   width: 187px;
 }
+
+.radioBlock {
+  display: inline-flex;
+  margin-left: 17%;
+}
+.radioBlock label {
+  display: inline-flex;
+  padding: 10px 15px 5px 0;
+}
+.radioBlock input[type="radio"] {
+  cursor: pointer;
+}

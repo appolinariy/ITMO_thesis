@@ -6,7 +6,7 @@ import {
   findContract,
   getPaymentSchedule
 } from "../../../libs/effects";
-// import { addPaymentDebt } from "../../../libs/effects";
+import { addPaymentDebt } from "../../../libs/effects";
 
 // export const Payment = () => {
 //   const handleClick = () => {
@@ -20,8 +20,17 @@ class Payment extends Component {
     contracts: [],
     contractsAlert: [],
     graphic_payments: [],
+    type_payment: [
+      { id: 0, text: "Основной долг" },
+      { id: 1, text: "Долг по пени" }
+    ],
     thForTable: ["number_contract_fio"],
-    ListHideRows: ["number_contract", "current_date_pay", "current_amount_pay"],
+    ListHideRows: [
+      "type_payment",
+      "number_contract",
+      "current_date_pay",
+      "current_amount_pay"
+    ],
     keyCol: "number_contract"
   };
 
@@ -51,7 +60,18 @@ class Payment extends Component {
     });
   };
 
-  onAddRow = () => {};
+  onAddRow = row => {
+    if (row.type_pay === "Основной долг") {
+      console.log("1", row.type_pay);
+      addPaymentDebt(
+        row.number_contract,
+        row.current_date_pay,
+        row.current_amount_pay
+      );
+    } else {
+      console.log("2", row.type_pay);
+    }
+  };
 
   onFind = data => {
     findContract(data).then(response => {
@@ -113,6 +133,13 @@ class Payment extends Component {
         pattern: ""
       },
       {
+        key: "type_payment",
+        name: "Вид погашения",
+        type: "radio",
+        radio: this.state.type_payment,
+        pattern: ""
+      },
+      {
         key: "number_contract",
         name: "Номер контракта",
         type: "select",
@@ -142,7 +169,7 @@ class Payment extends Component {
       },
       {
         key: "plan_amount_pay",
-        name: "Плановая сумма выплаты по кредиту(руб.)",
+        name: "Плановая сумма выплаты по кредиту (руб.)",
         type: "",
         pattern: ""
       },

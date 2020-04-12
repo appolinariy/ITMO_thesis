@@ -50,7 +50,6 @@ class Contract extends Component {
   }
 
   onAddRow = row => {
-    console.log("put row", row);
     createContract(row).then(res => {
       row.id_contract = res.id_contract;
     });
@@ -145,8 +144,8 @@ class Contract extends Component {
         key: "amount_contract",
         name: "Сумма контракта (руб.)",
         type: "text",
-        pattern: /\d+(\.\d{1})?/,
-        placeholder: "500000.0"
+        pattern: /\d+(\.\d{2})?/,
+        placeholder: "500000.00"
       },
       {
         key: "year_percent",
