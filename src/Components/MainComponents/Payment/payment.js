@@ -156,8 +156,8 @@ class Payment extends Component {
         key: "current_amount_pay",
         name: "Сумма выплаты (руб.)",
         type: "text",
-        pattern: /\d+(\.\d{1})?/,
-        placeholder: "500000.0"
+        pattern: /\d+(\.\d{2})?/,
+        placeholder: "500000.00"
       }
     ];
     let headerTable = [
