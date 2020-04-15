@@ -8,13 +8,6 @@ import {
 } from "../../../libs/effects";
 import { addPaymentDebt } from "../../../libs/effects";
 
-// export const Payment = () => {
-//   const handleClick = () => {
-//     addPaymentDebt("346790", "10.06.2020", 93000.0);
-//   };
-//   return <button onClick={handleClick}>Payment</button>;
-// };
-
 class Payment extends Component {
   state = {
     contracts: [],
@@ -71,6 +64,10 @@ class Payment extends Component {
     } else {
       console.log("2", row.type_pay);
     }
+  };
+
+  onCountDebt = () => {
+    console.log("рассчитать задолженности");
   };
 
   onFind = data => {
@@ -163,7 +160,7 @@ class Payment extends Component {
     let headerTable = [
       {
         key: "plan_date_pay",
-        name: "Плановая дата выплаты по кредиту",
+        name: "Плановая дата выплаты",
         type: "",
         pattern: ""
       },
@@ -213,9 +210,9 @@ class Payment extends Component {
     return (
       <>
         <TablePayments
-          // className={"filialUser"}
           classNameForm={"formPayment"}
           onAdd={this.onAddRow}
+          onCountDebt={this.onCountDebt}
           onFind={this.onFind}
           handleList={this.handleList}
           // onFilterPayment={this.onFilterPayment}

@@ -21,10 +21,7 @@ table {
 }
 
 .filial tr {
-  border-bottom: 1.3pt solid #eee;
-}
-.filial tr:last-child {
-  border-bottom: 1.3pt solid #eee;
+  border-bottom: 1.3pt solid #fff;
 }
 
 th {
@@ -159,6 +156,12 @@ button:hover {
   margin-right: 2.5%;
   display: flex;
   align-items: center;
+}
+.control_button.del {
+  background-color: tomato;
+}
+.control_button.del:hover {
+  background-color: rgb(228, 88, 63);
 }
 .findBlock {
   margin-left: 80px;

@@ -202,6 +202,14 @@ class TablePayments extends React.Component {
                   Внести платеж
                 </button>
               )}
+              {this.props.onCountDebt && (
+                <button
+                  className="control_button del"
+                  onClick={this.props.onCountDebt}
+                >
+                  Обновить
+                </button>
+              )}
             </div>
 
             {this.props.onFind && (

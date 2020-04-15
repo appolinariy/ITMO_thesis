@@ -193,7 +193,7 @@ class Table extends React.Component {
 
               {this.props.onDelete && (
                 <button
-                  className="control_button"
+                  className="control_button del"
                   onClick={() => this.handleDelete(this.state.value)}
                 >
                   Удалить
