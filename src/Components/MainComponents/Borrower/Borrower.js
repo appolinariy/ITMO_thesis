@@ -40,7 +40,8 @@ class Borrower extends Component {
         key: "birthday",
         name: "Дата рождения",
         type: "date",
-        pattern: ""
+        pattern: "",
+        placeholder: ""
       },
       {
         key: "mail",
@@ -74,7 +75,8 @@ class Borrower extends Component {
         key: "exp_passport_date",
         name: "Действителен до",
         type: "date",
-        pattern: ""
+        pattern: "",
+        placeholder: ""
       },
       {
         key: "passport_by",
