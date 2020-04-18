@@ -39,6 +39,7 @@ export const Alert = ({
             autoComplete="off"
             id={el.key}
             defaultValue={data[el.key]}
+            // value={data[el.key]}
             onChange={onChange}
             name={el.key}
             pattern={el.pattern.source}

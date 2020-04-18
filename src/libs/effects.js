@@ -122,6 +122,12 @@ export const addPaymentDebt = (
     .catch(error => console.log(error));
 };
 
+export const countDebts = () => {
+  return update(`/allpayments`)
+    .then(res => res)
+    .catch(err => console.log(err));
+};
+
 //ADMINKA
 export const getBankUserById = id_user => {
   return get(`/bankuser/${id_user}`)

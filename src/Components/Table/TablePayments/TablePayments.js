@@ -202,10 +202,10 @@ class TablePayments extends React.Component {
                   Внести платеж
                 </button>
               )}
-              {this.props.onCountDebt && (
+              {this.props.onCountDebts && (
                 <button
                   className="control_button del"
-                  onClick={this.props.onCountDebt}
+                  onClick={this.props.onCountDebts}
                 >
                   Обновить
                 </button>

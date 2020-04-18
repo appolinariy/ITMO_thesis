@@ -4,7 +4,8 @@ import "./payment.css";
 import {
   getContracts,
   findContract,
-  getPaymentSchedule
+  getPaymentSchedule,
+  countDebts
 } from "../../../libs/effects";
 import { addPaymentDebt } from "../../../libs/effects";
 
@@ -66,8 +67,9 @@ class Payment extends Component {
     }
   };
 
-  onCountDebt = () => {
+  onCountDebts = () => {
     console.log("рассчитать задолженности");
+    countDebts();
   };
 
   onFind = data => {
@@ -105,11 +107,15 @@ class Payment extends Component {
           }
           if (element.fact_date_pay != null) {
             element.fact_date_pay = this.toNormalDate(element.fact_date_pay);
+          } else {
+            element.fact_date_pay = "-";
           }
           if (element.fact_date_penya != null) {
             element.fact_date_penya = this.toNormalDate(
               element.fact_date_penya
             );
+          } else {
+            element.fact_date_penya = "-";
           }
           return element;
         });
@@ -212,7 +218,7 @@ class Payment extends Component {
         <TablePayments
           classNameForm={"formPayment"}
           onAdd={this.onAddRow}
-          onCountDebt={this.onCountDebt}
+          onCountDebts={this.onCountDebts}
           onFind={this.onFind}
           handleList={this.handleList}
           // onFilterPayment={this.onFilterPayment}

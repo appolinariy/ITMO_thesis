@@ -181,9 +181,9 @@ class Table extends React.Component {
                   className="control_button"
                   onClick={() => {
                     if (this.state.value) {
-                      this.setState({ show: true, edit: true }, () =>
-                        this.findUserIndex(this.state.value)
-                      );
+                      this.setState({ show: true, edit: true }, () => {
+                        this.findUserIndex(this.state.value);
+                      });
                     }
                   }}
                 >
