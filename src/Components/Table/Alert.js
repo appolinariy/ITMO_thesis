@@ -12,49 +12,47 @@ export const Alert = ({
   handleEdit,
   styles
 }) => {
-  let insert =
-    data.id_client &&
-    header.map((el, index) => {
-      if (el.type === "select") {
-        data[el.key] = data[el.key] ? data[el.key] : el.options[0].text;
-      } else if (el.type === "date") {
-        console.log(data[el.key]);
-        const date = data[el.key].split(".");
-        data[el.key] = `${date[2]}-${date[1]}-${date[0]}`;
-      }
-      return (
-        <label key={index} className="alertName">
-          {el.name}
-          {el.type === "select" ? (
-            <select
-              onChange={onChange}
-              value={data[el.key]}
-              name={el.key}
-              required
-            >
-              {el.options &&
-                el.options.map(option => (
-                  <option key={option.id} value={option.text}>
-                    {option.text}
-                  </option>
-                ))}
-            </select>
-          ) : (
-            <input
-              type={el.type}
-              autoComplete="off"
-              id={el.key}
-              defaultValue={data[el.key]}
-              onChange={onChange}
-              name={el.key}
-              pattern={el.pattern.source}
-              placeholder={el.placeholder}
-              required
-            />
-          )}
-        </label>
-      );
-    });
+  let insert = header.map((el, index) => {
+    let defaultValue = data[el.key];
+    if (el.type === "select") {
+      defaultValue = data[el.key] ? data[el.key] : el.options[0].text;
+    } else if (el.type === "date" && data[el.key]) {
+      const date = data[el.key].split(".");
+      defaultValue = `${date[2]}-${date[1]}-${date[0]}`;
+    }
+    return (
+      <label key={index} className="alertName">
+        {el.name}
+        {el.type === "select" ? (
+          <select
+            onChange={onChange}
+            value={data[el.key]}
+            name={el.key}
+            required
+          >
+            {el.options &&
+              el.options.map(option => (
+                <option key={option.id} value={option.text}>
+                  {option.text}
+                </option>
+              ))}
+          </select>
+        ) : (
+          <input
+            type={el.type}
+            autoComplete="off"
+            id={el.key}
+            defaultValue={defaultValue ? defaultValue : data[el.key]}
+            onChange={onChange}
+            name={el.key}
+            pattern={el.pattern.source}
+            placeholder={el.placeholder}
+            required
+          />
+        )}
+      </label>
+    );
+  });
 
   return (
     <div className="alertBlock" onClick={onClose}>
