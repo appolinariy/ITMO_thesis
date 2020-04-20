@@ -48,6 +48,7 @@ export const Alert = ({
               name="type_pay"
               onChange={onChange}
               value={el.radio[0].text}
+              defaultChecked
             />
             {el.radio[0].text}
           </label>

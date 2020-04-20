@@ -112,7 +112,7 @@ export const addPaymentDebt = (
   current_date_pay,
   current_amount_pay
 ) => {
-  return update(`/allpayments/${number_contract}`, {
+  return update(`/allpayments/mainpay/${number_contract}`, {
     current_date_pay,
     current_amount_pay
   })

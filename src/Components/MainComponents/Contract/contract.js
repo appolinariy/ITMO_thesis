@@ -50,6 +50,7 @@ class Contract extends Component {
   }
 
   onAddRow = row => {
+    console.log("Contract", row);
     createContract(row).then(res => {
       row.id_contract = res.id_contract;
     });
@@ -117,7 +118,7 @@ class Contract extends Component {
         key: "number_contract",
         name: "Номер контракта",
         type: "text",
-        pattern: /{0-9}{6,}/,
+        pattern: /\d{6,}/,
         placeholder: "346790"
       },
       {

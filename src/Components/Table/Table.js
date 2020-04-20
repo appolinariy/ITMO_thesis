@@ -56,6 +56,7 @@ class Table extends React.Component {
 
   handleEdit = e => {
     e.preventDefault();
+    console.log(this.state.data);
     this.props.onUpdate(this.state.data);
     this.setState({ data: {}, show: false, edit: false });
   };

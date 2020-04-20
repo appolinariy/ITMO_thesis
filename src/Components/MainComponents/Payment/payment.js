@@ -55,8 +55,7 @@ class Payment extends Component {
   };
 
   onAddRow = row => {
-    if (row.type_pay === "Основной долг") {
-      console.log("1", row.type_pay);
+    if (!row.type_pay || row.type_pay === "Основной долг") {
       addPaymentDebt(
         row.number_contract,
         row.current_date_pay,

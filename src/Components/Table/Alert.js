@@ -15,7 +15,7 @@ export const Alert = ({
   let insert = header.map((el, index) => {
     let defaultValue = data[el.key];
     if (el.type === "select") {
-      defaultValue = data[el.key] ? data[el.key] : el.options[0].text;
+      data[el.key] = data[el.key] ? data[el.key] : el.options[0].text;
     } else if (el.type === "date" && data[el.key]) {
       const date = data[el.key].split(".");
       defaultValue = `${date[2]}-${date[1]}-${date[0]}`;
@@ -26,6 +26,9 @@ export const Alert = ({
         {el.type === "select" ? (
           <select
             onChange={onChange}
+            onClick={e => {
+              console.log(e.target);
+            }}
             value={data[el.key]}
             name={el.key}
             required
