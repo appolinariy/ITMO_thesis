@@ -162,7 +162,7 @@ class Payment extends Component {
       },
       {
         key: "current_amount_pay",
-        name: "Сумма выплаты (руб.)",
+        name: "Сумма выплаты (руб)",
         type: "text",
         pattern: /\d+(\.\d{2})?/,
         placeholder: "500000.00"
@@ -177,43 +177,49 @@ class Payment extends Component {
       },
       {
         key: "plan_amount_pay",
-        name: "Плановая сумма выплаты по кредиту (руб.)",
+        name: "Плановая сумма выплаты (руб)",
         type: "",
         pattern: ""
       },
       {
         key: "fact_date_pay",
-        name: "Фактическая дата выплаты",
+        name: "Дата выплаты",
         type: "date",
         pattern: ""
       },
       {
         key: "fact_amount_pay",
-        name: "Фактическая сумма выплаты (руб.)",
+        name: "Сумма выплаты (руб)",
         type: "",
         pattern: ""
       },
       {
         key: "debt_month_pay",
-        name: "Задолженность за месяц",
+        name: "Долг за месяц (руб)",
         type: "",
         pattern: ""
       },
       {
         key: "debt_penya",
-        name: "Долг по пени",
+        name: "Пеня (руб)",
         type: "",
         pattern: ""
       },
       {
         key: "fact_date_penya",
-        name: "Фактическая дата выплаты",
+        name: "Дата выплаты",
         type: "date",
         pattern: ""
       },
       {
         key: "fact_amount_penya",
-        name: "Фактическая сумма выплаты (руб.)",
+        name: "Сумма выплаты (руб)",
+        type: "",
+        pattern: ""
+      },
+      {
+        key: "debt_month_penya",
+        name: "Долг за месяц (руб)",
         type: "",
         pattern: ""
       }

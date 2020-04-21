@@ -18,6 +18,7 @@ class TablePayments extends React.Component {
   componentDidMount() {
     this.setState({ rows: this.props.data });
   }
+
   componentDidUpdate() {
     const item = this.props.list[0];
     if (item && !this.state.selected) {
