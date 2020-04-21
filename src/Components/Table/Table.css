@@ -25,12 +25,13 @@ table {
 }
 
 th {
-  height: 50px;
+  height: 45px;
   background-color: #008cff42;
   color: #00325c98;
   padding-left: 20px;
   vertical-align: middle;
   text-align: left;
+  font-size: 9pt;
 }
 th:first-child {
   border-radius: 5px 0 0 0;
@@ -74,31 +75,40 @@ tr.trMain:hover {
   outline: none;
 }
 
+.alertHeader {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  box-shadow: none;
+  justify-content: space-between;
+}
+
+.alertName {
+  padding: 14px 8px 0 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
 .add_row input[type="password"] {
-  all: inherit;
-  background: #e0e0e0;
-  border: 1.1px solid #000000;
-  padding-left: 10px;
-  padding-top: 5px;
-  width: 250px;
-  height: 21px;
-  float: right;
-  outline: none;
-  box-shadow: inset 0px 5px 5px rgba(0, 0, 0, 0.1);
+  border: 1.2px solid #d2dce3;
+  margin: 0;
+  padding: 1px 10px;
+  width: 240px;
+  height: 30px;
 }
 
 .add_row input[type="text"],
 .add_row input[type="email"],
 .add_row input[type="date"],
 .add_row select {
-  background: #e0e0e0;
-  border: 1.1px solid #000000;
+  border: 1.2px solid #d2dce3;
   padding-left: 10px;
   width: 250px;
   height: 30px;
-  float: right;
-  outline: none;
-  box-shadow: inset 0px 5px 5px rgba(0, 0, 0, 0.1);
+  align-self: flex-end;
 }
 
 .add_row input[type="date"] {
@@ -114,13 +124,13 @@ tr.trMain:hover {
 .add_row [type="password"]:hover,
 .add_row input[type="email"]:hover,
 .add_row select:hover {
-  border: 1.1px solid #408ece;
+  border: 1.2px solid #4fa0e2ce;
 }
 .add_row input[type="text"]:focus,
 .add_row [type="password"]:focus,
 .add_row input[type="email"]:focus,
 .add_row select:focus {
-  border: 1.2px solid #408ece;
+  border: 1.2px solid #4fa0e2ce;
 }
 
 button {
@@ -254,14 +264,12 @@ input[type="date"]:focus {
 }
 
 .alertBlock h4 {
-  margin: 20px 0 20px 0;
+  margin: 8px 0;
   color: #292929e5;
 }
 
 .cancelAlert {
   all: unset;
-  height: 2px;
-  margin-left: 94%;
   color: rgba(0, 0, 0, 0.8);
   font-size: 25px;
 }
@@ -270,23 +278,25 @@ input[type="date"]:focus {
 }
 .add_row.alertForm {
   width: 32%;
-  margin: 10% auto 0 auto;
+  margin: 6% auto 0 auto;
   border-radius: 3px;
   background-color: white;
-  padding: 10px 0 30px 30px;
+  padding: 12px;
+  min-width: 400px;
+  max-height: 80vh;
 }
 
 .inputBlock {
-  max-height: 27vmax;
-  padding-right: 15px;
+  padding-right: 8px;
+  box-sizing: border-box;
+  width: 100%;
   overflow-y: auto;
 }
 
 .alertButton {
   display: flex;
+  margin-top: 18px;
   justify-content: flex-end;
-  margin-top: 30px;
-  margin-right: 10px;
 }
 
 .buttonEdit {

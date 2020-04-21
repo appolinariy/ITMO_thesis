@@ -65,14 +65,16 @@ export const Alert = ({
         onSubmit={edit ? handleEdit : handleAdd}
         onClick={e => e.stopPropagation()}
       >
-        <button className="cancelAlert" onClick={onClose}>
-          ×
-        </button>
-        {edit ? (
-          <h4>Окно редактирования {title} </h4>
-        ) : (
-          <h4>Окно добавления {title} </h4>
-        )}
+        <header className="alertHeader">
+          {edit ? (
+            <h4>Окно редактирования {title} </h4>
+          ) : (
+            <h4>Окно добавления {title} </h4>
+          )}
+          <button className="cancelAlert" onClick={onClose}>
+            ×
+          </button>
+        </header>
         <div className="inputBlock">{insert}</div>
         <div className="alertButton">
           {edit ? (

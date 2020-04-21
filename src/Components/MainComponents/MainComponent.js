@@ -19,7 +19,7 @@ class MainComponent extends Component {
 
   componentDidMount() {
     let user = JSON.parse(sessionStorage.getItem("user"));
-    this.setState({ user: user, selected: "filials" });
+    this.setState({ user: user, selected: this.props.location.pathname });
     if (!user) {
       this.props.history.push("/auth");
     }
@@ -27,12 +27,12 @@ class MainComponent extends Component {
 
   handleSelect = module => {
     this.setState({ selected: module });
-    console.log("state", this.state.selected);
   };
 
   logout = () => {
     sessionStorage.removeItem("user");
     this.props.history.push("/auth");
+    this.setState({ selected: "/filials" });
   };
 
   render() {
@@ -55,67 +55,67 @@ class MainComponent extends Component {
             <div className="links">
               <div
                 className={
-                  this.state.selected === "filials"
+                  this.state.selected === "/filials"
                     ? "module selected"
                     : "module unselected"
                 }
               >
                 <Link
                   to="/filials"
-                  onClick={() => this.handleSelect("filials")}
+                  onClick={() => this.handleSelect("/filials")}
                 >
                   Справочник
                 </Link>
               </div>
               <div
                 className={
-                  this.state.selected === "borrowers"
+                  this.state.selected === "/borrowers"
                     ? "module selected"
                     : "module unselected"
                 }
               >
                 <Link
                   to="/borrowers"
-                  onClick={() => this.handleSelect("borrowers")}
+                  onClick={() => this.handleSelect("/borrowers")}
                 >
                   Заемщики
                 </Link>
               </div>
               <div
                 className={
-                  this.state.selected === "contracts"
+                  this.state.selected === "/contracts"
                     ? "module selected"
                     : "module unselected"
                 }
               >
                 <Link
                   to="/contracts"
-                  onClick={() => this.handleSelect("contracts")}
+                  onClick={() => this.handleSelect("/contracts")}
                 >
                   Контракты
                 </Link>
               </div>
               <div
                 className={
-                  this.state.selected === "debts"
+                  this.state.selected === "/debts"
                     ? "module selected"
                     : "module unselected"
                 }
               >
-                <Link to="/debts" onClick={() => this.handleSelect("debts")}>
+                <Link to="/debts" onClick={() => this.handleSelect("/debts")}>
                   Выплаты
                 </Link>
               </div>
               <div
                 className={
-                  this.state.selected === "adminka"
+                  this.state.selected === "/adminka"
                     ? "module selected"
                     : "module unselected"
                 }
               >
                 <Link
                   to="/adminka"
-                  onClick={() => this.handleSelect("adminka")}
+                  onClick={() => this.handleSelect("/adminka")}
                 >
                   Администрирование
                 </Link>

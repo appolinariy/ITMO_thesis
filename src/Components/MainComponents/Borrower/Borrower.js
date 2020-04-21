@@ -126,6 +126,7 @@ class Borrower extends Component {
   };
 
   onAddRow = row => {
+    console.log(row);
     createClient(row).then(res => {
       row.id_client = res.id_client;
     });
@@ -153,6 +154,14 @@ class Borrower extends Component {
       let index = this.state.clients.indexOf(
         newData.find(el => el[this.state.keyCol] === row[this.state.keyCol])
       );
+      row.birthday = row.birthday
+        .split("-")
+        .reverse()
+        .join(".");
+      row.exp_passport_date = row.exp_passport_date
+        .split("-")
+        .reverse()
+        .join(".");
       newData[index] = row;
       this.setState({
         clients: newData
