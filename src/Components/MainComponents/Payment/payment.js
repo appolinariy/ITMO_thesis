@@ -5,9 +5,10 @@ import {
   getContracts,
   findContract,
   getPaymentSchedule,
-  countDebts
+  countDebts,
+  addPaymentDebt,
+  addPaymentPenya
 } from "../../../libs/effects";
-import { addPaymentDebt } from "../../../libs/effects";
 
 class Payment extends Component {
   state = {
@@ -63,11 +64,16 @@ class Payment extends Component {
       );
     } else {
       console.log("2", row.type_pay);
+      addPaymentPenya(
+        row.number_contract,
+        row.current_date_pay,
+        row.current_amount_pay
+      );
     }
   };
 
   onCountDebts = () => {
-    console.log("рассчитать задолженности");
+    console.log("Рассчитать задолженности");
     countDebts();
   };
 

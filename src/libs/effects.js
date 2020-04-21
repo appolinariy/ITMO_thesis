@@ -122,6 +122,21 @@ export const addPaymentDebt = (
     .catch(error => console.log(error));
 };
 
+export const addPaymentPenya = (
+  number_contract,
+  current_date_penya,
+  current_amount_penya
+) => {
+  return update(`/allpayments/penya/${number_contract}`, {
+    current_date_penya,
+    current_amount_penya
+  })
+    .then(res => {
+      console.log(res);
+    })
+    .catch(error => console.log(error));
+};
+
 export const countDebts = () => {
   return update(`/allpayments`)
     .then(res => res)
