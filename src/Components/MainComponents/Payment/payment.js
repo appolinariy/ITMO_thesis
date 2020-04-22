@@ -73,7 +73,6 @@ class Payment extends Component {
   };
 
   onCountDebts = () => {
-    console.log("Рассчитать задолженности");
     countDebts();
   };
 
@@ -243,6 +242,7 @@ class Payment extends Component {
           ListHideRows={this.state.ListHideRows}
           thForTable={this.state.thForTable}
           alert_name="платежа"
+          module_name="Выплаты"
         />
       </>
     );

@@ -3,6 +3,7 @@ import "./Table.css";
 import search_img from "./search.png";
 
 import { Alert } from "./Alert";
+import { ActionAlert } from "../MainComponents/ActionALert/actionAlert";
 
 class Table extends React.Component {
   state = {
@@ -50,7 +51,14 @@ class Table extends React.Component {
         ...this.state.data,
         id: newId
       });
-      this.setState({ data: {}, value: 0, show: false });
+      this.setState({
+        data: {},
+        value: 0,
+        show: false,
+        actionShow: true,
+        actionTitle: "Данные успешно добавлены!",
+        typeAlert: "add"
+      });
     }
   };
 
@@ -58,7 +66,14 @@ class Table extends React.Component {
     e.preventDefault();
     console.log(this.state.data);
     this.props.onUpdate(this.state.data);
-    this.setState({ data: {}, show: false, edit: false });
+    this.setState({
+      data: {},
+      show: false,
+      edit: false,
+      actionShow: true,
+      actionTitle: "Данные успешно изменены!",
+      typeAlert: "update"
+    });
   };
 
   findUserIndex = id => {
@@ -132,6 +147,19 @@ class Table extends React.Component {
 
     return (
       <div className="table_container">
+        {this.state.actionShow && (
+          <ActionAlert
+            module_name={this.props.module_name}
+            actionTitle={this.state.actionTitle}
+            waiting={this.props.waiting}
+            typeAlert={this.state.typeAlert}
+            onConfirm={() => {
+              this.handleDelete(this.state.value);
+              this.setState({ actionShow: false });
+            }}
+            onClose={() => this.setState({ actionShow: false })}
+          />
+        )}
         {this.state.show && (
           <Alert
             edit={this.state.edit}
@@ -195,7 +223,15 @@ class Table extends React.Component {
               {this.props.onDelete && (
                 <button
                   className="control_button del"
-                  onClick={() => this.handleDelete(this.state.value)}
+                  onClick={() => {
+                    if (this.state.value) {
+                      this.setState({
+                        actionShow: true,
+                        typeAlert: "deleteConfirm",
+                        actionTitle: "Вы хотите удалить данные о заемщике?"
+                      });
+                    }
+                  }}
                 >
                   Удалить
                 </button>

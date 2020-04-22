@@ -1,0 +1,55 @@
+.alert {
+  width: 31%;
+  margin: 16% auto 0 auto;
+  border-radius: 3px;
+  background-color: white;
+  padding: 18px;
+  min-width: 400px;
+  max-height: 50vh;
+}
+.alert header {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  box-shadow: none;
+  justify-content: space-between;
+  padding-bottom: 5px;
+  margin-top: -5px;
+  border-bottom: 2px solid#efefef;
+  font-size: 10pt;
+  color: #1d1d1de5;
+}
+
+.bodyAlert {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  color: #1d1d1de5;
+  margin: 20px auto 20px auto;
+  font-size: 9pt;
+}
+
+.alert footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.alert footer button {
+  width: 120px;
+  height: 33px;
+}
+
+.buttonYes {
+  background-color: tomato;
+}
+.buttonYes:hover {
+  background-color: rgb(228, 88, 63);
+}
+.buttonNo {
+  background-color: #41a3f3e0;
+}
+.buttonNo:hover {
+  background-color: #3c98e4f3;
+}

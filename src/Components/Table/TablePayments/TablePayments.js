@@ -2,6 +2,7 @@ import React from "react";
 import "../Table.css";
 import search_img from "../search.png";
 import { Alert } from "./AlertPayments";
+import { ActionAlert } from "../../MainComponents/ActionALert/actionAlert";
 
 class TablePayments extends React.Component {
   state = {
@@ -49,7 +50,14 @@ class TablePayments extends React.Component {
         ...this.state.data,
         id: newId
       });
-      this.setState({ data: {}, value: 0, show: false });
+      this.setState({
+        data: {},
+        value: 0,
+        show: false,
+        actionShow: true,
+        actionTitle: "Выплата успешно внесена!",
+        typeAlert: "add"
+      });
     }
   };
 
@@ -162,6 +170,19 @@ class TablePayments extends React.Component {
 
     return (
       <div className="table_container">
+        {this.state.actionShow && (
+          <ActionAlert
+            module_name={this.props.module_name}
+            actionTitle={this.state.actionTitle}
+            waiting={this.props.waiting}
+            typeAlert={this.state.typeAlert}
+            onConfirm={() => {
+              this.handleDelete(this.state.value);
+              this.setState({ actionShow: false });
+            }}
+            onClose={() => this.setState({ actionShow: false })}
+          />
+        )}
         {this.state.show && (
           <Alert
             header={newHeader}
@@ -207,7 +228,14 @@ class TablePayments extends React.Component {
               {this.props.onCountDebts && (
                 <button
                   className="control_button del"
-                  onClick={this.props.onCountDebts}
+                  onClick={() => {
+                    this.props.onCountDebts();
+                    this.setState({
+                      actionShow: true,
+                      actionTitle: "Графики выплат успешно обновлены!",
+                      typeAlert: "add"
+                    });
+                  }}
                 >
                   Обновить
                 </button>

@@ -177,6 +177,7 @@ class Contract extends Component {
         hideRows={this.state.hideRows}
         thForTable={this.state.thForTable}
         alert_name="данных по контракту"
+        module_name="Контракты"
       />
     );
   }

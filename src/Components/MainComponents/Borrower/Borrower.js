@@ -207,6 +207,7 @@ class Borrower extends Component {
         thForTable={this.state.thForTable}
         hideRows={this.state.hideRows}
         alert_name="данных о заемщике"
+        module_name="Заемщики"
       />
     );
   }

@@ -166,6 +166,7 @@ class SystemUsers extends Component {
         hideRows={this.state.hideRows}
         thForTable={this.state.thForTable}
         alert_name="данных о пользователе"
+        module_name="Администрирование"
       />
     );
   }
