@@ -87,10 +87,12 @@ export const Alert = ({
         onSubmit={handleAdd}
         onClick={e => e.stopPropagation()}
       >
-        <button className="cancelAlert" onClick={onClose}>
-          ×
-        </button>
-        <h4>Окно внесения {title} </h4>
+        <header className="alertHeader">
+          <h4>Окно внесения {title} </h4>
+          <button className="cancelAlert" onClick={onClose}>
+            ×
+          </button>
+        </header>
         <div className="inputBlock">{insert}</div>
         <div className="alertButton">
           <button className="buttonAdd" type="submit">

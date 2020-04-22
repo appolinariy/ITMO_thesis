@@ -162,7 +162,7 @@ class SystemUsers extends Component {
         control_input
         header_display
         findCol="surname"
-        styles={{ marginTop: "6%" }}
+        styles={{ marginTop: "6%", width: "30%", maxHeight: "73vh" }}
         hideRows={this.state.hideRows}
         thForTable={this.state.thForTable}
         alert_name="данных о пользователе"

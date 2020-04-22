@@ -44,7 +44,7 @@ class Borrower extends Component {
       },
       {
         key: "mail",
-        name: "Адрес электронной почты",
+        name: "Электронная почта",
         type: "email",
         pattern: "",
         placeholder: "name@mail.ru"
@@ -81,7 +81,7 @@ class Borrower extends Component {
         name: "Кем выдан",
         type: "text",
         pattern: "",
-        placeholder: "240-003, ГУ МВД России по Лен.Области, 2018"
+        placeholder: "240-003, ГУ МВД России"
       }
     ],
     hideRows: ["surname", "name", "father_name"],
@@ -203,7 +203,7 @@ class Borrower extends Component {
         control_input
         header_display
         findCol="surname"
-        styles={{ width: "33%", marginTop: "4%" }}
+        styles={{ marginTop: "6%" }}
         thForTable={this.state.thForTable}
         hideRows={this.state.hideRows}
         alert_name="данных о заемщике"
