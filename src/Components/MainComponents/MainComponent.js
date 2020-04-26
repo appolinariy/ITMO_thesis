@@ -13,20 +13,26 @@ import Payment from "./Payment/payment";
 
 class MainComponent extends Component {
   state = {
-    user: null
+    user: null,
+    selected: ""
   };
 
   componentDidMount() {
     let user = JSON.parse(sessionStorage.getItem("user"));
-    this.setState({ user: user });
+    this.setState({ user: user, selected: this.props.location.pathname });
     if (!user) {
       this.props.history.push("/auth");
     }
   }
 
+  handleSelect = module => {
+    this.setState({ selected: module });
+  };
+
   logout = () => {
     sessionStorage.removeItem("user");
     this.props.history.push("/auth");
+    this.setState({ selected: "/filials" });
   };
 
   render() {
@@ -47,20 +53,72 @@ class MainComponent extends Component {
               </div>
             </div>
             <div className="links">
-              <div className="modul">
-                <Link to="/filials">Справочник</Link>
+              <div
+                className={
+                  this.state.selected === "/filials"
+                    ? "module selected"
+                    : "module unselected"
+                }
+              >
+                <Link
+                  to="/filials"
+                  onClick={() => this.handleSelect("/filials")}
+                >
+                  Справочник
+                </Link>
               </div>
-              <div className="modul">
-                <Link to="/borrower">Заемщики</Link>
+              <div
+                className={
+                  this.state.selected === "/borrowers"
+                    ? "module selected"
+                    : "module unselected"
+                }
+              >
+                <Link
+                  to="/borrowers"
+                  onClick={() => this.handleSelect("/borrowers")}
+                >
+                  Заемщики
+                </Link>
               </div>
-              <div className="modul">
-                <Link to="/contract">Контракты</Link>
+              <div
+                className={
+                  this.state.selected === "/contracts"
+                    ? "module selected"
+                    : "module unselected"
+                }
+              >
+                <Link
+                  to="/contracts"
+                  onClick={() => this.handleSelect("/contracts")}
+                >
+                  Контракты
+                </Link>
               </div>
-              <div className="modul">
-                <Link to="/debt">Выплаты</Link>
+              <div
+                className={
+                  this.state.selected === "/debts"
+                    ? "module selected"
+                    : "module unselected"
+                }
+              >
+                <Link to="/debts" onClick={() => this.handleSelect("/debts")}>
+                  Выплаты
+                </Link>
               </div>
-              <div className="modul">
-                <Link to="/adminka">Администрирование</Link>
+              <div
+                className={
+                  this.state.selected === "/adminka"
+                    ? "module selected"
+                    : "module unselected"
+                }
+              >
+                <Link
+                  to="/adminka"
+                  onClick={() => this.handleSelect("/adminka")}
+                >
+                  Администрирование
+                </Link>
               </div>
               <input
                 className="logout"
@@ -72,17 +130,17 @@ class MainComponent extends Component {
           </header>
         )}
         <Switch>
-          <Route path="/borrower">
+          <Route path="/borrowers">
             <div className="main">
               <Borrower />
             </div>
           </Route>
-          <Route path="/contract">
+          <Route path="/contracts">
             <div className="main">
               <Contract />
             </div>
           </Route>
-          <Route path="/debt">
+          <Route path="/debts">
             <div className="main">
               <Payment />
             </div>

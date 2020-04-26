@@ -50,7 +50,7 @@ class Contract extends Component {
   }
 
   onAddRow = row => {
-    console.log("put row", row);
+    console.log("Contract", row);
     createContract(row).then(res => {
       row.id_contract = res.id_contract;
     });
@@ -118,7 +118,7 @@ class Contract extends Component {
         key: "number_contract",
         name: "Номер контракта",
         type: "text",
-        pattern: /{0-9}{6,}/,
+        pattern: /\d{6,}/,
         placeholder: "346790"
       },
       {
@@ -145,8 +145,8 @@ class Contract extends Component {
         key: "amount_contract",
         name: "Сумма контракта (руб.)",
         type: "text",
-        pattern: /\d+(\.\d{1})?/,
-        placeholder: "500000.0"
+        pattern: /\d+(\.\d{2})?/,
+        placeholder: "500000.00"
       },
       {
         key: "year_percent",
@@ -177,6 +177,7 @@ class Contract extends Component {
         hideRows={this.state.hideRows}
         thForTable={this.state.thForTable}
         alert_name="данных по контракту"
+        module_name="Контракты"
       />
     );
   }

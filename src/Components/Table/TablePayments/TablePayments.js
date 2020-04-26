@@ -2,6 +2,7 @@ import React from "react";
 import "../Table.css";
 import search_img from "../search.png";
 import { Alert } from "./AlertPayments";
+import { ActionAlert } from "../../MainComponents/ActionALert/actionAlert";
 
 class TablePayments extends React.Component {
   state = {
@@ -18,6 +19,7 @@ class TablePayments extends React.Component {
   componentDidMount() {
     this.setState({ rows: this.props.data });
   }
+
   componentDidUpdate() {
     const item = this.props.list[0];
     if (item && !this.state.selected) {
@@ -30,17 +32,8 @@ class TablePayments extends React.Component {
     this.setState({ value: e.target.value });
   };
 
-  handleDelete = id => {
-    if (id) {
-      let res = this.props.data.filter(row => {
-        return row[this.props.keyCol] === id;
-      });
-      this.props.onDelete(res[0]);
-      this.setState({ value: 0 });
-    }
-  };
-
   inputChange = e => {
+    console.log(e.target.value);
     this.setState({
       data: {
         ...this.state.data,
@@ -57,14 +50,15 @@ class TablePayments extends React.Component {
         ...this.state.data,
         id: newId
       });
-      this.setState({ data: {}, value: 0, show: false });
+      this.setState({
+        data: {},
+        value: 0,
+        show: false,
+        actionShow: true,
+        actionTitle: "Выплата успешно внесена!",
+        typeAlert: "add"
+      });
     }
-  };
-
-  handleEdit = e => {
-    e.preventDefault();
-    this.props.onUpdate(this.state.data);
-    this.setState({ data: {}, show: false, edit: false });
   };
 
   findUserIndex = id => {
@@ -176,16 +170,27 @@ class TablePayments extends React.Component {
 
     return (
       <div className="table_container">
+        {this.state.actionShow && (
+          <ActionAlert
+            module_name={this.props.module_name}
+            actionTitle={this.state.actionTitle}
+            waiting={this.props.waiting}
+            typeAlert={this.state.typeAlert}
+            onConfirm={() => {
+              this.handleDelete(this.state.value);
+              this.setState({ actionShow: false });
+            }}
+            onClose={() => this.setState({ actionShow: false })}
+          />
+        )}
         {this.state.show && (
           <Alert
-            edit={this.state.edit}
             header={newHeader}
             onClose={() => this.setState({ show: false })}
             data={this.state.data}
             title={this.props.alert_name}
             onChange={this.inputChange}
             handleAdd={this.handleAdd}
-            handleEdit={this.handleEdit}
             styles={this.props.styles}
           />
         )}
@@ -217,7 +222,22 @@ class TablePayments extends React.Component {
                   className="control_button"
                   onClick={() => this.setState({ show: true })}
                 >
-                  Добавить
+                  Внести платеж
+                </button>
+              )}
+              {this.props.onCountDebts && (
+                <button
+                  className="control_button del"
+                  onClick={() => {
+                    this.props.onCountDebts();
+                    this.setState({
+                      actionShow: true,
+                      actionTitle: "Графики выплат успешно обновлены!",
+                      typeAlert: "add"
+                    });
+                  }}
+                >
+                  Обновить
                 </button>
               )}
             </div>

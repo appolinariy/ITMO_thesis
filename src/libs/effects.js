@@ -112,7 +112,7 @@ export const addPaymentDebt = (
   current_date_pay,
   current_amount_pay
 ) => {
-  return update(`/allpayments/${number_contract}`, {
+  return update(`/allpayments/mainpay/${number_contract}`, {
     current_date_pay,
     current_amount_pay
   })
@@ -120,6 +120,27 @@ export const addPaymentDebt = (
       console.log(res);
     })
     .catch(error => console.log(error));
+};
+
+export const addPaymentPenya = (
+  number_contract,
+  current_date_penya,
+  current_amount_penya
+) => {
+  return update(`/allpayments/penya/${number_contract}`, {
+    current_date_penya,
+    current_amount_penya
+  })
+    .then(res => {
+      console.log(res);
+    })
+    .catch(error => console.log(error));
+};
+
+export const countDebts = () => {
+  return update(`/allpayments`)
+    .then(res => res)
+    .catch(err => console.log(err));
 };
 
 //ADMINKA

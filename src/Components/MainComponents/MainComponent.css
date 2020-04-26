@@ -54,15 +54,11 @@ header {
 }
 
 .links {
-  margin-left: 4%;
+  margin-left: 3%;
   margin-top: 10px;
   align-items: center;
   display: inline-flex;
   text-align: center;
-}
-.modul {
-  margin-right: 1%;
-  color: #292929;
 }
 
 .logout {
@@ -82,20 +78,35 @@ header {
   background: rgb(80, 160, 55);
 }
 
+.module {
+  margin: 0 1% 0 1%;
+  display: flex;
+  width: 170px;
+  height: 26px;
+  border-radius: 20px;
+  padding-bottom: 9px;
+}
+.module.selected {
+  background-color: #42a5f5;
+}
+.module.unselected:hover {
+  background-color: #42a5f5;
+  color: #fff;
+  transition: 0.5s;
+}
 a {
   text-decoration: none;
-  display: block;
   color: #292929;
   width: 170px;
   height: 26px;
   border-radius: 20px;
   padding-top: 9px;
 }
-a:hover,
-a:focus {
-  background-color: #42a5f5;
+.module.selected a {
   color: #fff;
-  transition: 0.6s;
+}
+.module.unselected a:hover {
+  color: #fff;
 }
 
 .main {

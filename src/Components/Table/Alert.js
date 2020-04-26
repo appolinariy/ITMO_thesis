@@ -13,8 +13,12 @@ export const Alert = ({
   styles
 }) => {
   let insert = header.map((el, index) => {
+    let defaultValue = data[el.key];
     if (el.type === "select") {
       data[el.key] = data[el.key] ? data[el.key] : el.options[0].text;
+    } else if (el.type === "date" && data[el.key]) {
+      const date = data[el.key].split(".");
+      defaultValue = `${date[2]}-${date[1]}-${date[0]}`;
     }
     return (
       <label key={index} className="alertName">
@@ -22,6 +26,9 @@ export const Alert = ({
         {el.type === "select" ? (
           <select
             onChange={onChange}
+            onClick={e => {
+              console.log(e.target);
+            }}
             value={data[el.key]}
             name={el.key}
             required
@@ -38,7 +45,7 @@ export const Alert = ({
             type={el.type}
             autoComplete="off"
             id={el.key}
-            defaultValue={data[el.key]}
+            defaultValue={defaultValue ? defaultValue : data[el.key]}
             onChange={onChange}
             name={el.key}
             pattern={el.pattern.source}
@@ -58,14 +65,16 @@ export const Alert = ({
         onSubmit={edit ? handleEdit : handleAdd}
         onClick={e => e.stopPropagation()}
       >
-        <button className="cancelAlert" onClick={onClose}>
-          ×
-        </button>
-        {edit ? (
-          <h4>Окно редактирования {title} </h4>
-        ) : (
-          <h4>Окно добавления {title} </h4>
-        )}
+        <header className="alertHeader">
+          {edit ? (
+            <h4>Окно редактирования {title} </h4>
+          ) : (
+            <h4>Окно добавления {title} </h4>
+          )}
+          <button className="cancelAlert" onClick={onClose}>
+            ×
+          </button>
+        </header>
         <div className="inputBlock">{insert}</div>
         <div className="alertButton">
           {edit ? (
