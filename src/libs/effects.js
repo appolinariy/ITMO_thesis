@@ -100,6 +100,12 @@ export const filterContract = (from_date, to_date) => {
   }
 };
 
+export const filterGraphs = () => {
+  return get(`/filtergraphs`)
+    .then(response => response)
+    .catch(error => console.log(error));
+};
+
 //PAYMENTS
 export const getPaymentSchedule = number_contract => {
   return get(`/allpayments/${number_contract}`)

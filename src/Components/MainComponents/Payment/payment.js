@@ -7,7 +7,8 @@ import {
   getPaymentSchedule,
   countDebts,
   addPaymentDebt,
-  addPaymentPenya
+  addPaymentPenya,
+  filterGraphs
 } from "../../../libs/effects";
 
 class Payment extends Component {
@@ -128,7 +129,82 @@ class Payment extends Component {
     }
   };
 
-  // onFilterPayment = () => {};
+  onFilterPayment = type => {
+    let arr_number_contract = [];
+    filterGraphs().then(response => {
+      const { expContracts, okContracts, rows_contracts } = response;
+      switch (type) {
+        case "all":
+          rows_contracts.map(el => {
+            el.number_contract_fio =
+              el.number_contract +
+              " / " +
+              el.surname +
+              " " +
+              el.name[0] +
+              "." +
+              el.father_name[0] +
+              ".";
+            arr_number_contract.push({
+              id: el.id_contract,
+              text: el.number_contract
+            });
+            return el;
+          });
+          this.setState({
+            contracts: rows_contracts,
+            number_contract: arr_number_contract
+          });
+          break;
+        case "exp":
+          expContracts.map(el => {
+            el.number_contract_fio =
+              el.number_contract +
+              " / " +
+              el.surname +
+              " " +
+              el.name[0] +
+              "." +
+              el.father_name[0] +
+              ".";
+            arr_number_contract.push({
+              id: el.id_contract,
+              text: el.number_contract
+            });
+            return el;
+          });
+          this.setState({
+            contracts: expContracts,
+            number_contract: arr_number_contract
+          });
+          break;
+        case "ok":
+          okContracts.map(el => {
+            el.number_contract_fio =
+              el.number_contract +
+              " / " +
+              el.surname +
+              " " +
+              el.name[0] +
+              "." +
+              el.father_name[0] +
+              ".";
+            arr_number_contract.push({
+              id: el.id_contract,
+              text: el.number_contract
+            });
+            return el;
+          });
+          this.setState({
+            contracts: okContracts,
+            number_contract: arr_number_contract
+          });
+          break;
+        default:
+          break;
+      }
+    });
+  };
 
   render() {
     let headerList = [
@@ -224,27 +300,25 @@ class Payment extends Component {
       }
     ];
     return (
-      <>
-        <TablePayments
-          classNameForm={"formPayment"}
-          onAdd={this.onAddRow}
-          onCountDebts={this.onCountDebts}
-          onFind={this.onFind}
-          handleList={this.handleList}
-          // onFilterPayment={this.onFilterPayment}
-          headerList={headerList}
-          header={headerTable}
-          list={this.state.contracts}
-          data={this.state.graphic_payments}
-          keyCol={this.state.keyCol}
-          header_display
-          findCol="number_contract"
-          ListHideRows={this.state.ListHideRows}
-          thForTable={this.state.thForTable}
-          alert_name="платежа"
-          module_name="Выплаты"
-        />
-      </>
+      <TablePayments
+        classNameForm={"formPayment"}
+        onAdd={this.onAddRow}
+        onCountDebts={this.onCountDebts}
+        onFind={this.onFind}
+        handleList={this.handleList}
+        onFilterPayment={this.onFilterPayment}
+        headerList={headerList}
+        header={headerTable}
+        list={this.state.contracts}
+        data={this.state.graphic_payments}
+        keyCol={this.state.keyCol}
+        header_display
+        findCol="number_contract"
+        ListHideRows={this.state.ListHideRows}
+        thForTable={this.state.thForTable}
+        alert_name="платежа"
+        module_name="Выплаты"
+      />
     );
   }
 }

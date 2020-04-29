@@ -204,6 +204,22 @@ input[type="date"]:focus {
   border: 1.2px solid #4ba3ebe1;
 }
 
+.filterGraphs {
+  width: 220px;
+  height: 40px;
+  padding: 10px 10px;
+  border-radius: 5px;
+  border: 1.2px solid #d2dce3;
+  margin-right: 10px;
+  color: #001d3398;
+  outline: none;
+  font-family: "Helvetica", arial, sans-serif;
+}
+.filterGraphs:hover,
+.filterGraphs:focus {
+  border: 1.2px solid #4ba3ebe1;
+}
+
 .findBlock {
   display: inline-flex;
   align-items: center;
