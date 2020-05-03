@@ -31,6 +31,15 @@ class Table extends React.Component {
       });
       this.props.onDelete(res[0]);
       this.setState({ value: 0 });
+      if (this.props.delStatus === false) {
+        console.log("i'm here");
+        this.setState({
+          actionShow: true,
+          actionTitle:
+            "Внимание! Невозможно удалить данные по заемщику, так как к нему привязаны контракты и выплаты.",
+          typeAlert: "del"
+        });
+      }
     }
   };
 
@@ -156,6 +165,11 @@ class Table extends React.Component {
             onConfirm={() => {
               this.handleDelete(this.state.value);
               this.setState({ actionShow: false });
+              if (this.props.delStatus === false) {
+                console.log("STATUS FALSE");
+              } else {
+                console.log("STATUS TRUE");
+              }
             }}
             onClose={() => this.setState({ actionShow: false })}
           />

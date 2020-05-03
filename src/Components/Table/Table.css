@@ -101,6 +101,7 @@ tr.trMain:hover {
   padding: 1px 10px;
   width: 240px;
   height: 30px;
+  outline: none;
 }
 
 .add_row input[type="text"],
@@ -111,11 +112,13 @@ tr.trMain:hover {
   padding-left: 10px;
   width: 250px;
   height: 30px;
+  outline: none;
 }
 
 .add_row input[type="date"] {
   height: 32px;
   font-family: Arial, Helvetica, sans-serif;
+  outline: none;
 }
 
 .add_row select {

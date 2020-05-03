@@ -7,6 +7,7 @@ import {
   deleteClient,
   findClient
 } from "../../../libs/effects";
+import { ActionAlert } from "../ActionALert/actionAlert";
 
 import Table from "../../Table/Table";
 
@@ -86,7 +87,8 @@ class Borrower extends Component {
     ],
     hideRows: ["surname", "name", "father_name"],
     thForTable: ["fio"],
-    keyCol: "surname"
+    keyCol: "surname",
+    actionShow: false
   };
 
   componentDidMount() {
@@ -137,14 +139,23 @@ class Borrower extends Component {
 
   onDeleteRow = row => {
     console.log(`Удаление: ${row.id_client}`);
-    deleteClient(row.id_client).then(() => {
-      let newData = this.state.clients;
-      newData = newData.filter(element => {
-        return element.id_client !== row.id_client;
-      });
-      this.setState({
-        clients: newData
-      });
+    deleteClient(row.id_client).then(response => {
+      if (response.status) {
+        let newData = this.state.clients;
+        newData = newData.filter(element => {
+          return element.id_client !== row.id_client;
+        });
+        this.setState({
+          clients: newData
+        });
+      } else {
+        this.setState({
+          actionShow: true,
+          module_name: "Заемщики",
+          actionTitle: `Внимание! Невозможно удалить данные по заемщику, так как к нему привязаны контракты и выплаты.`,
+          typeAlert: "del"
+        });
+      }
     });
   };
 
@@ -190,25 +201,36 @@ class Borrower extends Component {
 
   render() {
     return (
-      <Table
-        className={"borrower"}
-        classNameForm={"tableBlock"}
-        onAdd={this.onAddRow}
-        onDelete={this.onDeleteRow}
-        onUpdate={this.onUpdateRow}
-        onFind={this.onFind}
-        header={this.state.header}
-        data={this.state.clients}
-        keyCol={this.state.keyCol}
-        control_input
-        header_display
-        findCol="surname"
-        styles={{ marginTop: "6%" }}
-        thForTable={this.state.thForTable}
-        hideRows={this.state.hideRows}
-        alert_name="данных о заемщике"
-        module_name="Заемщики"
-      />
+      <>
+        {this.state.actionShow && (
+          <ActionAlert
+            module_name={this.state.module_name}
+            actionTitle={this.state.actionTitle}
+            typeAlert={this.state.typeAlert}
+            onClose={() => this.setState({ actionShow: false })}
+          />
+        )}
+        <Table
+          className={"borrower"}
+          classNameForm={"tableBlock"}
+          onAdd={this.onAddRow}
+          onDelete={this.onDeleteRow}
+          delStatus={this.state.delStatus}
+          onUpdate={this.onUpdateRow}
+          onFind={this.onFind}
+          header={this.state.header}
+          data={this.state.clients}
+          keyCol={this.state.keyCol}
+          control_input
+          header_display
+          findCol="surname"
+          styles={{ marginTop: "6%" }}
+          thForTable={this.state.thForTable}
+          hideRows={this.state.hideRows}
+          alert_name="данных о заемщике"
+          module_name="Заемщики"
+        />
+      </>
     );
   }
 }
