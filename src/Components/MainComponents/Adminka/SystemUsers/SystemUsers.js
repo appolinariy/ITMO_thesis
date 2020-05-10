@@ -6,7 +6,6 @@ import {
   updateBankUser,
   findBankUser
 } from "../../../../libs/effects";
-
 import Table from "../../../Table/Table";
 
 class SystemUsers extends Component {
@@ -131,8 +130,8 @@ class SystemUsers extends Component {
         key: "password",
         name: "Пароль",
         type: "password",
-        pattern: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$/,
-        placeholder: "Passw0rd"
+        pattern: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{6,20}$/,
+        placeholder: "P@ssw0rd"
       },
       {
         key: "address",

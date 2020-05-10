@@ -34,7 +34,6 @@ class TablePayments extends React.Component {
   };
 
   inputChange = e => {
-    console.log(e.target.value);
     this.setState({
       data: {
         ...this.state.data,
