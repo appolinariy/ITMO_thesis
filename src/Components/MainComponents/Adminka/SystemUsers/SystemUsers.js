@@ -135,7 +135,7 @@ class SystemUsers extends Component {
       },
       {
         key: "address",
-        name: "Филиал",
+        name: "Адрес филиала",
         type: "select",
         options: this.state.filials,
         pattern: ""

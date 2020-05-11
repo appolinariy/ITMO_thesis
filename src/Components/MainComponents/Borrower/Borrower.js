@@ -52,7 +52,7 @@ class Borrower extends Component {
       },
       {
         key: "phone_number",
-        name: "Номер телефона",
+        name: "Телефон",
         type: "text",
         pattern: /^\+\d \(\d{3}\) \d{3}-\d{2}-\d{2}$/,
         placeholder: "+7 (xxx) xxx-xx-xx"

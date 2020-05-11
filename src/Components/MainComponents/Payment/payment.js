@@ -133,6 +133,7 @@ class Payment extends Component {
     let arr_number_contract = [];
     filterGraphs().then(response => {
       const { expContracts, okContracts, rows_contracts } = response;
+      console.log(expContracts);
       switch (type) {
         case "all":
           rows_contracts.map(el => {
