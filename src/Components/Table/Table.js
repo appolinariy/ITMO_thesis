@@ -1,6 +1,7 @@
 import React from "react";
 import "./Table.css";
 import search_img from "./search.png";
+import mail from "./mail.png";
 
 import { Alert } from "./Alert";
 import { ActionAlert } from "../MainComponents/ActionALert/actionAlert";
@@ -238,6 +239,15 @@ class Table extends React.Component {
               )}
             </div>
 
+            {this.props.onSendMail && (
+              <button
+                className="search_button"
+                onClick={() => this.props.onSendMail()}
+              >
+                <img src={mail} width="28px" alt="Отправить Email" />
+              </button>
+            )}
+
             {this.props.onFind && (
               <form className="findBlock" onSubmit={this.findItem}>
                 <input
@@ -253,7 +263,7 @@ class Table extends React.Component {
                   ×
                 </button>
                 <button className="search_button" type="submit">
-                  <img src={search_img} width="23px" alt="Поиск" />
+                  <img src={search_img} width="28px" alt="Поиск" />
                 </button>
               </form>
             )}

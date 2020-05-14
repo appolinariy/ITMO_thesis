@@ -199,6 +199,10 @@ class Borrower extends Component {
     });
   };
 
+  onSendMail = () => {
+    console.log("Отправить");
+  };
+
   render() {
     return (
       <>
@@ -218,6 +222,7 @@ class Borrower extends Component {
           delStatus={this.state.delStatus}
           onUpdate={this.onUpdateRow}
           onFind={this.onFind}
+          onSendMail={this.onSendMail}
           header={this.state.header}
           data={this.state.clients}
           keyCol={this.state.keyCol}
