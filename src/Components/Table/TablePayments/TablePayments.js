@@ -13,7 +13,8 @@ class TablePayments extends React.Component {
     findVal: "",
     fromdate: "",
     todate: "",
-    selected: ""
+    selected: "",
+    valueFilter: "all"
   };
 
   componentDidMount() {
@@ -21,7 +22,7 @@ class TablePayments extends React.Component {
   }
 
   componentDidUpdate() {
-    const item = this.props.list[0];
+    let item = this.props.list[0];
     if (item && !this.state.selected) {
       this.setState({ selected: item.number_contract });
       this.props.handleList(item.number_contract);
@@ -33,13 +34,16 @@ class TablePayments extends React.Component {
   };
 
   inputChange = e => {
-    console.log(e.target.value);
     this.setState({
       data: {
         ...this.state.data,
         [e.target.name]: e.target.value
       }
     });
+  };
+
+  handleFilter = event => {
+    this.setState({ valueFilter: event.target.value });
   };
 
   handleAdd = e => {
@@ -74,11 +78,6 @@ class TablePayments extends React.Component {
   cancelFinding = () => {
     this.setState({ findVal: "" });
     this.props.onFind("");
-  };
-
-  filterDate = e => {
-    e.preventDefault();
-    this.props.onFilterDate(this.state.fromdate, this.state.todate);
   };
 
   handleList = value => {
@@ -197,25 +196,21 @@ class TablePayments extends React.Component {
         {this.props.header_display && (
           <header className="table_header">
             <div className="button_container">
-              {/* {this.props.onFilterDate && (
-                <form className="filterDate" onSubmit={this.filterDate}>
-                  <input
-                    type="date"
-                    name="fromdate"
-                    value={this.state.fromdate}
-                    onChange={e => this.setState({ fromdate: e.target.value })}
-                  />
-                  <input
-                    type="date"
-                    name="todate"
-                    value={this.state.todate}
-                    onChange={e => this.setState({ todate: e.target.value })}
-                  />
-                  <button className="onFilter" type="submit">
-                    Применить
-                  </button>
-                </form>
-              )} */}
+              {this.props.onFilterPayment && (
+                <select
+                  required
+                  className="filterGraphs"
+                  value={this.state.valueFilter}
+                  onChange={this.handleFilter}
+                  onClick={() => {
+                    this.props.onFilterPayment(this.state.valueFilter);
+                  }}
+                >
+                  <option value="all">Все контракты</option>
+                  <option value="exp">Просроченные контракты</option>
+                  <option value="ok">Уплаченные контракты</option>
+                </select>
+              )}
 
               {this.props.onAdd && (
                 <button
@@ -257,7 +252,7 @@ class TablePayments extends React.Component {
                   ×
                 </button>
                 <button className="search_button" type="submit">
-                  <img src={search_img} width="23px" alt="Поиск" />
+                  <img src={search_img} width="28px" alt="Поиск" />
                 </button>
               </form>
             )}

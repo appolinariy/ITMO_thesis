@@ -6,7 +6,6 @@ export const ActionAlert = ({
   module_name,
   actionTitle,
   waiting,
-  // buttons,
   typeAlert,
   onConfirm,
   onClose

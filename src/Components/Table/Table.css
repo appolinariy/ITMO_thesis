@@ -101,6 +101,7 @@ tr.trMain:hover {
   padding: 1px 10px;
   width: 240px;
   height: 30px;
+  outline: none;
 }
 
 .add_row input[type="text"],
@@ -111,11 +112,13 @@ tr.trMain:hover {
   padding-left: 10px;
   width: 250px;
   height: 30px;
+  outline: none;
 }
 
 .add_row input[type="date"] {
   height: 32px;
   font-family: Arial, Helvetica, sans-serif;
+  outline: none;
 }
 
 .add_row select {
@@ -204,6 +207,22 @@ input[type="date"]:focus {
   border: 1.2px solid #4ba3ebe1;
 }
 
+.filterGraphs {
+  width: 220px;
+  height: 40px;
+  padding: 10px 10px;
+  border-radius: 5px;
+  border: 1.2px solid #d2dce3;
+  margin-right: 10px;
+  color: #001d3398;
+  outline: none;
+  font-family: "Helvetica", arial, sans-serif;
+}
+.filterGraphs:hover,
+.filterGraphs:focus {
+  border: 1.2px solid #4ba3ebe1;
+}
+
 .findBlock {
   display: inline-flex;
   align-items: center;
@@ -220,17 +239,19 @@ input[type="date"]:focus {
 }
 
 .search_button {
-  background: #fff;
+  background: rgb(235, 235, 235);
   border-radius: 25px;
-  vertical-align: middle;
   padding-top: 5px;
-  margin-left: 5px;
   width: 40px;
   height: 40px;
   outline: none;
+  margin-left: 5px;
 }
 .search_button:hover {
-  background: #e0e0e0;
+  background: #d8d8d8;
+}
+.search_button.mail {
+  margin-left: 2px;
 }
 
 .cancel_button {

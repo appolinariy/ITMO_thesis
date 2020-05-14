@@ -63,6 +63,12 @@ export const findClient = surname => {
   }
 };
 
+export const sentMail = () => {
+  return post(`/sentMail`)
+    .then(res => res)
+    .catch(error => error);
+};
+
 //CONTRACTS
 export const getContracts = () => {
   return get(`/allcontracts`)
@@ -98,6 +104,12 @@ export const filterContract = (from_date, to_date) => {
       .then(response => response)
       .catch(error => error);
   }
+};
+
+export const filterGraphs = () => {
+  return get(`/filtergraphs`)
+    .then(response => response)
+    .catch(error => console.log(error));
 };
 
 //PAYMENTS

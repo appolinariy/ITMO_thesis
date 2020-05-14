@@ -1,5 +1,5 @@
 # Thesis topic
-_The Debts Notification System for Bank's borrowers_
+
+_The credit payment accounting System_
 
 _ITMO University_
-
