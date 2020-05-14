@@ -239,15 +239,6 @@ class Table extends React.Component {
               )}
             </div>
 
-            {this.props.onSendMail && (
-              <button
-                className="search_button"
-                onClick={() => this.props.onSendMail()}
-              >
-                <img src={mail} width="28px" alt="Отправить Email" />
-              </button>
-            )}
-
             {this.props.onFind && (
               <form className="findBlock" onSubmit={this.findItem}>
                 <input
@@ -265,6 +256,23 @@ class Table extends React.Component {
                 <button className="search_button" type="submit">
                   <img src={search_img} width="28px" alt="Поиск" />
                 </button>
+                {this.props.onSendMail && (
+                  <button
+                    className="search_button mail"
+                    onClick={() => {
+                      this.props.onSendMail();
+                      this.setState({
+                        show: false,
+                        actionShow: true,
+                        actionTitle:
+                          "Рассылка электронных писем о состоянии кредитной задолженности заемщиков успешно завершена.",
+                        typeAlert: "add"
+                      });
+                    }}
+                  >
+                    <img src={mail} width="26px" alt="Отправить Email" />
+                  </button>
+                )}
               </form>
             )}
           </header>

@@ -5,7 +5,8 @@ import {
   createClient,
   updateClient,
   deleteClient,
-  findClient
+  findClient,
+  sentMail
 } from "../../../libs/effects";
 import { ActionAlert } from "../ActionALert/actionAlert";
 
@@ -200,7 +201,7 @@ class Borrower extends Component {
   };
 
   onSendMail = () => {
-    console.log("Отправить");
+    sentMail();
   };
 
   render() {

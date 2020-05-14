@@ -239,17 +239,19 @@ input[type="date"]:focus {
 }
 
 .search_button {
-  background: #fff;
+  background: rgb(235, 235, 235);
   border-radius: 25px;
-  vertical-align: middle;
   padding-top: 5px;
-  margin-left: 5px;
   width: 40px;
   height: 40px;
   outline: none;
+  margin-left: 5px;
 }
 .search_button:hover {
-  background: #e0e0e0;
+  background: #d8d8d8;
+}
+.search_button.mail {
+  margin-left: 2px;
 }
 
 .cancel_button {

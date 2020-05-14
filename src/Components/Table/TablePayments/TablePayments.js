@@ -252,7 +252,7 @@ class TablePayments extends React.Component {
                   ×
                 </button>
                 <button className="search_button" type="submit">
-                  <img src={search_img} width="23px" alt="Поиск" />
+                  <img src={search_img} width="28px" alt="Поиск" />
                 </button>
               </form>
             )}

@@ -63,6 +63,12 @@ export const findClient = surname => {
   }
 };
 
+export const sentMail = () => {
+  return post(`/sentMail`)
+    .then(res => res)
+    .catch(error => error);
+};
+
 //CONTRACTS
 export const getContracts = () => {
   return get(`/allcontracts`)
