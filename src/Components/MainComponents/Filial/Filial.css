@@ -14,7 +14,26 @@
 .filial {
   background-color: #efefefd3;
 }
-p {
+
+.info {
   margin: 3% 7%;
-  font-weight: bold;
+}
+.phones {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: -2%;
+}
+.phones img {
+  width: 30px;
+  height: 30px;
+}
+.phones h5 {
+  padding-left: 1%;
+}
+.siteSkyBank {
+  color: #2b86d1;
+}
+.siteSkyBank:hover {
+  color: rgb(42, 153, 243);
 }
