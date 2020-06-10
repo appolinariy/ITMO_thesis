@@ -40,7 +40,7 @@ class Filial extends Component {
           </h5>
           <div className="phones">
             <img src={Phone} alt="Телефон" />
-            <h5>0 800 503 444 (тех-поддержка)</h5>
+            <h5>0 800 503 444 (тех.поддержка)</h5>
           </div>
         </div>
       </>
